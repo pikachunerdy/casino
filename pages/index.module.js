@@ -16,3 +16,7 @@ export const Content = styled.p.attrs({
 export const SubTitle = styled.h2.attrs({
   className: "text-darkWhite font-semibold text-[48px] text-center",
 })``;
+
+export const IconTitle = styled.span.attrs({
+  className: "text-darkWhite font-normal text-[16px]",
+})``;
