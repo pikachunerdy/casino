@@ -5,5 +5,5 @@ export const FeatureTitle = styled.h3.attrs({
 })``;
 
 export const ContentTitle = styled.p.attrs({
-  className: "text-white font-normal text-[18px] leading-9",
+  className: "text-white font-medium text-[18px] leading-9",
 })``;

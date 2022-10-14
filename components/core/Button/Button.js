@@ -8,7 +8,7 @@ export default function Button(props) {
       disabled={props.disabled ? props.disabled : false}
     >
       <div className="flex">
-        {props.name}
+        {props.label}
         {props.children}
       </div>
     </CustomButton>

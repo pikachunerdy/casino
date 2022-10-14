@@ -24,7 +24,7 @@ const FeaturedCasino = (props) => {
       </div>
       <div className="pt-3">
         <Button
-          name="Visit Casino"
+          label="Visit Casino"
           handleClick={() => {
             console.log("Visit Casino");
           }}
