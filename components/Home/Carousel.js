@@ -15,7 +15,6 @@ import "swiper/css/scrollbar";
 
 const Carousel = (props) => {
   const swiperHandle = useSwiper();
-  console.log("props.cards: ", props.cards);
   return (
     <div>
       <Swiper
@@ -46,9 +45,9 @@ const Carousel = (props) => {
         }}
         className="gap-4"
       >
-        {props.cards.map((card) => {
+        {props.cards.map((card, i) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={i}>
               <HomeCard
                 title={card.title}
                 value={card.value}
@@ -62,7 +61,7 @@ const Carousel = (props) => {
       </Swiper>
       <div className="flex justify-center mt-14 gap-3">
         <Button
-          name=""
+          label=""
           handleClick={() => {
             if (!!swiperHandle) {
               swiperHandle.slidePrev();
@@ -70,11 +69,11 @@ const Carousel = (props) => {
           }}
           variant="model"
         >
-          <FontAwesomeIcon icon={faChevronLeft} size="x" />
+          <FontAwesomeIcon icon={faChevronLeft} size="1x" />
         </Button>
 
         <Button
-          name=""
+          label=""
           handleClick={() => {
             if (!!swiperHandle) {
               swiperHandle.slideNext();
@@ -82,7 +81,7 @@ const Carousel = (props) => {
           }}
           variant="model"
         >
-          <FontAwesomeIcon icon={faChevronRight} size="x" />
+          <FontAwesomeIcon icon={faChevronRight} size="1x" />
         </Button>
       </div>
     </div>
