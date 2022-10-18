@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("http://fonts.cdnfonts.com/css/clash-display");
 
 .scroll-x {
   @apply overflow-x-auto;
