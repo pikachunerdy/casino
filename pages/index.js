@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import type { NextPage } from "next";
 import Image from "next/image";
 import {
@@ -13,14 +12,16 @@ import {
   About,
   AboutTitle,
   AboutContent,
+  SubscribeContainer,
 } from "./index.module";
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 import Button from "../components/core/Button/Button";
 import FeaturedCasino from "../components/Home/FeaturedCasino";
 import Carousel from "../components/Home/Carousel";
 import HomeTable from "../components/Home/HomeTable";
 import BlogCard from "../components/core/Card/BlogCard";
 import Badge from "../components/core/Badge/Badge";
+import Subscribe from "../components/core/Subscribe/Subscribe";
 import { FaArrowRight } from "react-icons/fa";
 import Back2 from "../public/background/Back2.png";
 import Check from "../public/Icon/Check.png";
@@ -171,7 +172,7 @@ const Home: NextPage = () => {
             reviews={76}
           ></FeaturedCasino>
         </div>
-        <div className="w-full">
+        <div className="w-full mt-11">
           <Carousel cards={cards}></Carousel>
         </div>
       </Container>
@@ -205,7 +206,7 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div>
+        <div className="mt-[195px]">
           <SubTitle>
             Featured <span className="text-darkBlue">Blogs</span> Of The Week
           </SubTitle>
@@ -213,7 +214,7 @@ const Home: NextPage = () => {
         <div>
           <NewsSubTitle>Today's news - most recent articles</NewsSubTitle>
         </div>
-        <div className="flex gap-9 mt-9">
+        <div className="flex gap-9 mt-9 w-full">
           <div className="w-3/5">
             <BlogCard
               cardImage={Back2}
@@ -263,7 +264,9 @@ const Home: NextPage = () => {
         </div>
         <div className="flex flox-col mt-[136px]">
           <About>
-            <AboutTitle>About Us!</AboutTitle>
+            <div className="w-full pb-11">
+              <AboutTitle className="text-blue1">About Us!</AboutTitle>
+            </div>
             <AboutContent>
               Our innovative algorithm guarantees genuine reviews. Using
               blockchain technology we offer a 100% accurate and trusted
@@ -276,6 +279,15 @@ const Home: NextPage = () => {
           </About>
         </div>
       </Container>
+
+      <SubscribeContainer className="mt-16 mb-[133px]">
+        <AboutTitle className="text-white1">
+          Subscribe to our newsletter
+        </AboutTitle>
+        <div className="pt-14">
+          <Subscribe></Subscribe>
+        </div>
+      </SubscribeContainer>
     </Layout>
   );
 };
