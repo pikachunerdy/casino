@@ -4,11 +4,10 @@ import { Card, Date, Title, Content, CardContent } from "./BlogCard.module";
 import Badge from "../Badge/Badge";
 
 export default function BlogCard(props) {
-  console.log(props);
   return (
     <Card>
       <div className="flex flex-col">
-        <div className="w-full">
+        <div>
           <Image src={props.cardImage} alt="card image"></Image>
         </div>
         <CardContent>
