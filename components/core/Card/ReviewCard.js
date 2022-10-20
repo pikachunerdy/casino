@@ -13,8 +13,12 @@ const ReviewCard = (props) => {
   return (
     <Card>
       <div className="flex px-4 pt-12">
-        <div className="w-1/5 mr-4">
-          <Image src={props.cardImage} alt="card image"></Image>
+        <div className="w-1/6 mr-4">
+          <Image
+            src={props.cardImage}
+            alt="card image"
+            layout="responsive"
+          ></Image>
         </div>
         <div className="w-4/5">
           <UserName>{props.name}</UserName>
