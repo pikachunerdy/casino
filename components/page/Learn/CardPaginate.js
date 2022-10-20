@@ -15,7 +15,6 @@ const CardPaginate = (props) => {
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(props.cards.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(props.cards.length / props.itemsPerPage));
-    console.log("currentItems: ", currentItems);
   }, [itemOffset, props.itemsPerPage]);
 
   const handlePageClick = (event) => {

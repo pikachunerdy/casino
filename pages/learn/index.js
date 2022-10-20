@@ -109,9 +109,9 @@ const Learn = () => {
       <Container>
         <div className="w-[44%] my-14">
           <div className="flex justify-start gap-2">
-            <Badge color="purple" label="Casinos"></Badge>
-            <Badge color="bue2" label="Crypto"></Badge>
-            <Badge color="pink" label="Safe"></Badge>
+            <Badge color="text-purple" label="Casinos"></Badge>
+            <Badge color="text-bue2" label="Crypto"></Badge>
+            <Badge color="text-pink" label="Safe"></Badge>
           </div>
           <div className="mt-3">
             <ContentText>

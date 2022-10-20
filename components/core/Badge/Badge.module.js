@@ -5,5 +5,5 @@ export const Container = styled.div.attrs({
 })``;
 
 export const Label = styled.p.attrs((props) => ({
-  className: `text-${props.color} font-medium text-[14px]`,
+  className: `${props.color} font-medium text-[14px]`,
 }))``;

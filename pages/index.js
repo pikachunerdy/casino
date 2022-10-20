@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Image from "next/image";
 import {
   Container,
@@ -16,9 +15,9 @@ import {
 } from "./index.module";
 import Layout from "../components/Layout/Layout";
 import Button from "../components/core/Button/Button";
-import FeaturedCasino from "../components/Home/FeaturedCasino";
-import Carousel from "../components/Home/Carousel";
-import HomeTable from "../components/Home/HomeTable";
+import FeaturedCasino from "../components/page/Home/FeaturedCasino";
+import Carousel from "../components/page/Home/Carousel";
+import HomeTable from "../components/page/Home/HomeTable";
 import BlogCard from "../components/core/Card/BlogCard";
 import Badge from "../components/core/Badge/Badge";
 import Subscribe from "../components/core/Subscribe/Subscribe";
@@ -26,7 +25,7 @@ import { FaArrowRight } from "react-icons/fa";
 import Back2 from "../public/background/Back2.png";
 import Check from "../public/Icon/Check.png";
 
-const Home: NextPage = () => {
+const Home = () => {
   const cards = [
     {
       title: "The best",
@@ -228,29 +227,29 @@ const Home: NextPage = () => {
             <HomeCard>
               <HomeCardTitle>Best Casino Games</HomeCardTitle>
               <div className="flex gap-1 mt-1">
-                <Badge color="blue2" label="Casinos"></Badge>
-                <Badge color="pink" label="London"></Badge>
+                <Badge color="text-blue2" label="Casinos"></Badge>
+                <Badge color="text-pink" label="London"></Badge>
               </div>
             </HomeCard>
             <HomeCard>
               <HomeCardTitle>Best Casino Games</HomeCardTitle>
               <div className="flex gap-1 mt-1">
-                <Badge color="blue2" label="Casinos"></Badge>
-                <Badge color="pink" label="London"></Badge>
+                <Badge color="text-blue2" label="Casinos"></Badge>
+                <Badge color="text-pink" label="London"></Badge>
               </div>
             </HomeCard>
             <HomeCard>
               <HomeCardTitle>Best Casino Games</HomeCardTitle>
               <div className="flex gap-1 mt-1">
-                <Badge color="blue2" label="Casinos"></Badge>
-                <Badge color="pink" label="London"></Badge>
+                <Badge color="text-blue2" label="Casinos"></Badge>
+                <Badge color="text-pink" label="London"></Badge>
               </div>
             </HomeCard>
             <HomeCard>
               <HomeCardTitle>Best Casino Games</HomeCardTitle>
               <div className="flex gap-1 mt-1">
-                <Badge color="blue2" label="Casinos"></Badge>
-                <Badge color="pink" label="London"></Badge>
+                <Badge color="text-blue2" label="Casinos"></Badge>
+                <Badge color="text-pink" label="London"></Badge>
               </div>
             </HomeCard>
           </div>
