@@ -7,7 +7,7 @@ export default function BlogCard(props) {
   return (
     <Card>
       <div className="flex flex-col">
-        <div>
+        <div className="contents">
           <Image src={props.cardImage} alt="card image"></Image>
         </div>
         <CardContent>
