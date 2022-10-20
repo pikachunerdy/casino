@@ -13,9 +13,11 @@ module.exports = {
       colors: {
         dark: "#121212",
         dark1: "#363636",
+        dark2: "#262626",
         darkBlue: "#0492C2",
         darkWhite: "rgba(255, 255, 255, 0.5);",
         white1: "#C9C9C9",
+        white2: "#7d7d7d",
         black1: "#1F1F1E",
         blue1: "#0492C2",
         blue2: "#66BEED",

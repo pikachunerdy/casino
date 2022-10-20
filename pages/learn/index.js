@@ -147,7 +147,7 @@ const Learn = () => {
               console.log("Visit Casino");
             }}
             variant="model"
-            class="!bg-white !text-blue1"
+            className="!bg-white !text-blue1"
           >
             <div className="pl-1 pt-1">
               <FaArrowRight />
