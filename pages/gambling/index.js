@@ -1,9 +1,11 @@
 import Layout from "../../components/Layout/Layout";
 import Button from "../../components/core/Button/Button";
+import SwitchButton from "../../components/core/Button/SwitchButton";
 import RatingCard from "../../components/core/Card/RatingCard";
 import ReviewCard from "../../components/core/Card/ReviewCard";
+import Crypto from "../../components/page/Gambling/Crypto";
 import { FaArrowRight } from "react-icons/fa";
-import Card1 from "../../public/image/Blog1.png";
+import Card1 from "../../public/image/ReviewCard.png";
 
 import {
   HomeContainer,
@@ -14,11 +16,6 @@ import {
   ProsText,
   ConsText,
   CardContent,
-  SummaryCard,
-  AboutTitle,
-  ReviewTitle,
-  ReviewContent,
-  CryptoCard,
 } from "./index.module";
 
 const Gambling = () => {
@@ -49,46 +46,13 @@ const Gambling = () => {
         </div>
       </HomeContainer>
 
-      <div className="flex w-full gap-8">
-        <div className="w-[25%]">
-          <SummaryCard>
-            <div className="pb-14">
-              <ReviewTitle>Established</ReviewTitle>
-              <ReviewContent>2003</ReviewContent>
-            </div>
-            <div className="pb-14">
-              <ReviewTitle>Casino Rewards</ReviewTitle>
-              <ReviewContent>Over 12k</ReviewContent>
-            </div>
-            <div className="pb-14">
-              <ReviewTitle>Withdrawal Limits</ReviewTitle>
-              <div className="flex gap-[46px]">
-                <div className="flex flex-col">
-                  <ReviewContent>Per month</ReviewContent>
-                  <ReviewContent>$$$</ReviewContent>
-                </div>
-                <div className="flex flex-col">
-                  <ReviewContent>Per week</ReviewContent>
-                  <ReviewContent>$$$</ReviewContent>
-                </div>
-              </div>
-            </div>
-            <div className="pb-14">
-              <ReviewTitle>Licensing Authorities</ReviewTitle>
-              <ReviewContent>United Kingdom (UKGC)</ReviewContent>
-            </div>
-            <div className="pb-14">
-              <ReviewTitle>Avaialble Languages</ReviewTitle>
-              <ReviewContent>English (Flag)</ReviewContent>
-            </div>
-          </SummaryCard>
-        </div>
-        <div className="w-[75%]">
-          <CryptoCard>
-            <ReviewTitle>Accepted Cryptos</ReviewTitle>
-            <ReviewTitle>Payable Games</ReviewTitle>
-          </CryptoCard>
-        </div>
+      <Crypto></Crypto>
+      <div className="mt-[54px] mx-auto">
+        <SwitchButton
+          firstLabel="Overview"
+          secondLabel="User reviews"
+          onClick={() => {}}
+        ></SwitchButton>
       </div>
 
       <Container>

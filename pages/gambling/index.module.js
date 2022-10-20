@@ -45,19 +45,3 @@ export const SubscribeContainer = styled.div.attrs({
   className:
     "flex flex-col justify-center items-center -mx-10 bg-no-repeat bg-center bg-[url('/background/Back3.png')] bg-cover rounded-[20px] h-[318px]",
 })``;
-
-export const ReviewTitle = styled.div.attrs({
-  className: "text-white1 font-medium text-[24px] text-start",
-})``;
-
-export const ReviewContent = styled.div.attrs({
-  className: "text-white1 font-normal text-[14px] text-start",
-})``;
-
-export const SummaryCard = styled.div.attrs({
-  className: "bg-black1 py-16 pl-[72px]",
-})``;
-
-export const CryptoCard = styled.div.attrs({
-  className: "bg-black1 py-[61px] px-6",
-})``;
