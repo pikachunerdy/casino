@@ -11,9 +11,9 @@ import {
 } from "./HomeTable.module";
 import { FaArrowRight } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa";
-import Avatar from "../core/Avatar/Avatar";
-import Rating from "../core/Rating/Rating";
-import People from "../../public/image/People.png";
+import Avatar from "../../core/Avatar/Avatar";
+import Rating from "../../core/Rating/Rating";
+import People from "../../../public/image/People.png";
 
 const HomeTable = (props) => {
   const tableHeader = useMemo(() => {

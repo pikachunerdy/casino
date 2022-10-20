@@ -1,162 +1,216 @@
 import Layout from "../../components/Layout/Layout";
 import Button from "../../components/core/Button/Button";
-import Badge from "../../components/core/Badge/Badge";
-import CardPaginate from "../../components/page/Learn/CardPaginate";
+import RatingCard from "../../components/core/Card/RatingCard";
+import ReviewCard from "../../components/core/Card/ReviewCard";
 import { FaArrowRight } from "react-icons/fa";
-import Blog1 from "../../public/image/Blog1.png";
+import Card1 from "../../public/image/Blog1.png";
 
 import {
+  HomeContainer,
   Container,
-  ContentText,
-  SubTitle,
-  SubscribeContainer,
+  PageTitle,
+  ContentTitle,
+  CardContainer,
+  ProsText,
+  ConsText,
+  CardContent,
+  SummaryCard,
   AboutTitle,
+  ReviewTitle,
+  ReviewContent,
+  CryptoCard,
 } from "./index.module";
 
-const Learn = () => {
-  const blogData = [
-    {
-      img: Blog1,
-      date: "Disclosed • 14 Jan 2022",
-      title: "Best casino games",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luct",
-      siteStates: [
-        {
-          color: "purple",
-          label: "Review",
-        },
-        {
-          color: "blue2",
-          label: "Casino",
-        },
-      ],
-    },
-    {
-      img: Blog1,
-      date: "Disclosed • 14 Jan 2022",
-      title: "Best casino games",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luct",
-      siteStates: [
-        {
-          color: "purple",
-          label: "Review",
-        },
-        {
-          color: "blue2",
-          label: "Casino",
-        },
-      ],
-    },
-    {
-      img: Blog1,
-      date: "Disclosed • 14 Jan 2022",
-      title: "Best casino games",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luct",
-      siteStates: [
-        {
-          color: "purple",
-          label: "Review",
-        },
-        {
-          color: "blue2",
-          label: "Casino",
-        },
-      ],
-    },
-    {
-      img: Blog1,
-      date: "Disclosed • 14 Jan 2022",
-      title: "Best casino games",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luct",
-      siteStates: [
-        {
-          color: "purple",
-          label: "Review",
-        },
-        {
-          color: "blue2",
-          label: "Casino",
-        },
-      ],
-    },
-    {
-      img: Blog1,
-      date: "Disclosed • 14 Jan 2022",
-      title: "Best casino games",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luct",
-      siteStates: [
-        {
-          color: "purple",
-          label: "Review",
-        },
-        {
-          color: "blue2",
-          label: "Casino",
-        },
-      ],
-    },
-  ];
-
+const Gambling = () => {
   return (
     <Layout>
-      <Container className=" -mx-[5.5%] min-h-screen bg-[url('/background/Back4.png')]"></Container>
-
-      <Container>
-        <div className="w-[44%] my-14">
-          <div className="flex justify-start gap-2">
-            <Badge color="purple" label="Casinos"></Badge>
-            <Badge color="bue2" label="Crypto"></Badge>
-            <Badge color="pink" label="Safe"></Badge>
-          </div>
-          <div className="mt-3">
-            <ContentText>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-              aliquam, purus sit amet luctus venenatis, lectus magna fringilla
-              urna, porttitor rhoncus dolor purus non enim praesent elementum
-              facilisis leo, vel. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit ut aliquam, purus sit amet luctus venenatis,
-              lectus magna fringilla urna, portm faci...{" "}
-              <span className="text-blue1">Real full article</span>
-            </ContentText>
-          </div>
+      <HomeContainer>
+        <div className="ml-[5.5%]">
+          <PageTitle>The Gambling Palace.</PageTitle>
         </div>
-      </Container>
-
-      <Container>
-        <div className="w-full">
-          <SubTitle>Related blogs</SubTitle>
-        </div>
-        <div className="w-full mt-16">
-          <CardPaginate cards={blogData} itemsPerPage="4"></CardPaginate>
-        </div>
-      </Container>
-
-      <SubscribeContainer className="mt-16 mb-[133px]">
-        <AboutTitle className="text-white1">
-          Join today and leave a review at your favourite casinos!
-        </AboutTitle>
-        <div className="pt-9">
+        <div className="flex flex-col items-center mr-[5.5%] gap-[14px]">
           <Button
-            label="Get Started"
+            label="Visit Casino"
             handleClick={() => {
               console.log("Visit Casino");
             }}
             variant="model"
-            class="!bg-white !text-blue1"
+          >
+            <div className="pl-1 pt-1">
+              <FaArrowRight />
+            </div>
+          </Button>
+          <a className="flex">
+            Write a review{" "}
+            <div className="pl-1 pt-1">
+              <FaArrowRight />
+            </div>
+          </a>
+        </div>
+      </HomeContainer>
+
+      <div className="flex w-full gap-8">
+        <div className="w-[25%]">
+          <SummaryCard>
+            <div className="pb-14">
+              <ReviewTitle>Established</ReviewTitle>
+              <ReviewContent>2003</ReviewContent>
+            </div>
+            <div className="pb-14">
+              <ReviewTitle>Casino Rewards</ReviewTitle>
+              <ReviewContent>Over 12k</ReviewContent>
+            </div>
+            <div className="pb-14">
+              <ReviewTitle>Withdrawal Limits</ReviewTitle>
+              <div className="flex gap-[46px]">
+                <div className="flex flex-col">
+                  <ReviewContent>Per month</ReviewContent>
+                  <ReviewContent>$$$</ReviewContent>
+                </div>
+                <div className="flex flex-col">
+                  <ReviewContent>Per week</ReviewContent>
+                  <ReviewContent>$$$</ReviewContent>
+                </div>
+              </div>
+            </div>
+            <div className="pb-14">
+              <ReviewTitle>Licensing Authorities</ReviewTitle>
+              <ReviewContent>United Kingdom (UKGC)</ReviewContent>
+            </div>
+            <div className="pb-14">
+              <ReviewTitle>Avaialble Languages</ReviewTitle>
+              <ReviewContent>English (Flag)</ReviewContent>
+            </div>
+          </SummaryCard>
+        </div>
+        <div className="w-[75%]">
+          <CryptoCard>
+            <ReviewTitle>Accepted Cryptos</ReviewTitle>
+            <ReviewTitle>Payable Games</ReviewTitle>
+          </CryptoCard>
+        </div>
+      </div>
+
+      <Container>
+        <div className="mt-[80px] w-full">
+          <ContentTitle>Overview</ContentTitle>
+        </div>
+        <div className="flex mt-12 w-full gap-5">
+          <div className="w-[75%]">
+            <CardContainer>
+              <ProsText>Pros</ProsText>
+              <CardContent>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat aute irure sint
+                amet occaecat cupidatat non proident
+              </CardContent>
+              <ConsText>Cons</ConsText>
+              <CardContent>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat aute irure sint
+                amet occaecat cupidatat non proident
+              </CardContent>
+            </CardContainer>
+          </div>
+          <div className="w-[25%]">
+            <RatingCard value="4.9" percent="60" pos="2k" neg="20"></RatingCard>
+          </div>
+        </div>
+        <div className="mt-6">
+          <Button
+            label="Visit Casino"
+            handleClick={() => {
+              console.log("Visit Casino");
+            }}
+            variant="model"
           >
             <div className="pl-1 pt-1">
               <FaArrowRight />
             </div>
           </Button>
         </div>
-      </SubscribeContainer>
+      </Container>
+
+      <Container className="mb-24">
+        <div className="mt-15 w-full">
+          <ContentTitle>User reviews</ContentTitle>
+        </div>
+        <div className="flex mt-12 w-full gap-5">
+          <div className="w-[75%]">
+            <ReviewCard
+              cardImage={Card1}
+              user="Verified user"
+              name="Black Jack"
+              email="@Ahmedhssn"
+              date="21 Sep 2022, 10:49 PM"
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
+            ></ReviewCard>
+          </div>
+          <div className="w-[25%]">
+            <RatingCard value="4.9" percent="60"></RatingCard>
+          </div>
+        </div>
+        <div className="flex mt-12 w-full gap-5">
+          <div className="w-[75%]">
+            <ReviewCard
+              cardImage={Card1}
+              user="Verified user"
+              name="Black Jack"
+              email="@Ahmedhssn"
+              date="21 Sep 2022, 10:49 PM"
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
+            ></ReviewCard>
+          </div>
+          <div className="w-[25%]">
+            <RatingCard value="4.9" percent="60"></RatingCard>
+          </div>
+        </div>
+        <div className="flex mt-12 w-full gap-5">
+          <div className="w-[75%]">
+            <ReviewCard
+              cardImage={Card1}
+              user="Verified user"
+              name="Black Jack"
+              email="@Ahmedhssn"
+              date="21 Sep 2022, 10:49 PM"
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
+            ></ReviewCard>
+          </div>
+          <div className="w-[25%]">
+            <RatingCard value="4.9" percent="60"></RatingCard>
+          </div>
+        </div>
+        <div className="flex mt-12 w-full gap-5">
+          <div className="w-[75%]">
+            <ReviewCard
+              cardImage={Card1}
+              user="Verified user"
+              name="Black Jack"
+              email="@Ahmedhssn"
+              date="21 Sep 2022, 10:49 PM"
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
+            ></ReviewCard>
+          </div>
+          <div className="w-[25%]">
+            <RatingCard value="4.9" percent="60"></RatingCard>
+          </div>
+        </div>
+        <div className="mt-6">
+          <Button
+            label="Show more"
+            handleClick={() => {
+              console.log("Visit Casino");
+            }}
+            variant="model"
+          >
+            <div className="pl-1 pt-1">
+              <FaArrowRight />
+            </div>
+          </Button>
+        </div>
+      </Container>
     </Layout>
   );
 };
 
-export default Learn;
+export default Gambling;

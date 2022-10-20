@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { FeatureTitle, ContentTitle } from "./FeaturedCasino.module";
-import Rating from "../core/Rating/Rating";
+import Rating from "../../core/Rating/Rating";
 import { FaArrowRight } from "react-icons/fa";
-import Button from "../core/Button/Button";
+import Button from "../../core/Button/Button";
 
 const FeaturedCasino = (props) => {
   return (
