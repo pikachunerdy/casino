@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { FreeMode, Pagination, Scrollbar, A11y } from "swiper";
-import Button from "../core/Button/Button";
+import Button from "../../core/Button/Button";
 import HomeCard from "./HomeCard";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -60,29 +60,27 @@ const Carousel = (props) => {
         })}
       </Swiper>
       <div className="flex justify-center mt-14 gap-3">
-        <Button
-          label=""
-          handleClick={() => {
+        <button
+          onClick={() => {
             if (!!swiperHandle) {
               swiperHandle.slidePrev();
             }
           }}
-          variant="model"
+          className="py-3 px-[18px] bg-blue1 rounded-full"
         >
           <FontAwesomeIcon icon={faChevronLeft} size="1x" />
-        </Button>
+        </button>
 
-        <Button
-          label=""
-          handleClick={() => {
+        <button
+          onClick={() => {
             if (!!swiperHandle) {
               swiperHandle.slideNext();
             }
           }}
-          variant="model"
+          className="py-3 px-[18px] bg-blue1 rounded-full"
         >
           <FontAwesomeIcon icon={faChevronRight} size="1x" />
-        </Button>
+        </button>
       </div>
     </div>
   );
