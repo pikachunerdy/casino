@@ -10,7 +10,7 @@ const SwitchButton = (props) => {
         variant="model"
       ></Button>
       <Button
-        label={props.firstLabel}
+        label={props.secondLabel}
         handleClick={props.onClick}
         className="text-white2"
       ></Button>

@@ -22,8 +22,8 @@ import BlogCard from "../components/core/Card/BlogCard";
 import Badge from "../components/core/Badge/Badge";
 import Subscribe from "../components/core/Subscribe/Subscribe";
 import { FaArrowRight } from "react-icons/fa";
-import Back2 from "../public/background/Back2.png";
-import Check from "../public/Icon/Check.png";
+import Back2 from "public/background/Back2.png";
+import Check from "public/Icon/Check.png";
 
 const Home = () => {
   const cards = [
@@ -211,7 +211,7 @@ const Home = () => {
           </SubTitle>
         </div>
         <div>
-          <NewsSubTitle>Today's news - most recent articles</NewsSubTitle>
+          <NewsSubTitle>Today&apos;s news - most recent articles</NewsSubTitle>
         </div>
         <div className="flex gap-9 mt-9 w-full">
           <div className="w-3/5">

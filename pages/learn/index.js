@@ -3,7 +3,7 @@ import Button from "../../components/core/Button/Button";
 import Badge from "../../components/core/Badge/Badge";
 import CardPaginate from "../../components/page/Learn/CardPaginate";
 import { FaArrowRight } from "react-icons/fa";
-import Blog1 from "../../public/image/Blog1.png";
+import Blog1 from "public/image/Blog1.png";
 
 import {
   Container,

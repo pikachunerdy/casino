@@ -5,7 +5,7 @@ import RatingCard from "../../components/core/Card/RatingCard";
 import ReviewCard from "../../components/core/Card/ReviewCard";
 import Crypto from "../../components/page/Gambling/Crypto";
 import { FaArrowRight } from "react-icons/fa";
-import Card1 from "../../public/image/ReviewCard.png";
+import Card1 from "public/image/ReviewCard.png";
 
 import {
   HomeContainer,

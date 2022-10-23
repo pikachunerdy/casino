@@ -15,7 +15,7 @@ const CardPaginate = (props) => {
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(props.cards.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(props.cards.length / props.itemsPerPage));
-  }, [itemOffset, props.itemsPerPage]);
+  }, [itemOffset, props.itemsPerPage, props.cards]);
 
   const handlePageClick = (event) => {
     const newOffset =
@@ -32,9 +32,8 @@ const CardPaginate = (props) => {
         {currentItems &&
           currentItems.map((card, i) => {
             return (
-              <div className="w-[30%]">
+              <div className="w-[30%]" key={i}>
                 <BlogCard
-                  key={i}
                   cardImage={card.img}
                   date={card.date}
                   title={card.title}

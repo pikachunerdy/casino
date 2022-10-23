@@ -13,19 +13,17 @@ import { FaArrowRight } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa";
 import Avatar from "../../core/Avatar/Avatar";
 import Rating from "../../core/Rating/Rating";
-import People from "../../../public/image/People.png";
+import People from "public/image/People.png";
 
 const HomeTable = (props) => {
-  const tableHeader = useMemo(() => {
-    return {
-      Name: "Name",
-      Bonus: "Bonus",
-      Feature: "Feature",
-      Users: "Users",
-      Rating: "Rating",
-      Website: "Website",
-    };
-  }, []);
+  const tableHeader = {
+    Name: "Name",
+    Bonus: "Bonus",
+    Feature: "Feature",
+    Users: "Users",
+    Rating: "Rating",
+    Website: "Website",
+  };
 
   const siteName = (name, site) => {
     return (
@@ -39,20 +37,23 @@ const HomeTable = (props) => {
     );
   };
 
-  const bonus = (amount) => {
-    return (
-      <div className="px-6">
-        <CustomButton className="text-green1" onClick={props.handleClick}>
-          <div className="flex">
-            ${amount}
-            <div className="pl-1 pt-1">
-              <FaArrowRight />
+  const bonus = useCallback(
+    (amount) => {
+      return (
+        <div className="px-6">
+          <CustomButton className="text-green1" onClick={props.handleClick}>
+            <div className="flex">
+              ${amount}
+              <div className="pl-1 pt-1">
+                <FaArrowRight />
+              </div>
             </div>
-          </div>
-        </CustomButton>
-      </div>
-    );
-  };
+          </CustomButton>
+        </div>
+      );
+    },
+    [props.handleClick]
+  );
 
   const features = (feature1, feature2) => {
     return (
@@ -114,7 +115,7 @@ const HomeTable = (props) => {
       ];
     });
     return data;
-  }, [props.casinoData]);
+  }, [props.casinoData, bonus]);
 
   return (
     <div className="bg-black1">
