@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import {
   HeaderWrapper,
   Logo,
@@ -18,11 +19,11 @@ const menus = [
   },
   {
     label: "Reviews",
-    link: "",
+    link: "/review",
   },
   {
     label: "About",
-    link: "",
+    link: "/about",
   },
   {
     label: "Blog",
@@ -30,11 +31,13 @@ const menus = [
   },
   {
     label: "FAQs",
-    link: "",
+    link: "/faq",
   },
 ];
 
 export default function Header({ children }) {
+  const router = useRouter();
+
   return (
     <HeaderWrapper>
       <Logo>
@@ -45,7 +48,7 @@ export default function Header({ children }) {
 
       <MenuWrapper>
         {menus.map((menu, index) => (
-          <Menu key={index}>
+          <Menu key={index} active={router.asPath.indexOf(menu.link) != -1}>
             <Link href={menu.link}>{menu.label}</Link>
           </Menu>
         ))}

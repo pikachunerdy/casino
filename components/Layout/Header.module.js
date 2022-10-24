@@ -17,9 +17,11 @@ export const MenuWrapper = styled.div.attrs({
   className: "flex gap-8",
 })``;
 
-export const Menu = styled.div.attrs({
-  className: "cursor-pointer",
-})``;
+export const Menu = styled.div.attrs((props) => ({
+  className: `cursor-pointer font-medium ${
+    props.active ? "text-blue1" : ""
+  } hover:text-blue1 transition`,
+}))``;
 
 export const Logo = styled.div.attrs({
   className: "cursor-pointer",

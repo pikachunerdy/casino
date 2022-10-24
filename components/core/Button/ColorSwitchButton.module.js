@@ -6,7 +6,7 @@ export const FormContainer = styled.div.attrs({
 })``;
 
 export const SwitchButton = styled.div.attrs((props) => ({
-  className: `flex items-center justify-center w-8 h-8 rounded-full cursor-pointer ${
+  className: `flex items-center justify-center w-8 h-8 rounded-full cursor-pointer transition ${
     props.active ? "bg-[#102540]" : ""
   }`,
 }))``;
