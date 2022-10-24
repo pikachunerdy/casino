@@ -1,4 +1,6 @@
+import * as React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import {
   Container,
   Title,
@@ -135,16 +137,19 @@ const Home = () => {
     },
   ];
 
+  const router = useRouter();
+  const [isExpand, setIsExpand] = React.useState(false);
+
   return (
     <Layout>
       <Container className="min-h-screen bg-[url('/background/Back1.svg')]">
         <Title>
           <span className="text-darkBlue">Real Players,</span> Real Money,
-          Truste Reviews!
+          Trusted Reviews!
         </Title>
         <Content>
-          Our algorithm guarantees players have played before leaving a review.
-          Good or Bad!
+          Our unique algorithm guarantees whether reviewers have played.
+          Offering Complete Transparency
         </Content>
         <div className="pt-9">
           <Button
@@ -194,10 +199,14 @@ const Home = () => {
         </div>
         <div className="w-full">
           <div>
-            <HomeTable casinoData={casinoData}></HomeTable>
+            <HomeTable casinoData={casinoData} isExpand={isExpand}></HomeTable>
           </div>
           <div className="mt-12 flex justify-center">
-            <Button variant="model" label="Show More">
+            <Button
+              variant="model"
+              label="Show More"
+              handleClick={() => setIsExpand(true)}
+            >
               <div className="pl-1 pt-1">
                 <FaArrowRight />
               </div>
@@ -255,7 +264,11 @@ const Home = () => {
           </div>
         </div>
         <div className="mt-12 flex justify-center">
-          <Button variant="model" label="See All Stories">
+          <Button
+            variant="model"
+            label="See All Stories"
+            handleClick={() => router.push("/learn")}
+          >
             <div className="pl-1 pt-1">
               <FaArrowRight />
             </div>
@@ -263,7 +276,7 @@ const Home = () => {
         </div>
         <div className="flex flox-col mt-[136px]">
           <About>
-            <div className="w-full pb-11">
+            <div className="w-full">
               <AboutTitle className="text-blue1">About Us!</AboutTitle>
             </div>
             <AboutContent>
@@ -275,6 +288,11 @@ const Home = () => {
               genuine reviews. Using blockchain technology we offer a 100%
               accurate and trusted reviewing system.
             </AboutContent>
+            <Button label="Learn More">
+              <div className="pl-1 pt-1">
+                <FaArrowRight />
+              </div>
+            </Button>
           </About>
         </div>
       </Container>

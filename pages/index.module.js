@@ -26,7 +26,8 @@ export const NewsSubTitle = styled.span.attrs({
 })``;
 
 export const HomeCard = styled.span.attrs({
-  className: "w-full bg-black1 py-5 px-7 rounded-xl",
+  className:
+    "w-full bg-black1 py-5 px-7 rounded-xl cursor-pointer hover:scale-105 transition",
 })``;
 
 export const HomeCardTitle = styled.span.attrs({
@@ -34,7 +35,8 @@ export const HomeCardTitle = styled.span.attrs({
 })``;
 
 export const About = styled.span.attrs({
-  className: "w-full bg-black1 pt-12 pb-[135px] px-[165px] text-center",
+  className:
+    "flex flex-col items-center gap-10 w-full bg-black1 pt-12 pb-[135px] px-[165px] text-center",
 })``;
 
 export const AboutTitle = styled.span.attrs({

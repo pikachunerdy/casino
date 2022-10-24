@@ -16,6 +16,8 @@ import Rating from "../../core/Rating/Rating";
 import People from "public/image/People.png";
 
 const HomeTable = (props) => {
+  const { isExpand } = props;
+
   const tableHeader = {
     Name: "Name",
     Bonus: "Bonus",
@@ -89,10 +91,13 @@ const HomeTable = (props) => {
 
   const website = (url) => {
     return (
-      <div className="flex px-6">
+      <div className="group flex px-6 cursor-pointer">
         <a href={url}>
           <WebsiteContent>
-            <span className="mr-3">Visit website</span> <FaArrowRight />
+            <span className="mr-3">Visit website</span>{" "}
+            <div className="group-hover:translate-x-1 transition">
+              <FaArrowRight />
+            </div>
           </WebsiteContent>
         </a>
       </div>
@@ -131,7 +136,7 @@ const HomeTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {tableData.map((row, i) => {
+          {tableData.slice(0, isExpand ? tableData.length : 3).map((row, i) => {
             return (
               <tr key={i}>
                 <td className="py-4">{row.siteName}</td>

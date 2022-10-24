@@ -43,11 +43,11 @@ const Carousel = (props) => {
         onSwiper={(swiper) => {
           swiperHandle = swiper;
         }}
-        className="gap-4"
+        className="gap-4 !p-5"
       >
         {props.cards.map((card, i) => {
           return (
-            <SwiperSlide key={i}>
+            <SwiperSlide className="flex justify-center" key={i}>
               <HomeCard
                 title={card.title}
                 value={card.value}
@@ -66,7 +66,7 @@ const Carousel = (props) => {
               swiperHandle.slidePrev();
             }
           }}
-          className="py-3 px-[18px] bg-blue1 rounded-full"
+          className="py-3 px-[18px] bg-blue1 rounded-full border border-transparent hover:bg-transparent hover:border-white transition"
         >
           <FontAwesomeIcon icon={faChevronLeft} size="1x" />
         </button>
@@ -77,7 +77,7 @@ const Carousel = (props) => {
               swiperHandle.slideNext();
             }
           }}
-          className="py-3 px-[18px] bg-blue1 rounded-full"
+          className="py-3 px-[18px] bg-blue1 rounded-full border border-transparent hover:bg-transparent hover:border-white transition"
         >
           <FontAwesomeIcon icon={faChevronRight} size="1x" />
         </button>

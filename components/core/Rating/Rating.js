@@ -6,7 +6,7 @@ const Rating = (props) => {
       <ReactStars
         count={5}
         onChange={() => {}}
-        size={34}
+        size={24}
         activeColor={props.activeColor}
         edit={false}
         value={props.value}
