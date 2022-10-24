@@ -1,18 +1,26 @@
 import * as React from "react";
-import { FormContainer, SwitchButton as Button } from "./SwitchButton.module";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FormContainer } from "./SwitchButton.module";
+import Button from "./Button";
 
 const SwitchButton = (props) => {
-  const [colorTheme, setColorTheme] = React.useState(1);
+  const { tabs } = props;
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   return (
     <FormContainer>
-      <Button active={colorTheme === 0} onClick={() => setColorTheme(0)}>
-        <FaSun />
-      </Button>
-      <Button active={colorTheme === 1} onClick={() => setColorTheme(1)}>
-        <FaMoon />
-      </Button>
+      {tabs.map((tab, index) => (
+        <Button
+          label={tab}
+          variant={index === selectedIndex ? "model" : ""}
+          className={`${
+            index === selectedIndex
+              ? "!border-transparent hover:!bg-blue1"
+              : "!border-transparent"
+          }`}
+          key={index}
+          handleClick={() => setSelectedIndex(index)}
+        />
+      ))}
     </FormContainer>
   );
 };

@@ -9,7 +9,7 @@ import {
   Menu,
 } from "./Header.module";
 import Button from "../core/Button/Button";
-import SwitchButton from "../core/Button/SwitchButton";
+import ColorSwitchButton from "../core/Button/ColorSwitchButton";
 
 const menus = [
   {
@@ -52,7 +52,7 @@ export default function Header({ children }) {
       </MenuWrapper>
 
       <RightActionsWrapper>
-        <SwitchButton />
+        <ColorSwitchButton />
 
         <AuthActionsWrapper>
           <Button label="Login"></Button>

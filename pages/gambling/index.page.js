@@ -18,6 +18,8 @@ import {
   CardContent,
 } from "./index.module";
 
+const tabs = ["Overview", "User Reviews"];
+
 const Gambling = () => {
   return (
     <Layout>
@@ -48,11 +50,7 @@ const Gambling = () => {
 
       <Crypto></Crypto>
       <div className="mt-[54px] mx-auto">
-        <SwitchButton
-          firstLabel="Overview"
-          secondLabel="User reviews"
-          onClick={() => {}}
-        ></SwitchButton>
+        <SwitchButton tabs={tabs} />
       </div>
 
       <Container>
