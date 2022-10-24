@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import url("http://fonts.cdnfonts.com/css/clash-display");
 
+* {
+  font-family: "Clash Display", sans-serif;
+}
+
 .scroll-x {
   @apply overflow-x-auto;
   -ms-overflow-style: none;
