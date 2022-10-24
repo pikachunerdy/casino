@@ -13,7 +13,7 @@ export const SummaryCard = styled.div.attrs({
 })``;
 
 export const CryptoCard = styled.div.attrs({
-  className: "bg-black1 py-[61px] px-6",
+  className: "bg-black1 py-[61px] px-6 h-full",
 })``;
 
 export const ReviewButton = styled.button.attrs({

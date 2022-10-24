@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Card = styled.div.attrs({
   className:
-    "bg-black1 flex flex-col justify-center items-center p-8 rounded-lg",
+    "bg-black1 flex flex-col justify-center items-center h-full p-8 rounded-lg",
 })``;
 
 export const StatusContainer = styled.div.attrs({
