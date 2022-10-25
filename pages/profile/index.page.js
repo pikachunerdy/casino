@@ -55,9 +55,7 @@ const Profile = () => {
       <div className="my-[115px]">
         <div className="flex justify-center">
           <SwitchButton
-            firstLabel="Current Reviews"
-            secondLabel="Pending Reviews"
-            onClick={() => {}}
+            tabs={["Current Reviews", "Pending Reviews"]}
           ></SwitchButton>
         </div>
         <div className="mt-[10px]">
