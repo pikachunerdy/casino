@@ -18,7 +18,7 @@ export const ContentTitle = styled.div.attrs({
 })``;
 
 export const CardContainer = styled.div.attrs({
-  className: "bg-black1 py-10 px-[65px] rounded-lg",
+  className: "bg-black1 py-10 px-[65px]",
 })``;
 
 export const ProsText = styled.div.attrs({

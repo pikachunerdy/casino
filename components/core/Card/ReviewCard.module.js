@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Card = styled.div.attrs({
-  className: "bg-black1 rounded-lg",
+  className: "bg-black1",
 })``;
 
 export const Date = styled.div.attrs({

@@ -9,26 +9,26 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="w-[90%]">
+    <div className="w-[90%] ">
       <FooterContainer>
-        <FooterSubContainer className="w-[15%] mr-[180px]">
+        <FooterSubContainer>
           <FooterTitle>Disclosed</FooterTitle>
           <div className="mt-10">
-            <FooterContent>
+            <FooterContent className="w-60">
               Our innovative algorithm guarantees genuine reviews. Using
               blockchain technology.
             </FooterContent>
           </div>
         </FooterSubContainer>
 
-        <FooterSubContainer className="w-[15%] mr-[243px]">
+        <FooterSubContainer>
           <FooterTitle>Company</FooterTitle>
           <div className="mt-10">
             <FooterContent>About</FooterContent>
           </div>
         </FooterSubContainer>
 
-        <FooterSubContainer className="w-[8%]">
+        <FooterSubContainer>
           <FooterTitle>Help</FooterTitle>
           <div className="mt-10">
             <Link href="/">

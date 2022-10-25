@@ -1,3 +1,4 @@
+import * as React from "react";
 import Layout from "../../components/Layout/Layout";
 import Button from "../../components/core/Button/Button";
 import SwitchButton from "../../components/core/Button/SwitchButton";
@@ -21,6 +22,8 @@ import {
 const tabs = ["Overview", "User Reviews"];
 
 const Gambling = () => {
+  const [currentTab, setCurrentTab] = React.useState(0);
+
   return (
     <Layout>
       <HomeContainer>
@@ -39,9 +42,9 @@ const Gambling = () => {
               <FaArrowRight />
             </div>
           </Button>
-          <a className="flex">
+          <a className="group flex cursor-pointer hover:text-blue1 transition">
             Write a review{" "}
-            <div className="pl-1 pt-1">
+            <div className="pl-1 pt-1 group-hover:text-blue1 group-hover:translate-x-1 transition">
               <FaArrowRight />
             </div>
           </a>
@@ -50,127 +53,141 @@ const Gambling = () => {
 
       <Crypto></Crypto>
       <div className="mt-[54px] mx-auto">
-        <SwitchButton tabs={tabs} />
+        <SwitchButton
+          tabs={tabs}
+          currentTab={currentTab}
+          handleClick={setCurrentTab}
+        />
       </div>
 
-      <Container>
-        <div className="mt-[80px] w-full">
-          <ContentTitle>Overview</ContentTitle>
-        </div>
-        <div className="flex mt-12 w-full gap-5">
-          <div className="w-[75%]">
-            <CardContainer>
-              <ProsText>Pros</ProsText>
-              <CardContent>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat aute irure sint
-                amet occaecat cupidatat non proident
-              </CardContent>
-              <ConsText>Cons</ConsText>
-              <CardContent>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat aute irure sint
-                amet occaecat cupidatat non proident
-              </CardContent>
-            </CardContainer>
+      {currentTab === 0 && (
+        <Container>
+          <div className="mt-[80px] w-full">
+            <ContentTitle>Overview</ContentTitle>
           </div>
-          <div className="w-[25%]">
-            <RatingCard value="4.9" percent="60" pos="2k" neg="20"></RatingCard>
-          </div>
-        </div>
-        <div className="mt-6">
-          <Button
-            label="Visit Casino"
-            handleClick={() => {
-              console.log("Visit Casino");
-            }}
-            variant="model"
-          >
-            <div className="pl-1 pt-1">
-              <FaArrowRight />
+          <div className="flex mt-12 w-full rounded-md overflow-hidden">
+            <div className="w-[75%]">
+              <CardContainer>
+                <ProsText>Pros</ProsText>
+                <CardContent>
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat aute irure
+                  sint amet occaecat cupidatat non proident
+                </CardContent>
+                <ConsText>Cons</ConsText>
+                <CardContent>
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat aute irure
+                  sint amet occaecat cupidatat non proident
+                </CardContent>
+              </CardContainer>
             </div>
-          </Button>
-        </div>
-      </Container>
+            <div className="w-[25%]">
+              <RatingCard
+                value="4.9"
+                percent="60"
+                pos="2k"
+                neg="20"
+              ></RatingCard>
+            </div>
+          </div>
+          <div className="mt-6">
+            <Button
+              label="Visit Casino"
+              handleClick={() => {
+                console.log("Visit Casino");
+              }}
+              variant="model"
+              className="mb-20"
+            >
+              <div className="pl-1 pt-1">
+                <FaArrowRight />
+              </div>
+            </Button>
+          </div>
+        </Container>
+      )}
 
-      <Container className="mb-24">
-        <div className="mt-15 w-full">
-          <ContentTitle>User reviews</ContentTitle>
-        </div>
-        <div className="flex mt-12 w-full gap-5">
-          <div className="w-[75%]">
-            <ReviewCard
-              cardImage={Card1}
-              user="Verified user"
-              name="Black Jack"
-              email="@Ahmedhssn"
-              date="21 Sep 2022, 10:49 PM"
-              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-            ></ReviewCard>
+      {currentTab === 1 && (
+        <Container className="mb-24">
+          <div className="mt-20 w-full">
+            <ContentTitle>User reviews</ContentTitle>
           </div>
-          <div className="w-[25%]">
-            <RatingCard value="4.9" percent="60"></RatingCard>
-          </div>
-        </div>
-        <div className="flex mt-12 w-full gap-5">
-          <div className="w-[75%]">
-            <ReviewCard
-              cardImage={Card1}
-              user="Verified user"
-              name="Black Jack"
-              email="@Ahmedhssn"
-              date="21 Sep 2022, 10:49 PM"
-              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-            ></ReviewCard>
-          </div>
-          <div className="w-[25%]">
-            <RatingCard value="4.9" percent="60"></RatingCard>
-          </div>
-        </div>
-        <div className="flex mt-12 w-full gap-5">
-          <div className="w-[75%]">
-            <ReviewCard
-              cardImage={Card1}
-              user="Verified user"
-              name="Black Jack"
-              email="@Ahmedhssn"
-              date="21 Sep 2022, 10:49 PM"
-              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-            ></ReviewCard>
-          </div>
-          <div className="w-[25%]">
-            <RatingCard value="4.9" percent="60"></RatingCard>
-          </div>
-        </div>
-        <div className="flex mt-12 w-full gap-5">
-          <div className="w-[75%]">
-            <ReviewCard
-              cardImage={Card1}
-              user="Verified user"
-              name="Black Jack"
-              email="@Ahmedhssn"
-              date="21 Sep 2022, 10:49 PM"
-              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-            ></ReviewCard>
-          </div>
-          <div className="w-[25%]">
-            <RatingCard value="4.9" percent="60"></RatingCard>
-          </div>
-        </div>
-        <div className="mt-6">
-          <Button
-            label="Show more"
-            handleClick={() => {
-              console.log("Visit Casino");
-            }}
-            variant="model"
-          >
-            <div className="pl-1 pt-1">
-              <FaArrowRight />
+          <div className="flex mt-12 w-full rounded-md overflow-hidden">
+            <div className="w-[75%]">
+              <ReviewCard
+                cardImage={Card1}
+                user="Verified user"
+                name="Black Jack"
+                email="@Ahmedhssn"
+                date="21 Sep 2022, 10:49 PM"
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
+              ></ReviewCard>
             </div>
-          </Button>
-        </div>
-      </Container>
+            <div className="w-[25%]">
+              <RatingCard value="4.9" percent="60"></RatingCard>
+            </div>
+          </div>
+          <div className="flex mt-12 w-full rounded-md overflow-hidden">
+            <div className="w-[75%]">
+              <ReviewCard
+                cardImage={Card1}
+                user="Verified user"
+                name="Black Jack"
+                email="@Ahmedhssn"
+                date="21 Sep 2022, 10:49 PM"
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
+              ></ReviewCard>
+            </div>
+            <div className="w-[25%]">
+              <RatingCard value="4.9" percent="60"></RatingCard>
+            </div>
+          </div>
+          <div className="flex mt-12 w-full rounded-md overflow-hidden">
+            <div className="w-[75%]">
+              <ReviewCard
+                cardImage={Card1}
+                user="Verified user"
+                name="Black Jack"
+                email="@Ahmedhssn"
+                date="21 Sep 2022, 10:49 PM"
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
+              ></ReviewCard>
+            </div>
+            <div className="w-[25%]">
+              <RatingCard value="4.9" percent="60"></RatingCard>
+            </div>
+          </div>
+          <div className="flex mt-12 w-full rounded-md overflow-hidden">
+            <div className="w-[75%]">
+              <ReviewCard
+                cardImage={Card1}
+                user="Verified user"
+                name="Black Jack"
+                email="@Ahmedhssn"
+                date="21 Sep 2022, 10:49 PM"
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
+              ></ReviewCard>
+            </div>
+            <div className="w-[25%]">
+              <RatingCard value="4.9" percent="60"></RatingCard>
+            </div>
+          </div>
+          <div className="mt-6">
+            <Button
+              label="Show more"
+              handleClick={() => {
+                console.log("Visit Casino");
+              }}
+              variant="model"
+            >
+              <div className="pl-1 pt-1">
+                <FaArrowRight />
+              </div>
+            </Button>
+          </div>
+        </Container>
+      )}
     </Layout>
   );
 };

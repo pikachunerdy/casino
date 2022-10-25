@@ -3,22 +3,21 @@ import { FormContainer } from "./SwitchButton.module";
 import Button from "./Button";
 
 const SwitchButton = (props) => {
-  const { tabs } = props;
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const { tabs, currentTab, handleClick } = props;
 
   return (
     <FormContainer>
       {tabs.map((tab, index) => (
         <Button
           label={tab}
-          variant={index === selectedIndex ? "model" : ""}
+          variant={index === currentTab ? "model" : ""}
           className={`${
-            index === selectedIndex
+            index === currentTab
               ? "!border-transparent hover:!bg-blue1"
               : "!border-transparent"
           }`}
           key={index}
-          handleClick={() => setSelectedIndex(index)}
+          handleClick={() => handleClick(index)}
         />
       ))}
     </FormContainer>

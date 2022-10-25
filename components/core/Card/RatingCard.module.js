@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const Card = styled.div.attrs({
-  className:
-    "bg-black1 flex flex-col justify-center items-center h-full p-8 rounded-lg",
+  className: "bg-black1 flex flex-col justify-center items-center h-full p-8",
 })``;
 
 export const StatusContainer = styled.div.attrs({
