@@ -5,7 +5,7 @@ export default function Document() {
     <Html>
       <Head>
         <link
-          href="http://fonts.cdnfonts.com/css/clash-display"
+          href="https://fonts.cdnfonts.com/css/clash-display"
           rel="stylesheet"
         />
       </Head>
