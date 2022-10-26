@@ -23,11 +23,11 @@ const Learn = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luct",
       siteStates: [
         {
-          color: "purple",
+          color: "text-purple",
           label: "Review",
         },
         {
-          color: "blue2",
+          color: "text-blue2",
           label: "Casino",
         },
       ],
@@ -40,11 +40,11 @@ const Learn = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luct",
       siteStates: [
         {
-          color: "purple",
+          color: "text-purple",
           label: "Review",
         },
         {
-          color: "blue2",
+          color: "text-blue2",
           label: "Casino",
         },
       ],
@@ -57,11 +57,11 @@ const Learn = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luct",
       siteStates: [
         {
-          color: "purple",
+          color: "text-purple",
           label: "Review",
         },
         {
-          color: "blue2",
+          color: "text-blue2",
           label: "Casino",
         },
       ],
@@ -74,11 +74,11 @@ const Learn = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luct",
       siteStates: [
         {
-          color: "purple",
+          color: "text-purple",
           label: "Review",
         },
         {
-          color: "blue2",
+          color: "text-blue2",
           label: "Casino",
         },
       ],
@@ -91,11 +91,11 @@ const Learn = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luct",
       siteStates: [
         {
-          color: "purple",
+          color: "text-purple",
           label: "Review",
         },
         {
-          color: "blue2",
+          color: "text-blue2",
           label: "Casino",
         },
       ],
@@ -121,7 +121,9 @@ const Learn = () => {
               facilisis leo, vel. Lorem ipsum dolor sit amet, consectetur
               adipiscing elit ut aliquam, purus sit amet luctus venenatis,
               lectus magna fringilla urna, portm faci...{" "}
-              <span className="text-blue1">Real full article</span>
+              <div className="text-blue1 inline-flex cursor-pointer hover:scale-105 transition">
+                Real full article
+              </div>
             </ContentText>
           </div>
         </div>

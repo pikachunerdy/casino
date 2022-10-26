@@ -5,7 +5,7 @@ import Badge from "../Badge/Badge";
 
 export default function BlogCard(props) {
   return (
-    <Card>
+    <Card className="rounded-lg cursor-pointer overflow-hidden hover:scale-105 transition duration-300">
       <div className="flex flex-col">
         <div className="contents">
           <Image src={props.cardImage} alt="card image"></Image>

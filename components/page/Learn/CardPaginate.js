@@ -28,11 +28,11 @@ const CardPaginate = (props) => {
 
   return (
     <div>
-      <div className="flex justify-between gap-8">
+      <div className="grid grid-cols-4 gap-8">
         {currentItems &&
           currentItems.map((card, i) => {
             return (
-              <div className="w-[30%]" key={i}>
+              <div key={i}>
                 <BlogCard
                   cardImage={card.img}
                   date={card.date}
@@ -49,12 +49,12 @@ const CardPaginate = (props) => {
           breakLabel="..."
           nextLabel={<FaArrowRight className="text-blue1" />}
           onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
+          pageRangeDisplayed={4}
           pageCount={pageCount}
           previousLabel={<FaArrowLeft className="text-blue1" />}
           renderOnZeroPageCount={null}
           className="flex items-center justify-center gap-3"
-          pageClassName="py-3 px-5 rounded-full"
+          pageClassName="p-3 px-5 rounded-full"
           activeClassName="bg-blue1"
         />
       </div>
