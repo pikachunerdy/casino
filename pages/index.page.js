@@ -305,9 +305,7 @@ const Home = () => {
               blockchain technology we offer a 100% accurate and trusted
               reviewing system. Our innovative algorithm guarantees genuine
               reviews. Using blockchain technology we offer a 100% accurate and
-              trusted reviewing system. Our innovative algorithm guarantees
-              genuine reviews. Using blockchain technology we offer a 100%
-              accurate and trusted reviewing system.
+              trusted reviewing system. 
             </AboutContent>
             <Button label="Learn More">
               <div className="pl-1 pt-1">
