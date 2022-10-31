@@ -24,7 +24,7 @@ const Crypto = (props) => {
   return (
     <div className="flex w-full gap-8">
       <div className="w-[25%]">
-        <SummaryCard>
+        <SummaryCard className="h-full">
           <div className="pb-14">
             <ReviewTitle>Established</ReviewTitle>
             <ReviewContent>2003</ReviewContent>
@@ -59,7 +59,7 @@ const Crypto = (props) => {
       <div className="w-[75%]">
         <CryptoCard>
           <ReviewTitle>Accepted Cryptos</ReviewTitle>
-          <div className="flex w-full gap-10 mt-6 mb-10">
+          <div className="flex w-full gap-[60px] mt-6 mb-10">
             <div className="w-1/6">
               <Image
                 src={Bitcoin}
@@ -84,7 +84,7 @@ const Crypto = (props) => {
             </div>
           </div>
           <ReviewTitle>Payable Games</ReviewTitle>
-          <div className="flex w-full gap-10 mt-6">
+          <div className="flex w-full gap-[60px] mt-6">
             <div className="w-1/6">
               <Image
                 src={Bitcoin1}
