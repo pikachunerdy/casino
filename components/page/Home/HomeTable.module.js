@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderName = styled.th.attrs({
-  className: "text-white1 font-medium text-[12px] text-start py-3 px-6",
+  className: "text-white1 font-medium text-[18px] text-start py-3 px-6",
 })``;
 
 export const ContentName = styled.p.attrs({

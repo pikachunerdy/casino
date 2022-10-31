@@ -27,10 +27,12 @@ const HomeTable = (props) => {
     Website: "Website",
   };
 
-  const siteName = (name, site) => {
+  const siteName = (name, site, src) => {
     return (
       <div className="flex px-6">
-        <Avatar />
+        <div className="mr-3">
+          <Avatar src={src} />
+        </div>
         <div>
           <ContentName>{name}</ContentName>
           <ContentSiteName>{site}</ContentSiteName>
@@ -110,7 +112,7 @@ const HomeTable = (props) => {
       data = [
         ...data,
         {
-          siteName: siteName(row.name, row.site),
+          siteName: siteName(row.name, row.site, row.src),
           bonus: bonus(row.amount),
           feature: features(row.feature1, row.feature2),
           users: users(),
@@ -139,7 +141,7 @@ const HomeTable = (props) => {
           {tableData.slice(0, isExpand ? tableData.length : 3).map((row, i) => {
             return (
               <tr key={i}>
-                <td className="py-4">{row.siteName}</td>
+                <td className="py-8">{row.siteName}</td>
                 <td>{row.bonus}</td>
                 <td>{row.feature}</td>
                 <td>{row.users}</td>
