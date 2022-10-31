@@ -53,7 +53,7 @@ const Carousel = (props) => {
                 value={card.value}
                 content={card.content}
                 avatar={card.avatar}
-                user={card.name}
+                user={card.user}
               ></HomeCard>
             </SwiperSlide>
           );
