@@ -53,8 +53,8 @@ export const SubscribeContainer = styled.div.attrs({
 })``;
 
 export const AvatarContainer = styled.div.attrs({
-  className: "hidden lg:inline-block lg:fixed"
+  className: "hidden lg:inline-block lg:absolute cursor-pointer",
 })`
-  bottom: ${props => props.bottom};
-  left: ${props => props.left};
+  bottom: ${(props) => props.bottom};
+  left: ${(props) => props.left};
 `;

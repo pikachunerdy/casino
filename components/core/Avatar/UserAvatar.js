@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Rating from "../Rating/Rating"
+import Rating from "../Rating/Rating";
 import { Container, Tooltip, TooltipText } from "./UserAvatar.module";
 
 const UserAvatar = (props) => {
@@ -11,7 +11,7 @@ const UserAvatar = (props) => {
       {props.tooltip && (
         <Tooltip>
           <Rating value={props.value} activeColor="#0492C2"></Rating>
-          <TooltipText>"{props.tooltip}"</TooltipText>
+          <TooltipText>&quot;{props.tooltip}&quot;</TooltipText>
         </Tooltip>
       )}
     </Container>

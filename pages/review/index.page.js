@@ -127,27 +127,27 @@ const Review = () => {
         onConfirm={() => console.log("Button confirm")}
         onDiscard={() => console.log("Button discard")}
         buttons={[
-          {
-            role: "custom",
-            onClick: () => console.log("custom test"),
-            toClose: true,
-            classes:
-              "bg-zinc-500/20 px-4 py-2 rounded-lg hover:bg-zinc-500/30 transition-all duration-200",
-            label: "Custom",
-          },
-          {
-            role: "discard",
-            toClose: true,
-            classes:
-              "bg-zinc-500/20 px-4 py-2 rounded-lg hover:bg-zinc-500/30 transition-all duration-200",
-            label: "Discard",
-          },
+          // {
+          //   role: "custom",
+          //   onClick: () => console.log("custom test"),
+          //   toClose: true,
+          //   classes:
+          //     "bg-zinc-500/20 px-4 py-2 rounded-lg hover:bg-zinc-500/30 transition-all duration-200",
+          //   label: "Custom",
+          // },
+          // {
+          //   role: "discard",
+          //   toClose: true,
+          //   classes:
+          //     "bg-zinc-500/20 px-4 py-2 rounded-lg hover:bg-zinc-500/30 transition-all duration-200",
+          //   label: "Discard",
+          // },
           {
             role: "confirm",
-            toClose: false,
+            toClose: true,
             classes:
-              "bg-green-500 px-4 py-2 rounded-lg hover:bg-green-600 transition-all duration-200",
-            label: "Confirm",
+              "bg-blue1 border border-transparent hover:bg-transparent hover:border-white w-fit py-2 px-5 rounded-3xl transition w-1/2 mx-auto",
+            label: "Submit Your Review",
           },
         ]}
         handleChange={handleChange}

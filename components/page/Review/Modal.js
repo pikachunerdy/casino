@@ -11,7 +11,7 @@ import Rating3 from "public/image/Rating/Rating3.png";
 import Rating4 from "public/image/Rating/Rating4.png";
 import Rating5 from "public/image/Rating/Rating5.png";
 
-module.exports = ({
+const Modal = ({
   open,
   title = "",
   content = "",
@@ -30,6 +30,7 @@ module.exports = ({
           src={`/image/Rating/Rating${rating.value}`}
           width={80}
           height={13}
+          alt="rating"
         />
       ),
     };
@@ -73,7 +74,12 @@ module.exports = ({
             >
               <div className="w-full flex flex-col justify-between items-center mb-6">
                 <div className="w-full flex justify-between">
-                  <Image src={logo} width={182} handleChange={24}></Image>
+                  <Image
+                    src={logo}
+                    width={182}
+                    alt="logo"
+                    handleChange={24}
+                  ></Image>
                   <div
                     onClick={() => handleChange()}
                     className="w-8 h-8 flex justify-center items-center rounded-lg transition-all duration-200 cursor-pointer hover:bg-zinc-500/20"
@@ -129,21 +135,6 @@ module.exports = ({
                   <div className="mt-6">
                     <Select options={ratingOptions} placeholder="Rating" />
                   </div>
-                  {/* <InputContainer className="mt-6">
-                    <CustomSelect name="ratings" placeholder="Username">
-                      <option selected disabled>
-                        Rating
-                      </option>
-                      {options.map((option) => {
-                        console.log(options);
-                        return (
-                          <option value={option.value} className="py-[10px]">
-                            {option.label}
-                          </option>
-                        );
-                      })}
-                    </CustomSelect>
-                  </InputContainer> */}
                 </form>
               </div>
               <div className="mt-6 flex justify-end items-center gap-2">
@@ -177,3 +168,5 @@ module.exports = ({
     </>
   );
 };
+
+export default Modal;
