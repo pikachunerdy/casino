@@ -65,7 +65,7 @@ const Modal = ({
         >
           <div
             style={{ zIndex: "2" }}
-            className="flex justify-center items-center h-full w-full fixed top-0 left-0"
+            className="flex justify-center items-center fixed bottom-1/2 translate-y-1/2 right-1/2 translate-x-1/2"
           >
             <div
               className={`w-[600px] ${
