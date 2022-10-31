@@ -6,7 +6,7 @@ const UserAvatar = (props) => {
   return (
     <Container>
       <div className="opacity-50 hover:opacity-100 transition">
-        <Image src={props.src} width={67} height={67} />
+        <Image src={props.src} alt="userAvatar" width={67} height={67} />
       </div>
       {props.tooltip && (
         <Tooltip>
