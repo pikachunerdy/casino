@@ -20,3 +20,7 @@ html {
 .scroll-x::-webkit-scrollbar {
   display: none;
 }
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
