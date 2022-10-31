@@ -42,7 +42,7 @@ export default function Header({ children }) {
     <HeaderWrapper>
       <Logo>
         <Link href="/">
-          <Image src="/image/logo.svg" width={182} height={24} />
+          <Image src="/image/logo.svg" alt="logo" width={182} height={24} />
         </Link>
       </Logo>
 
