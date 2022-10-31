@@ -12,7 +12,7 @@ const HomeCard = (props) => {
       <div>
         <CardContent>{props.content}</CardContent>
       </div>
-      <div className="flex mt-8">
+      <div className="flex mt-8 gap-4">
         <Avatar src={props.avatar}></Avatar>
         <CardUserName>{props.user}</CardUserName>
       </div>
