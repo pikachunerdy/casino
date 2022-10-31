@@ -51,3 +51,10 @@ export const SubscribeContainer = styled.div.attrs({
   className:
     "flex flex-col justify-center items-center -mx-10 bg-no-repeat bg-center bg-[url('/background/Back3.png')] bg-cover rounded-[20px] h-[318px]",
 })``;
+
+export const AvatarContainer = styled.div.attrs({
+  className: "hidden lg:inline-block lg:fixed"
+})`
+  bottom: ${props => props.bottom};
+  left: ${props => props.left};
+`;

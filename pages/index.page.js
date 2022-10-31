@@ -14,6 +14,7 @@ import {
   AboutTitle,
   AboutContent,
   SubscribeContainer,
+  AvatarContainer,
 } from "./index.module";
 import Layout from "../components/Layout/Layout";
 import Button from "../components/core/Button/Button";
@@ -26,6 +27,8 @@ import Subscribe from "../components/core/Subscribe/Subscribe";
 import { FaArrowRight } from "react-icons/fa";
 import Back2 from "public/background/Back2.png";
 import Check from "public/Icon/Check.png";
+import Avatar1 from "public/image/Avatar1.png"
+import UserAvatar from '../components/core/Avatar/UserAvatar'
 
 const Home = () => {
   const cards = [
@@ -34,7 +37,7 @@ const Home = () => {
       value: 4,
       content:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "Tom",
+      avatar: "/image/avatar.svg",
       user: "Tomson",
     },
     {
@@ -42,7 +45,7 @@ const Home = () => {
       value: 4,
       content:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "Tom",
+      avatar: "/image/avatar.svg",
       user: "Tomson",
     },
     {
@@ -50,7 +53,7 @@ const Home = () => {
       value: 4,
       content:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "Tom",
+      avatar: "/image/avatar.svg",
       user: "Tomson",
     },
     {
@@ -58,7 +61,7 @@ const Home = () => {
       value: 4,
       content:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "Tom",
+      avatar: "/image/avatar.svg",
       user: "Tomson",
     },
     {
@@ -66,7 +69,7 @@ const Home = () => {
       value: 4,
       content:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "Tom",
+      avatar: "/image/avatar.svg",
       user: "Tomson",
     },
     {
@@ -74,7 +77,7 @@ const Home = () => {
       value: 4,
       content:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "Tom",
+      avatar: "/image/avatar.svg",
       user: "Tomson",
     },
   ];
@@ -142,7 +145,25 @@ const Home = () => {
 
   return (
     <Layout>
-      <Container className="min-h-screen bg-[url('/background/Back1.svg')]">
+      <Container className="min-h-screen">
+        <AvatarContainer bottom="20%" left="10%">
+          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+        </AvatarContainer>
+        <AvatarContainer bottom="50%" left="10%">
+          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+        </AvatarContainer>
+        <AvatarContainer bottom="78%" left="27%">
+          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+        </AvatarContainer>
+        <AvatarContainer bottom="80%" left="60%">
+          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+        </AvatarContainer>
+        <AvatarContainer bottom="60%" left="80%">
+          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+        </AvatarContainer>
+        <AvatarContainer bottom="30%" left="80%">
+          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+        </AvatarContainer>
         <Title>
           <span className="text-darkBlue">Real Players,</span> Real Money,
           Trusted Reviews!
