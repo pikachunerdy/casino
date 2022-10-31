@@ -4,20 +4,36 @@ import {
   FooterTitle,
   FooterContent,
   FooterDivider,
+  FooterSocialContent,
 } from "./Footer.module";
 import Link from "next/link";
+import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <div className="w-[90%] ">
       <FooterContainer>
         <FooterSubContainer>
-          <FooterTitle>Disclosed</FooterTitle>
+          <FooterTitle>
+            <span className="text-[22px]">D</span>isclosed
+            <span className="text-[50px]"> .</span>
+          </FooterTitle>
           <div className="mt-10">
             <FooterContent className="w-60">
               Our innovative algorithm guarantees genuine reviews. Using
               blockchain technology.
             </FooterContent>
+            <div className="flex gap-4 mt-8">
+              <FooterSocialContent>
+                <FaTwitter />
+              </FooterSocialContent>
+              <FooterSocialContent>
+                <FaFacebookF />
+              </FooterSocialContent>
+              <FooterSocialContent>
+                <FaInstagram />
+              </FooterSocialContent>
+            </div>
           </div>
         </FooterSubContainer>
 
