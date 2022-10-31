@@ -22,7 +22,7 @@ const FeaturedCasino = (props) => {
         onMouseLeave={() => setIsShow(false)}
       ></Image>
       <div
-        className={`absolute left-5 bottom-5 transition ${
+        className={`absolute left-0 bottom-0 pl-5 py-5 transition w-full dark:bg-black1 ${
           isShow ? "opacity-80" : "opacity-0"
         }`}
         onMouseEnter={() => setIsShow(true)}
