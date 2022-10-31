@@ -11,6 +11,7 @@ import {
 } from "./index.module";
 import Button from "../../components/core/Button/Button";
 import { FaArrowRight } from "react-icons/fa";
+import Select from "../../components/core/Select/Select";
 import Card1 from "public/image/ReviewCard.png";
 
 const Profile = () => {
@@ -24,6 +25,23 @@ const Profile = () => {
   };
 
   const [currentTab, setCurrentTab] = React.useState(0);
+  const sortOptions = [
+    {
+      value: "date",
+      label: "Date",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "Popularity",
+      label: "Popularity",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "Rating",
+      label: "Rating",
+      className: "dropdown-menu-option",
+    },
+  ];
 
   return (
     <Layout>
@@ -75,8 +93,9 @@ const Profile = () => {
         </div>
         {currentTab === 0 && (
           <div className="mt-[10px]">
-            <div className="flex">
+            <div className="flex justify-between">
               <Title>Current Reviews</Title>
+              <Select options={sortOptions} placeholder="Sort by" />
             </div>
             <div className="flex flex-wrap justify-between">
               <div className="w-[49%] mt-[10px]">

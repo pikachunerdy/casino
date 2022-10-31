@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import Button from "../../components/core/Button/Button";
 import ReviewCard from "../../components/core/Card/ReviewCard";
-import { FaArrowRight, FaPen } from "react-icons/fa";
+import { FaArrowRight, FaPen, FaChevronDown } from "react-icons/fa";
 import Card1 from "public/image/ReviewCard.png";
 import Search from "../../components/core/Search/Search";
 import Rating from "../../components/core/Rating/Rating";
 import Modal from "../../components/page/Review/Modal";
+import Select from "../../components/core/Select/Select";
 import {
   Container,
   HomeContainer,
@@ -52,11 +53,103 @@ const Review = () => {
   ];
 
   const ratingOptions = [
-    { value: 5, label: 5, className: "py-[10px] pl-[14px]" },
-    { value: 4, label: 4, className: "py-[10px] pl-[14px]" },
-    { value: 3, label: 3, className: "py-[10px] pl-[14px]" },
-    { value: 2, label: 2, className: "py-[10px] pl-[14px]" },
-    { value: 1, label: 1, className: "py-[10px] pl-[14px]" },
+    { value: 5, label: 5, className: "dropdown-menu-option" },
+    { value: 4, label: 4, className: "dropdown-menu-option" },
+    { value: 3, label: 3, className: "dropdown-menu-option" },
+    { value: 2, label: 2, className: "dropdown-menu-option" },
+    { value: 1, label: 1, className: "dropdown-menu-option" },
+  ];
+
+  const topReviewOptions = [
+    {
+      value: "TopReviews",
+      label: "Top Reviews",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "MostRecent",
+      label: "Most Recent",
+      className: "dropdown-menu-option",
+    },
+  ];
+
+  const verifiedReviewOptions = [
+    {
+      value: "AllReviews",
+      label: "All Reviews",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "Verifiedreviewsonly",
+      label: "Verified reviews only",
+      className: "dropdown-menu-option",
+    },
+  ];
+
+  const allNegativeReviewOptions = [
+    {
+      value: "5star",
+      label: "5 star",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "4star",
+      label: "4 star",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "3star",
+      label: "3 star",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "2star",
+      label: "2 star",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "1star",
+      label: "1 star",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "AllStars",
+      label: "All Stars",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "AllNegative",
+      label: "All Negative",
+      className: "dropdown-menu-option",
+    },
+  ];
+
+  const casinoGameOptions = [
+    {
+      value: "Craps",
+      label: "Craps",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "Slots",
+      label: "Slots",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "Blackjack",
+      label: "Black jack",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "Roulette",
+      label: "Roulette",
+      className: "dropdown-menu-option",
+    },
+    {
+      value: "TexasHoldem",
+      label: "Texas Holdem",
+      className: "dropdown-menu-option",
+    },
   ];
 
   return (
@@ -80,8 +173,28 @@ const Review = () => {
       </HomeContainer>
 
       <Container>
-        <div className="my-14 w-full">
+        <div className="mx-[54px] w-full">
           <Search />
+        </div>
+        <div className="flex justify-between gap-14 mt-[29px] w-full">
+          <div className="w-1/4">
+            <Select options={topReviewOptions} placeholder="Top Reviews" />
+          </div>
+          <div className="w-1/4">
+            <Select
+              options={verifiedReviewOptions}
+              placeholder="Verified reviews only"
+            />
+          </div>
+          <div className="w-1/4">
+            <Select
+              options={allNegativeReviewOptions}
+              placeholder="All negative"
+            />
+          </div>
+          <div className="w-1/4">
+            <Select options={casinoGameOptions} placeholder="Casino games" />
+          </div>
         </div>
       </Container>
 

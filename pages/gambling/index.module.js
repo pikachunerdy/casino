@@ -10,35 +10,35 @@ export const Container = styled.div.attrs({
 })``;
 
 export const PageTitle = styled.div.attrs({
-  className: "font-semibold text-[32px] leading-[30px] text-white1",
+  className: "font-semibold text-[28px] leading-[26px] text-white1",
 })``;
 
 export const ContentTitle = styled.div.attrs({
-  className: "font-medium text-[40px] leading-[49px] text-white1",
+  className: "font-medium text-[36px] leading-[45px] text-white1",
 })``;
 
 export const CardContainer = styled.div.attrs({
-  className: "bg-black1 py-10 px-[65px]",
+  className: "bg-black1 py-9 px-[61px]",
 })``;
 
 export const ProsText = styled.div.attrs({
-  className: "font-medium text-[20px] leading-[69px] text-green2",
+  className: "font-medium text-[16px] leading-[65px] text-green2",
 })``;
 
 export const ConsText = styled.div.attrs({
-  className: "font-medium text-[20px] leading-[69px] text-red1",
+  className: "font-medium text-[16px] leading-[65px] text-red1",
 })``;
 
 export const CardContent = styled.span.attrs({
-  className: "text-white1 font-normal text-[18px]",
+  className: "text-white1 font-normal text-[14px]",
 })``;
 
 export const SubTitle = styled.div.attrs({
-  className: "font-semibold text-[24px] leading-[32px] text-white1",
+  className: "font-semibold text-[20px] leading-[28px] text-white1",
 })``;
 
 export const AboutTitle = styled.span.attrs({
-  className: "text-white font-bold text-[42px] text-center",
+  className: "text-white font-bold text-[38px] text-center",
 })``;
 
 export const SubscribeContainer = styled.div.attrs({

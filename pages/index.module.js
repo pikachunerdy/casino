@@ -36,7 +36,7 @@ export const HomeCardTitle = styled.span.attrs({
 
 export const About = styled.span.attrs({
   className:
-    "flex flex-col items-center gap-10 w-full bg-black1 pt-12 pb-[135px] px-[165px] text-center",
+    "flex flex-col items-center gap-10 w-full bg-black1 pt-12 pb-[115px] px-[165px] text-center",
 })``;
 
 export const AboutTitle = styled.span.attrs({

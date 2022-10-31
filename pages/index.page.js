@@ -27,8 +27,8 @@ import Subscribe from "../components/core/Subscribe/Subscribe";
 import { FaArrowRight } from "react-icons/fa";
 import Back2 from "public/background/Back2.png";
 import Check from "public/Icon/Check.png";
-import Avatar1 from "public/image/Avatar1.png"
-import UserAvatar from '../components/core/Avatar/UserAvatar'
+import Avatar1 from "public/image/Avatar1.png";
+import UserAvatar from "../components/core/Avatar/UserAvatar";
 
 const Home = () => {
   const cards = [
@@ -86,6 +86,7 @@ const Home = () => {
     {
       name: "Stake Casino",
       site: "stake.com",
+      src: Avatar1,
       amount: "2500",
       feature1: "Original bonus",
       feature2: "Weekly giveaways",
@@ -96,6 +97,7 @@ const Home = () => {
     {
       name: "Stake Casino",
       site: "stake.com",
+      src: Avatar1,
       amount: "2500",
       feature1: "Original bonus",
       feature2: "Weekly giveaways",
@@ -106,6 +108,7 @@ const Home = () => {
     {
       name: "Stake Casino",
       site: "stake.com",
+      src: Avatar1,
       amount: "2500",
       feature1: "Original bonus",
       feature2: "Weekly giveaways",
@@ -116,6 +119,7 @@ const Home = () => {
     {
       name: "Stake Casino",
       site: "stake.com",
+      src: Avatar1,
       amount: "2500",
       feature1: "Original bonus",
       feature2: "Weekly giveaways",
@@ -147,22 +151,46 @@ const Home = () => {
     <Layout>
       <Container className="min-h-screen">
         <AvatarContainer bottom="20%" left="10%">
-          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+          <UserAvatar
+            src={Avatar1}
+            value={4}
+            tooltip="The best website"
+          ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="50%" left="10%">
-          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+          <UserAvatar
+            src={Avatar1}
+            value={4}
+            tooltip="The best website"
+          ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="78%" left="27%">
-          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+          <UserAvatar
+            src={Avatar1}
+            value={4}
+            tooltip="The best website"
+          ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="80%" left="60%">
-          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+          <UserAvatar
+            src={Avatar1}
+            value={4}
+            tooltip="The best website"
+          ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="60%" left="80%">
-          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+          <UserAvatar
+            src={Avatar1}
+            value={4}
+            tooltip="The best website"
+          ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="30%" left="80%">
-          <UserAvatar src={Avatar1} value={4} tooltip="The best website"></UserAvatar>
+          <UserAvatar
+            src={Avatar1}
+            value={4}
+            tooltip="The best website"
+          ></UserAvatar>
         </AvatarContainer>
         <Title>
           <span className="text-darkBlue">Real Players,</span> Real Money,
@@ -295,7 +323,7 @@ const Home = () => {
             </div>
           </Button>
         </div>
-        <div className="flex flox-col mt-[136px]">
+        <div className="flex flox-col mt-[116px]">
           <About>
             <div className="w-full">
               <AboutTitle className="text-blue1">About Us!</AboutTitle>
@@ -305,7 +333,7 @@ const Home = () => {
               blockchain technology we offer a 100% accurate and trusted
               reviewing system. Our innovative algorithm guarantees genuine
               reviews. Using blockchain technology we offer a 100% accurate and
-              trusted reviewing system. 
+              trusted reviewing system.
             </AboutContent>
             <Button label="Learn More">
               <div className="pl-1 pt-1">
