@@ -121,7 +121,7 @@ const Learn = () => {
               facilisis leo, vel. Lorem ipsum dolor sit amet, consectetur
               adipiscing elit ut aliquam, purus sit amet luctus venenatis,
               lectus magna fringilla urna, portm faci...{" "}
-              <div className="text-blue1 inline-flex cursor-pointer hover:scale-105 transition">
+              <div className="dark:text-blue1 text-blue3 inline-flex cursor-pointer hover:scale-105 transition">
                 Real full article
               </div>
             </ContentText>
@@ -139,7 +139,7 @@ const Learn = () => {
       </Container>
 
       <SubscribeContainer className="mt-16 mb-[133px]">
-        <AboutTitle className="text-white1">
+        <AboutTitle className="dark:text-white1">
           Join today and leave a review at your favourite casinos!
         </AboutTitle>
         <div className="pt-9">
@@ -149,7 +149,7 @@ const Learn = () => {
               console.log("Visit Casino");
             }}
             variant="model"
-            className="!bg-white !text-blue1 hover:!bg-blue1 hover:!text-white1"
+            className="!bg-white !text-blue1 hover:!bg-blue1 hover:!dark:text-white1"
           >
             <div className="pl-1 pt-1">
               <FaArrowRight />

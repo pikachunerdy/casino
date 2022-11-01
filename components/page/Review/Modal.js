@@ -51,7 +51,7 @@ const Modal = ({
           <div
             style={{ zIndex: "1" }}
             onClick={() => handleChange()}
-            className="w-full h-full left-0 top-0 bg-black/50 fixed"
+            className="w-full h-full left-0 top-0 dark:bg-black/50 bg-white fixed"
           />
         </Transition.Child>
         <Transition.Child
@@ -69,7 +69,7 @@ const Modal = ({
           >
             <div
               className={`w-[600px] ${
-                classes ? classes : "p-4 bg-dark text-white1 rounded-lg"
+                classes ? classes : "p-4 bg-dark dark:text-white1 rounded-lg"
               }`}
             >
               <div className="w-full flex flex-col justify-between items-center mb-6">
@@ -109,13 +109,14 @@ const Modal = ({
                 </div>
 
                 <p className="font-semibold text-[32px] text-center leading-[82px]">
-                  Submit Your <span className="text-darkBlue">Casino</span>{" "}
+                  Submit Your{" "}
+                  <span className="dark:text-blue1 text-blue3">Casino</span>{" "}
                   Review
                 </p>
                 <p className="font-medium text-[19px] text-center leading-[22px]">
-                  <span className="text-darkBlue">Sign up</span> or{" "}
-                  <span className="text-darkBlue">Login</span> to be able to
-                  manage or edit your review
+                  <span className="dark:text-blue1 text-blue3">Sign up</span> or{" "}
+                  <span className="dark:text-blue1 text-blue3">Login</span> to
+                  be able to manage or edit your review
                 </p>
               </div>
               <div className="text-md mt-[60px]">

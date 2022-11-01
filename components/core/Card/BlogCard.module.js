@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Card = styled.div.attrs({
-  className: "bg-black1",
+  className: "dark:bg-black1 bg-white",
 })``;
 
 export const Date = styled.div.attrs({
@@ -9,11 +9,11 @@ export const Date = styled.div.attrs({
 })``;
 
 export const Title = styled.div.attrs({
-  className: "text-white1 font-semibold text-[30px]",
+  className: "dark:text-white1 font-semibold text-[30px]",
 })``;
 
 export const Content = styled.div.attrs({
-  className: "text-white1 font-normal text-[18px]",
+  className: "dark:text-white1 font-normal text-[18px]",
 })``;
 
 export const CardContent = styled.div.attrs({

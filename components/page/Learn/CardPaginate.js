@@ -55,7 +55,7 @@ const CardPaginate = (props) => {
           renderOnZeroPageCount={null}
           className="flex items-center justify-center gap-3"
           pageClassName="p-3 px-5 rounded-full"
-          activeClassName="bg-blue1"
+          activeClassName="dark:bg-blue1 bg-blue3"
         />
       </div>
     </div>

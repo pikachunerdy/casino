@@ -259,7 +259,7 @@ const Review = () => {
             role: "confirm",
             toClose: true,
             classes:
-              "bg-blue1 border border-transparent hover:bg-transparent hover:border-white w-fit py-2 px-5 rounded-3xl transition w-1/2 mx-auto",
+              "dark:bg-blue1 bg-blue3 border border-transparent hover:bg-transparent hover:border-white w-fit py-2 px-5 rounded-3xl transition w-1/2 mx-auto",
             label: "Submit Your Review",
           },
         ]}

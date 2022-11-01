@@ -66,7 +66,7 @@ const Carousel = (props) => {
               swiperHandle.slidePrev();
             }
           }}
-          className="py-3 px-[18px] bg-blue1 rounded-full border border-transparent hover:bg-transparent hover:border-white transition"
+          className="py-3 px-[18px] dark:bg-blue1 bg-blue3 text-white rounded-full border border-transparent hover:bg-transparent hover:border-white transition"
         >
           <FontAwesomeIcon icon={faChevronLeft} size="1x" />
         </button>
@@ -77,7 +77,7 @@ const Carousel = (props) => {
               swiperHandle.slideNext();
             }
           }}
-          className="py-3 px-[18px] bg-blue1 rounded-full border border-transparent hover:bg-transparent hover:border-white transition"
+          className="py-3 px-[18px] dark:bg-blue1 bg-blue3 rounded-full text-white border border-transparent hover:bg-transparent hover:border-white transition"
         >
           <FontAwesomeIcon icon={faChevronRight} size="1x" />
         </button>

@@ -35,11 +35,11 @@ const ReviewCard = (props) => {
       <div className="flex justify-end w-full pr-8 gap-5 pb-5">
         <button className="flex items-center gap-2">
           <FaRegThumbsUp style={{ color: "#0492C2" }} />{" "}
-          <span className="text-darkBlue">Helpful</span>
+          <span className="dark:text-blue1 text-blue3">Helpful</span>
         </button>
         <button className="flex items-center gap-2">
           <FaRegThumbsDown style={{ color: "#C9C9C9" }} />{" "}
-          <span className="text-white1">Not Helpful</span>
+          <span className="dark:text-white1">Not Helpful</span>
         </button>
       </div>
     </Card>

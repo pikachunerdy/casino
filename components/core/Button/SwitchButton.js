@@ -13,8 +13,8 @@ const SwitchButton = (props) => {
           variant={index === currentTab ? "model" : ""}
           className={`${
             index === currentTab
-              ? "!border-transparent hover:!bg-blue1"
-              : "!border-transparent"
+              ? "!border-transparent dark:hover:!bg-blue1 hover:!bg-blue3"
+              : "!border-transparent dark:bg-transparent bg-dark5"
           }`}
           key={index}
           handleClick={() => handleClick(index)}

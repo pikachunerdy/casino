@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import Button from "../../components/core/Button/Button";
@@ -10,6 +11,7 @@ import { FaArrowRight } from "react-icons/fa";
 import Card1 from "public/image/ReviewCard.png";
 import Select from "../../components/core/Select/Select";
 import Modal from "../../components/page/Review/Modal";
+import Back from "/public/background/Back5.png";
 
 import {
   HomeContainer,
@@ -356,7 +358,7 @@ const Gambling = () => {
             role: "confirm",
             toClose: true,
             classes:
-              "bg-blue1 border border-transparent hover:bg-transparent hover:border-white w-fit py-2 px-5 rounded-3xl transition w-1/2 mx-auto",
+              "dark:bg-blue1 bg-blue3 border border-transparent hover:bg-transparent hover:border-white w-fit py-2 px-5 rounded-3xl transition w-1/2 mx-auto",
             label: "Submit Your Review",
           },
         ]}

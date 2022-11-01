@@ -22,7 +22,7 @@ const FeaturedCasino = (props) => {
         onMouseLeave={() => setIsShow(false)}
       ></Image>
       <div
-        className={`absolute left-0 bottom-0 pl-5 py-5 transition w-full dark:bg-black1 ${
+        className={`absolute left-0 bottom-0 pl-5 py-5 transition w-full dark:bg-black1 bg-white1 ${
           isShow ? "opacity-80" : "opacity-0"
         }`}
         onMouseEnter={() => setIsShow(true)}
@@ -30,7 +30,12 @@ const FeaturedCasino = (props) => {
       >
         <FeatureTitle>{props.title}</FeatureTitle>
         <div className="flex items-center">
-          <Rating value={props.value} activeColor="#C9C9C9"></Rating>
+          <div className="hidden dark:inline-block">
+            <Rating value={props.value} activeColor="#C9C9C9"></Rating>
+          </div>
+          <div className="dark:hidden inline-block">
+            <Rating value={props.value} activeColor="#1676F8"></Rating>
+          </div>
           <ContentTitle className="pl-5">
             {props.value}/5 based on {props.review}reviews
           </ContentTitle>

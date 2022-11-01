@@ -10,15 +10,15 @@ export const Container = styled.div.attrs({
 })``;
 
 export const PageTitle = styled.div.attrs({
-  className: "font-semibold text-[28px] leading-[26px] text-white1",
+  className: "font-semibold text-[28px] leading-[26px] dark:text-white1",
 })``;
 
 export const ContentTitle = styled.div.attrs({
-  className: "font-medium text-[36px] leading-[45px] text-white1",
+  className: "font-medium text-[36px] leading-[45px] dark:text-white1",
 })``;
 
 export const CardContainer = styled.div.attrs({
-  className: "bg-black1 py-9 px-[61px]",
+  className: "dark:bg-black1 bg-white py-9 px-[61px]",
 })``;
 
 export const ProsText = styled.div.attrs({
@@ -30,15 +30,15 @@ export const ConsText = styled.div.attrs({
 })``;
 
 export const CardContent = styled.span.attrs({
-  className: "text-white1 font-normal text-[14px]",
+  className: "dark:text-white1 font-normal text-[14px]",
 })``;
 
 export const SubTitle = styled.div.attrs({
-  className: "font-semibold text-[20px] leading-[28px] text-white1",
+  className: "font-semibold text-[20px] leading-[28px] dark:text-white1",
 })``;
 
 export const AboutTitle = styled.span.attrs({
-  className: "text-white font-bold text-[38px] text-center",
+  className: "dark:text-white font-bold text-[38px] text-center",
 })``;
 
 export const SubscribeContainer = styled.div.attrs({

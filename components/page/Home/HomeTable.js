@@ -125,7 +125,7 @@ const HomeTable = (props) => {
   }, [props.casinoData, bonus]);
 
   return (
-    <div className="bg-black1">
+    <div className="dark:bg-black1 bg-white">
       <table className="mt-12">
         <thead>
           <tr>

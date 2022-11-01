@@ -131,15 +131,15 @@ const Home = () => {
 
   const siteStates = [
     {
-      color: "purple",
+      color: "text-purple",
       label: "Review",
     },
     {
-      color: "blue2",
+      color: "text-blue2",
       label: "Casino",
     },
     {
-      color: "pink",
+      color: "text-pink",
       label: "Recent",
     },
   ];
@@ -193,8 +193,8 @@ const Home = () => {
           ></UserAvatar>
         </AvatarContainer>
         <Title>
-          <span className="text-darkBlue">Real Players,</span> Real Money,
-          Trusted Reviews!
+          <span className="dark:text-blue1 text-blue3">Real Players,</span> Real
+          Money, Trusted Reviews!
         </Title>
         <Content>
           Our unique algorithm guarantees whether reviewers have played.
@@ -214,7 +214,8 @@ const Home = () => {
       <Container>
         <div>
           <SubTitle>
-            Featured <span className="text-darkBlue">Casino</span> Of The Week
+            Featured <span className="dark:text-blue1 text-blue3">Casino</span>{" "}
+            Of The Week
           </SubTitle>
         </div>
         <div className="w-full pt-9">
@@ -233,7 +234,8 @@ const Home = () => {
       <Container className="mt-28">
         <div>
           <SubTitle>
-            Top <span className="text-darkBlue">Casinos</span> By Rating
+            Top <span className="dark:text-blue1 text-blue3">Casinos</span> By
+            Rating
           </SubTitle>
         </div>
         <div className="flex items-center mt-5">
@@ -265,7 +267,8 @@ const Home = () => {
 
         <div className="mt-[195px]">
           <SubTitle>
-            Featured <span className="text-darkBlue">Blogs</span> Of The Week
+            Featured <span className="dark:text-blue1 text-blue3">Blogs</span>{" "}
+            Of The Week
           </SubTitle>
         </div>
         <div>
@@ -326,7 +329,9 @@ const Home = () => {
         <div className="flex flox-col mt-[116px]">
           <About>
             <div className="w-full">
-              <AboutTitle className="text-blue1">About Us!</AboutTitle>
+              <AboutTitle className="dark:text-blue1 text-blue3">
+                About Us!
+              </AboutTitle>
             </div>
             <AboutContent>
               Our innovative algorithm guarantees genuine reviews. Using

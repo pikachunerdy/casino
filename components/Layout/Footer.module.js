@@ -14,12 +14,12 @@ export const FooterTitle = styled.div.attrs({
 
 export const FooterContent = styled.div.attrs({
   className:
-    "text-white1 font-normal text-[14px] leading-[26px] cursor-pointer hover:text-blue1 transition",
+    "dark:text-white1 font-normal text-[14px] leading-[26px] cursor-pointer hover:text-blue1 transition",
 })``;
 
 export const FooterSocialContent = styled.div.attrs({
   className:
-    "text-blue1 font-normal text-[20px] leading-[26px] cursor-pointer hover:text-white1 transition",
+    "text-blue1 font-normal text-[20px] leading-[26px] cursor-pointer hover:dark:text-white1 transition",
 })``;
 
 export const FooterDivider = styled.div.attrs({

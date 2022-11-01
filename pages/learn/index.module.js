@@ -5,19 +5,19 @@ export const Container = styled.div.attrs({
 })``;
 
 export const ContentText = styled.div.attrs({
-  className: "font-semibold text-[16px] leading-[30px] text-white1",
+  className: "font-semibold text-[16px] leading-[30px] dark:text-white1",
 })``;
 
 export const SubTitle = styled.div.attrs({
-  className: "font-semibold text-[24px] leading-[32px] text-white1",
+  className: "font-semibold text-[24px] leading-[32px] dark:text-white1",
 })``;
 
 export const AboutTitle = styled.span.attrs({
-  className: "text-white font-bold text-[42px] text-center",
+  className: "dark:text-white font-bold text-[42px] text-center",
 })``;
 
 export const AboutContent = styled.span.attrs({
-  className: "text-white1 font-medium text-[18px]",
+  className: "dark:text-white1 font-medium text-[18px]",
 })``;
 
 export const SubscribeContainer = styled.div.attrs({
