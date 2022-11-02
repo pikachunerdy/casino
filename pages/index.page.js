@@ -154,14 +154,14 @@ const Home = () => {
           <UserAvatar
             src={Avatar1}
             value={4}
-            tooltip="The best website"
+            tooltip="The best website, with amazing selection of games"
           ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="50%" left="10%">
           <UserAvatar
             src={Avatar1}
             value={4}
-            tooltip="The best website"
+            tooltip="200% bonus. Wow"
           ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="78%" left="27%">
@@ -175,23 +175,24 @@ const Home = () => {
           <UserAvatar
             src={Avatar1}
             value={4}
-            tooltip="The best website"
+            tooltip="My favourite online casino"
           ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="60%" left="80%">
           <UserAvatar
             src={Avatar1}
             value={4}
-            tooltip="The best website"
+            tooltip="Great casino, superfast withdrawals"
           ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="30%" left="80%">
           <UserAvatar
             src={Avatar1}
             value={4}
-            tooltip="The best website"
+            tooltip="Incredible Casino"
           ></UserAvatar>
         </AvatarContainer>
+        
         <Title>
           <span className="text-darkBlue">Real Players,</span> Real Money,
           Trusted Reviews!

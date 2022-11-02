@@ -171,7 +171,6 @@ const Gambling = () => {
         </div>
       </HomeContainer>
 
-      <Crypto></Crypto>
       <div className="mt-[54px] mx-auto">
         <SwitchButton
           tabs={tabs}
@@ -185,6 +184,7 @@ const Gambling = () => {
           <div className="mt-[80px] w-full">
             <ContentTitle>Overview</ContentTitle>
           </div>
+          <Crypto />
           <div className="flex gap-5 mt-12 w-full rounded-md overflow-hidden">
             <div className="w-[75%]">
               <CardContainer className="h-full">
@@ -204,8 +204,8 @@ const Gambling = () => {
             </div>
             <div className="w-[25%]">
               <RatingCard
-                value="4.9"
-                percent="60"
+                value="4"
+                percent="80"
                 pos="2k"
                 neg="20"
               ></RatingCard>
