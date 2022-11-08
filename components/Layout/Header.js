@@ -18,8 +18,8 @@ const menus = [
     link: "/gambling",
   },
   {
-    label: "Reviews",
-    link: "/review",
+    label: "All Casinos",
+    link: "/casinos",
   },
   {
     label: "About",
