@@ -25,8 +25,10 @@ import {
 const tabs = ["Overview", "User Reviews"];
 
 const Gambling = () => {
+  const [casinoData, setCasinoData] = useState([]);
   const [currentTab, setCurrentTab] = React.useState(0);
   let [isOpen, setIsOpen] = useState(false);
+  const [isVerified, setIsVerified] = React.useState(1);
 
   const handleChange = () => {
     setIsOpen(!isOpen);
@@ -40,6 +42,22 @@ const Gambling = () => {
       document.documentElement.style.overflow = "hidden";
     }
   }, [isOpen]);
+
+  const getAllReviews = async () => {
+    await fetch("http://127.0.0.1:8000/reviews/", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setCasinoData(data));
+  };
+
+  useEffect(() => {
+    getAllReviews();
+  }, []);
 
   const ratingOptions = [
     { value: 5, label: 5, className: "dropdown-menu-option" },
@@ -202,15 +220,21 @@ const Gambling = () => {
                 </CardContent>
               </CardContainer>
             </div>
-            <div className="w-[25%]">
-              <RatingCard
-                value="4"
-                percent="80"
-                pos="2k"
-                neg="20"
-              ></RatingCard>
-            </div>
+            {casinoData.map((data, index) => {
+              return (
+                <div className="w-[25%]">
+                  <RatingCard
+                    overview
+                    score={data.score}
+                    percent="80"
+                    pos="2k"
+                    neg="20"
+                  ></RatingCard>
+                </div>
+              );
+            })}
           </div>
+
           <div className="mt-6">
             <Button
               label="Visit Casino"
@@ -253,66 +277,31 @@ const Gambling = () => {
               <Select options={casinoGameOptions} placeholder="Casino games" />
             </div>
           </div>
-          <div className="flex mt-12 gap-5 w-full rounded-md overflow-hidden">
-            <div className="w-[75%]">
-              <ReviewCard
-                cardImage={Card1}
-                user="Verified user"
-                name="Black Jack"
-                email="@Ahmedhssn"
-                date="21 Sep 2022, 10:49 PM"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-              ></ReviewCard>
-            </div>
-            <div className="w-[25%]">
-              <RatingCard value="4.9" percent="60"></RatingCard>
-            </div>
-          </div>
-          <div className="flex mt-12 gap-5 w-full rounded-md overflow-hidden">
-            <div className="w-[75%]">
-              <ReviewCard
-                cardImage={Card1}
-                user="Verified user"
-                name="Black Jack"
-                email="@Ahmedhssn"
-                date="21 Sep 2022, 10:49 PM"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-              ></ReviewCard>
-            </div>
-            <div className="w-[25%]">
-              <RatingCard value="4.9" percent="60"></RatingCard>
-            </div>
-          </div>
-          <div className="flex mt-12 gap-5 w-full rounded-md overflow-hidden">
-            <div className="w-[75%]">
-              <ReviewCard
-                cardImage={Card1}
-                user="Verified user"
-                name="Black Jack"
-                email="@Ahmedhssn"
-                date="21 Sep 2022, 10:49 PM"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-              ></ReviewCard>
-            </div>
-            <div className="w-[25%]">
-              <RatingCard value="4.9" percent="60"></RatingCard>
-            </div>
-          </div>
-          <div className="flex mt-12 gap-5 w-full rounded-md overflow-hidden">
-            <div className="w-[75%]">
-              <ReviewCard
-                cardImage={Card1}
-                user="Verified user"
-                name="Black Jack"
-                email="@Ahmedhssn"
-                date="21 Sep 2022, 10:49 PM"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-              ></ReviewCard>
-            </div>
-            <div className="w-[25%]">
-              <RatingCard value="4.9" percent="60"></RatingCard>
-            </div>
-          </div>
+          {casinoData.map((data, index) => {
+            console.log("data test ====>", data);
+            return (
+              <div className="flex mt-12 gap-5 w-full rounded-md overflow-hidden">
+                <div className="w-[75%]">
+                  <ReviewCard
+                    userReviews
+                    cardImage={data.image}
+                    // user="Verified user"/
+                    name={data.name}
+                    email={data.website}
+                    date={data.created_at}
+                    description={data.description}
+                    pros={data.pros.pro}
+                    cons={data.cons.con}
+                    userStatus={data.status}
+                  ></ReviewCard>
+                </div>
+                <div className="w-[25%]">
+                  <RatingCard score={data.score} userReviews></RatingCard>
+                </div>
+              </div>
+            );
+          })}
+         
           <div className="mt-6">
             <Button
               label="Show more"
