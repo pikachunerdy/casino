@@ -6,7 +6,8 @@ export const Card = styled.div.attrs({
 })``;
 
 export const StatusContainer = styled.div.attrs({
-  className: "flex justify-start items-center bg-green3 rounded-xl py-4 px-7",
+  className:
+    "flex justify-start items-center dark:bg-green3 bg-white rounded-xl py-4 px-7 dark:border-none border border-solid border-[#E5E5EA] rounded-xl",
 })``;
 
 export const CardText = styled.div.attrs({

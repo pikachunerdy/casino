@@ -34,10 +34,10 @@ const ColorSwitchButton = (props) => {
   return (
     <FormContainer>
       <Button active={colorTheme === 0} onClick={handleColorTheme}>
-        <FaSun />
+        <FaSun className="dark:text-[#405E80] text-[#CFD9E6]" />
       </Button>
       <Button active={colorTheme === 1} onClick={handleColorTheme}>
-        <FaMoon />
+        <FaMoon className="dark:text-[#405E80]  text-[#CFD9E6]" />
       </Button>
     </FormContainer>
   );

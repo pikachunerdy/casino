@@ -22,5 +22,5 @@ export const AboutContent = styled.span.attrs({
 
 export const SubscribeContainer = styled.div.attrs({
   className:
-    "flex flex-col justify-center items-center -mx-10 bg-no-repeat bg-center bg-[url('/background/Back3.png')] bg-cover rounded-[20px] h-[318px]",
+    "flex flex-col justify-center items-center -mx-10 bg-no-repeat bg-center dark:bg-[url('/background/Back3.png')] bg-[url('/background/Back6.png')] bg-cover rounded-[20px] h-[318px]",
 })``;

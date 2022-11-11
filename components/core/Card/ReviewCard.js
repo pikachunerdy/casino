@@ -11,7 +11,7 @@ import { FaArrowRight, FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
 
 const ReviewCard = (props) => {
   return (
-    <Card>
+    <Card backgroundColor={props.backgroundColor}>
       <div className="flex px-4 pt-12">
         <div className="w-1/6 mr-4 max-w-[150px]">
           <Image

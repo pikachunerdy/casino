@@ -149,7 +149,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <Container className="min-h-screen">
+      <Container className="md:min-h-screen mt-36 md:mt-0">
         <AvatarContainer bottom="20%" left="10%">
           <UserAvatar
             src={Avatar1}

@@ -47,15 +47,15 @@ const CardPaginate = (props) => {
       <div className="mx-auto mt-[70px]">
         <ReactPaginate
           breakLabel="..."
-          nextLabel={<FaArrowRight className="text-blue1" />}
+          nextLabel={<FaArrowRight className="dark:text-blue1 text-blue3" />}
           onPageChange={handlePageClick}
           pageRangeDisplayed={4}
           pageCount={pageCount}
-          previousLabel={<FaArrowLeft className="text-blue1" />}
+          previousLabel={<FaArrowLeft className="dark:text-blue1 text-blue3" />}
           renderOnZeroPageCount={null}
           className="flex items-center justify-center gap-3"
           pageClassName="p-3 px-5 rounded-full"
-          activeClassName="dark:bg-blue1 bg-blue3"
+          activeClassName="dark:bg-blue1 bg-sky-500/20"
         />
       </div>
     </div>

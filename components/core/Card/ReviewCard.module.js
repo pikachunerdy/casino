@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
-export const Card = styled.div.attrs({
-  className: "dark:bg-black1 bg-white",
-})``;
+export const Card = styled.div.attrs((props) => ({
+  className: `${
+    props.backgroundColor ? props.backgroundColor : "dark:bg-black1 bg-white"
+  }`,
+}))``;
 
 export const Date = styled.div.attrs({
   className: "text-blue1 font-semibold text-[14px]",

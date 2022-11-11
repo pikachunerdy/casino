@@ -22,6 +22,10 @@ const Carousel = (props) => {
         spaceBetween={10}
         slidesPerView={3}
         breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
           640: {
             slidesPerView: 1,
             spaceBetween: 20,
