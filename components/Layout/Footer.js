@@ -8,17 +8,30 @@ import {
 } from "./Footer.module";
 import Link from "next/link";
 import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
+import logoBlack from "../../public/image/logos/Minimumlogo_black.png";
+import logoWhite from "../../public/image/logos/Minimumlogo_white.png";
+import Image from "next/image";
+import React from "react";
+import { ThemeContext } from "./Layout";
 
 const Footer = () => {
+  const theme = React.useContext(ThemeContext);
+  console.log('theme test -->', theme.theme);
+
   return (
     <div className="w-[90%] ">
       <FooterContainer>
         <FooterSubContainer>
           <FooterTitle>
-            <span className="text-[22px]">D</span>isclosed
-            <span className="text-[50px]"> .</span>
+            {/* <span className="text-[22px]">D</span>isclosed. */}
+            {/* <span className="text-[50px]"> .</span> */}
           </FooterTitle>
-          <div className="mt-10">
+          <div>
+            {theme.theme === "light" ? (
+              <Image src={logoBlack} width={60} height={50} />
+            ) : (
+              <Image src={logoWhite} width={60} height={50} />
+            )}
             <FooterContent className="w-60">
               Our innovative algorithm guarantees genuine reviews. Using
               blockchain technology.

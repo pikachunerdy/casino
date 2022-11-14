@@ -30,8 +30,8 @@ const menus = [
     link: "/learn",
   },
   {
-    label: "FAQs",
-    link: "/faq",
+    label: "Profile",
+    link: "/profile",
   },
 ];
 

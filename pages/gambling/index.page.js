@@ -61,6 +61,46 @@ const Gambling = () => {
     getAllReviews();
   }, []);
 
+  function getAllDataForOneCasino(casinoData, casino_name) {
+    console.log('casino data ---->',casinoData)
+    const arrOfSameCasinoRatings = casinoData.filter((casinoObj) => {
+      if (casinoObj.casino_name === casino_name) return casinoObj;
+    });
+
+    return arrOfSameCasinoRatings;
+  }
+
+  function calculateCasinoAvgRating(arrCasinoObj) {
+    //takes in arrayOfCasinoObjects
+    const res = { up_vote: [], down_vote: [] };
+    let numCasinoObj = 0; //could add a counter for each value
+
+    arrCasinoObj.forEach((casinoObj) => {
+      const { score, up_vote, down_vote } = casinoObj;
+      if (score !== null || score !== undefined) {
+        res.score === undefined ? (res.score = +score) : (res.score = +score);
+        numCasinoObj++;
+        
+      
+      }
+      
+      res.up_vote.push(up_vote);
+      res.down_vote.push(down_vote);
+    });
+
+    res.up_vote.flat(3);
+    res.down_vote.flat(3); // verify how many flat is needed
+
+    const avgCasinoRatingObj = {
+      score: Math.round(res.score / numCasinoObj),
+      percent: Math.round((res.score / numCasinoObj / 5) * 100),
+      // pos: up_vote.length,
+      // neg: down_vote.length,
+    };
+
+    return [avgCasinoRatingObj];
+  }
+
   const ratingOptions = [
     { value: 5, label: 5, className: "dropdown-menu-option" },
     { value: 4, label: 4, className: "dropdown-menu-option" },
@@ -222,16 +262,19 @@ const Gambling = () => {
                 </CardContent>
               </CardContainer>
             </div>
-            {casinoData.map((data, index) => {
+            {calculateCasinoAvgRating(
+              getAllDataForOneCasino(casinoData, "Bet 365")
+            ).map((casino) => {
+              console.log("map test", casino.percent);
               return (
                 <div className="w-[25%]">
                   <RatingCard
                     overview
-                    score={data.score}
-                    percent="80"
-                    pos="2k"
-                    neg="20"
-                  ></RatingCard>
+                    score={casino.score}
+                    percent={casino.percent}
+                    pos={casino.pos}
+                    neg={casino.neg}
+                  />
                 </div>
               );
             })}
@@ -280,30 +323,30 @@ const Gambling = () => {
             </div>
           </div>
           {casinoData.map((data, index) => {
-            console.log("data test ====>", data);
             return (
               <div className="flex mt-12 gap-5 w-full rounded-md overflow-hidden">
                 <div className="w-[75%]">
                   <ReviewCard
                     userReviews
-                    cardImage={data.image}
+                    // image={data.image}
                     // user="Verified user"/
-                    name={data.name}
+                    name={data.casino_name}
                     email={data.website}
                     date={data.created_at}
                     description={data.description}
-                    pros={data.pros.pro}
-                    cons={data.cons.con}
+                    title={data.title}
+                    pros={!data.pros ? "" : Object.values(data.pros)}
+                    cons={!data.cons ? "" : Object.values(data.cons)}
                     userStatus={data.status}
-                  ></ReviewCard>
+                  />
                 </div>
                 <div className="w-[25%]">
-                  <RatingCard score={data.score} userReviews></RatingCard>
+                  <RatingCard score={data.score} userReviews />
                 </div>
               </div>
             );
           })}
-         
+
           <div className="mt-6">
             <Button
               label="Show more"

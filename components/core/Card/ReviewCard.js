@@ -6,9 +6,12 @@ import {
   Content,
   UserEmail,
   CardBadge,
+  CardBadge1,
+  CardBadge2
 } from "./ReviewCard.module";
 import { FaArrowRight, FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
 import Link from "next/link";
+import { useState } from "react";
 
 const ReviewCard = ({
   userReviews,
@@ -22,16 +25,19 @@ const ReviewCard = ({
   cons,
   website,
   userStatus,
+  title,
 }) => {
-  
-  if (userStatus === 1) {
-    userStatus = "verified user";
-  } else if (userStatus === 2) {
-    userStatus = "unverified user";
-  } else {
-    userStatus = "pending user"
+  function userStatusUpdates() {
+    if (userStatus === 1) {
+      userStatus = "verified user";
+    } else if (userStatus === 2) {
+      userStatus = "unverified user";
+    } else {
+      userStatus = "verification pending";
+    }
   }
-  
+  userStatusUpdates();
+
   // const formattedDate = new Date(date).toLocaleDateString('en-US', {
   //   day: 'numeric',
   //   month: 'long',
@@ -58,15 +64,15 @@ const ReviewCard = ({
                 <UserEmail>{email}</UserEmail>
                 <div className="flex items-center gap-5 mt-3">
                   <Date>{date}</Date>
-                  {/* <CardBadge>{userStatus}</CardBadge> */}
+                  <CardBadge>{userStatus}</CardBadge>
                 </div>
                 <div className="gap-8 mt-3">
                   <Content>{description}</Content>
                   <br />
                   <br />
-                  {/* <Content>➕{pros}</Content>
-                  <Content>➖{cons}</Content> */}
-                </div>
+                  {/* {/* <Content>➕{pros}</Content> */}
+                  {/* <Content>➖{cons}</Content>  */}
+                </div>@
               </div>
             </div>
             <div className="flex justify-end w-full pr-8 gap-5 pb-5">
@@ -85,6 +91,8 @@ const ReviewCard = ({
           <Card>
             <div className="flex px-4 pt-12">
               <div className="w-1/6 mr-4 max-w-[150px]">
+                {/* User Avatar will go here */}
+
                 {/* <img
                   src={image}
                   style={{ cursor: "pointer" }}
@@ -93,17 +101,39 @@ const ReviewCard = ({
               </div>
               <div className="w-4/5">
                 <UserName>{name}</UserName>
-                <UserEmail>{email}</UserEmail>
+                <UserEmail>{title}</UserEmail>
                 <div className="flex items-center gap-5 mt-3">
                   <Date>{date}</Date>
-                  <CardBadge>{userStatus}</CardBadge>
+
+                  {/* {userStatus === "verified user" ? (
+                    <CardBadge>{userStatus}</CardBadge>
+                  ) : (
+                    <CardBadge1>{userStatus}</CardBadge1>
+                  )} */}
+
+                  {userStatus === "verified user" && ( 
+                    <CardBadge>{userStatus}</CardBadge>
+                  )}
+                   {userStatus === "verification pending" && ( 
+                    <CardBadge1>{userStatus}</CardBadge1>
+                  )}
+                   {userStatus === "unverified user" && ( 
+                    <CardBadge2>{userStatus}</CardBadge2>
+                  )}
                 </div>
                 <div className="gap-8 mt-3">
                   <Content>{description}</Content>
                   <br />
-                  <br />
-                  <Content>➕{pros}</Content>
-                  <Content>➖{cons}</Content>
+                  {pros.length > 0 &&
+                    pros.map((pro) => {
+                      return <Content>➕ {pro}</Content>;
+                    })}
+                  {cons.length > 0 &&
+                    cons.map((con) => {
+                      return (
+                        <Content style={{ color: "red" }}>➖ {con}</Content>
+                      );
+                    })}
                 </div>
               </div>
             </div>
