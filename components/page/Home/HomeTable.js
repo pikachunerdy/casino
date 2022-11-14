@@ -11,6 +11,8 @@ import {
 } from "./HomeTable.module";
 import { FaArrowRight } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa";
+import HomeTableCard from "./HomeTableCard";
+import Badge from "../../core/Badge/Badge";
 import Avatar from "../../core/Avatar/Avatar";
 import Rating from "../../core/Rating/Rating";
 import People from "public/image/People.png";
@@ -27,7 +29,7 @@ const HomeTable = (props) => {
     Website: "Website",
   };
 
-  const siteName = (name, site, src) => {
+  const siteName = (name, site, src, amount) => {
     return (
       <div className="flex px-6">
         <div className="mr-3">
@@ -35,7 +37,12 @@ const HomeTable = (props) => {
         </div>
         <div>
           <ContentName>{name}</ContentName>
-          <ContentSiteName>{site}</ContentSiteName>
+          <ContentSiteName className="hidden md:inline-block">
+            {site}
+          </ContentSiteName>
+          <div className="flex md:hidden">
+            <Badge color="text-green1" label={`$${amount}`} />
+          </div>
         </div>
       </div>
     );
@@ -84,9 +91,9 @@ const HomeTable = (props) => {
 
   const rating = (value) => {
     return (
-      <div className="flex items-center px-6">
+      <div className="flex flex-col md:flex-row items-center px-6">
         <Rating value={Math.floor(value)} activeColor="#0492C2"></Rating>
-        <RatingContent className="ml-3">{value}/5</RatingContent>
+        <RatingContent className="md:ml-3">{value}/5</RatingContent>
       </div>
     );
   };
@@ -112,7 +119,7 @@ const HomeTable = (props) => {
       data = [
         ...data,
         {
-          siteName: siteName(row.name, row.site, row.src),
+          siteName: siteName(row.name, row.site, row.src, row.amount),
           bonus: bonus(row.amount),
           feature: features(row.feature1, row.feature2),
           users: users(),
@@ -125,34 +132,53 @@ const HomeTable = (props) => {
   }, [props.casinoData, bonus]);
 
   return (
-    <div className="dark:bg-black1 bg-white">
-      <table className="mt-12">
-        <thead>
-          <tr>
-            <HeaderName className="w-[20%]">{tableHeader.Name}</HeaderName>
-            <HeaderName className="w-[10%]">{tableHeader.Bonus}</HeaderName>
-            <HeaderName className="w-[15%]">{tableHeader.Feature}</HeaderName>
-            <HeaderName className="w-[25%]">{tableHeader.Users}</HeaderName>
-            <HeaderName className="w-[20%]">{tableHeader.Rating}</HeaderName>
-            <HeaderName className="w-[20%]">{tableHeader.Website}</HeaderName>
-          </tr>
-        </thead>
-        <tbody>
-          {tableData.slice(0, isExpand ? tableData.length : 3).map((row, i) => {
-            return (
-              <tr key={i}>
-                <td className="py-8">{row.siteName}</td>
-                <td>{row.bonus}</td>
-                <td>{row.feature}</td>
-                <td>{row.users}</td>
-                <td>{row.rating}</td>
-                <td>{row.website}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+    <>
+      <div className="flex flex-col md:hidden">
+        {tableData.slice(0, isExpand ? tableData.length : 3).map((row, i) => {
+          return (
+            <div className="mt-3 mx-auto">
+              <HomeTableCard
+                siteName={row.siteName}
+                bonus={row.bonus}
+                rating={row.rating}
+                feature={row.feature}
+                website={row.website}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <div className="hidden md:block dark:bg-black1 bg-white">
+        <table className="mt-12">
+          <thead>
+            <tr>
+              <HeaderName className="w-[20%]">{tableHeader.Name}</HeaderName>
+              <HeaderName className="w-[10%]">{tableHeader.Bonus}</HeaderName>
+              <HeaderName className="w-[15%]">{tableHeader.Feature}</HeaderName>
+              <HeaderName className="w-[25%]">{tableHeader.Users}</HeaderName>
+              <HeaderName className="w-[20%]">{tableHeader.Rating}</HeaderName>
+              <HeaderName className="w-[20%]">{tableHeader.Website}</HeaderName>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData
+              .slice(0, isExpand ? tableData.length : 3)
+              .map((row, i) => {
+                return (
+                  <tr key={i}>
+                    <td className="py-8">{row.siteName}</td>
+                    <td>{row.bonus}</td>
+                    <td>{row.feature}</td>
+                    <td>{row.users}</td>
+                    <td>{row.rating}</td>
+                    <td>{row.website}</td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };
 

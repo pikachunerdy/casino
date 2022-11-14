@@ -39,20 +39,21 @@ export const HomeCardTitle = styled.span.attrs({
 
 export const About = styled.span.attrs({
   className:
-    "flex flex-col items-center gap-10 w-full dark:bg-black1 bg-white pt-12 pb-[115px] px-[165px] text-center",
+    "flex flex-col items-center gap-10 w-full dark:bg-black1 bg-white pt-[70px] px-[31px] pb-[31px] md:pt-12 md:pb-[115px] md:px-[165px] text-center",
 })``;
 
 export const AboutTitle = styled.span.attrs({
-  className: "font-semibold text-[42px] text-center",
+  className: "font-semibold text-[28px] md:text-[42px] text-center",
 })``;
 
 export const AboutContent = styled.span.attrs({
-  className: "dark:text-white1 font-medium text-[18px]",
+  className:
+    "dark:text-white1 font-normal text-[14px] leading-[38px] md:font-medium md:text-[18px] md:leading-[30px]",
 })``;
 
 export const SubscribeContainer = styled.div.attrs({
   className:
-    "flex flex-col justify-center items-center -mx-10 bg-no-repeat bg-center bg-[url('/background/Back3.png')] bg-cover rounded-[20px] h-[318px]",
+    "flex flex-col justify-center items-center md:-mx-10 bg-no-repeat bg-center bg-[url('/background/Back3.png')] bg-cover rounded-[20px] h-[318px]",
 })``;
 
 export const AvatarContainer = styled.div.attrs({

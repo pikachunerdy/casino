@@ -26,7 +26,7 @@ export default function Layout({ children }) {
     <ThemeContext.Provider value={{ theme, toggleTheme: handleTheme }}>
       <div className={theme}>
         <Wrapper>
-          <Header></Header>
+          {/* <Header></Header> */}
           <div className="flex flex-col justify-center w-[90%]">{children}</div>
           <Footer></Footer>
         </Wrapper>

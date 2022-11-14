@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { FreeMode, Pagination, Scrollbar, A11y } from "swiper";
 import Button from "../../core/Button/Button";
 import HomeCard from "./HomeCard";
+import BlogCard from "../../core/Card/BlogCard";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
@@ -49,19 +50,34 @@ const Carousel = (props) => {
         }}
         className="gap-4 !p-5"
       >
-        {props.cards.map((card, i) => {
-          return (
-            <SwiperSlide className="flex justify-center" key={i}>
-              <HomeCard
-                title={card.title}
-                value={card.value}
-                content={card.content}
-                avatar={card.avatar}
-                user={card.user}
-              ></HomeCard>
-            </SwiperSlide>
-          );
-        })}
+        {props.cards &&
+          props.cards.map((card, i) => {
+            return (
+              <SwiperSlide className="flex justify-center" key={i}>
+                <HomeCard
+                  title={card.title}
+                  value={card.value}
+                  content={card.content}
+                  avatar={card.avatar}
+                  user={card.user}
+                ></HomeCard>
+              </SwiperSlide>
+            );
+          })}
+        {props.blogCards &&
+          props.blogCards.map((blogCard, i) => {
+            return (
+              <SwiperSlide className="flex justify-center" key={i}>
+                <BlogCard
+                  cardImage={blogCard.cardImage}
+                  date={blogCard.date}
+                  title={blogCard.title}
+                  content={blogCard.content}
+                  states={blogCard.states}
+                ></BlogCard>
+              </SwiperSlide>
+            );
+          })}
       </Swiper>
       <div className="flex justify-center mt-14 gap-3">
         <button
