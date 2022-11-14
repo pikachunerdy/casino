@@ -17,6 +17,7 @@ import {
 
 const Review = () => {
   let [isOpen, setIsOpen] = useState(false);
+  const [listData, setListData] = useState([]);
 
   const handleChange = () => {
     setIsOpen(!isOpen);
@@ -31,26 +32,21 @@ const Review = () => {
     }
   }, [isOpen]);
 
-  const ReviewData = [
-    {
-      cardImage: Card1,
-      user: "Verified user",
-      name: "Black Jack",
-      email: "@Ahmedhssn",
-      date: "21 Sep 2022, 10:49 PM",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna",
-    },
-    {
-      cardImage: Card1,
-      user: "Verified user",
-      name: "Black Jack",
-      email: "@Ahmedhssn",
-      date: "21 Sep 2022, 10:49 PM",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna",
-    },
-  ];
+  const getAllCasinos = async () => {
+    await fetch("http://127.0.0.1:8000/casinos/", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setListData(data));
+  };
+
+  useEffect(() => {
+    getAllCasinos();
+  }, []);
 
   const ratingOptions = [
     { value: 5, label: 5, className: "dropdown-menu-option" },
@@ -200,17 +196,24 @@ const Review = () => {
 
       <div className="flex">
         <div className="mt-16">
-          {ReviewData.map((reviewOne, index) => {
+          {listData.map((reviewOne, index) => {
+            {
+              /* {ReviewData.map((reviewOne, index) => { */
+            }
             return (
               <div key={index} className="w-full mt-7">
                 <ReviewCard
-                  cardImage={reviewOne.cardImage}
+                  allCasinos
+                  image={reviewOne.image}
                   user={reviewOne.user}
                   name={reviewOne.name}
-                  email={reviewOne.email}
-                  date={reviewOne.date}
-                  content={reviewOne.content}
-                ></ReviewCard>
+                  website={reviewOne.website}
+                  date={reviewOne.created_at}
+                  description={reviewOne.description}
+                  pros={reviewOne.pros}
+                  cons={reviewOne.cons}
+                  // casino={reviewOne.casino}
+                />
               </div>
             );
           })}

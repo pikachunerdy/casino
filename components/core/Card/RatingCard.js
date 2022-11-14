@@ -9,49 +9,63 @@ import {
 } from "./RatingCard.module";
 import Rating from "../Rating/Rating";
 
-const RatingCard = (props) => {
+const RatingCard = ({
+  percent,
+  value,
+  score,
+  pos,
+  neg,
+  overview,
+  userReviews,
+}) => {
+ 
+  let calculatedPercent = (score / 5) * 100;
+
   return (
     <Card>
-      <div className="w-[35%] dark:block hidden">
-        <CircularProgressbar
-          value={props.percent}
-          text={`${props.value}/5`}
-          background
-          styles={buildStyles({
-            backgroundColor: "rgba(22, 118, 248, 0.08)",
-            textColor: "#C9C9C9",
-            pathColor: "#0492C2",
-            trailColor: "transparent",
-          })}
-        />
+      <div className="w-[35%]">
+        {overview ? (
+          <CircularProgressbar
+            value={percent}
+            text={`${score} / 5`}
+            background
+            styles={buildStyles({
+              backgroundColor: "rgba(22, 118, 248, 0.08)",
+              textColor: "#C9C9C9",
+              pathColor: "#0492C2",
+              trailColor: "transparent",
+            })}
+          />
+          
+        ) : (
+          <CircularProgressbar
+            value={calculatedPercent}
+            text={`${score} / 5`}
+            background
+            styles={buildStyles({
+              backgroundColor: "rgba(22, 118, 248, 0.08)",
+              textColor: "#C9C9C9",
+              pathColor: "#0492C2",
+              trailColor: "transparent",
+            })}
+          />
+        )}
+         <div className="pt-9">
+        <Rating value={score} activeColor="#0492C2"></Rating>
       </div>
-      <div className="w-[35%] dark:hidden">
-        <CircularProgressbar
-          value={props.percent}
-          text={`${props.value}/5`}
-          background
-          styles={buildStyles({
-            backgroundColor: "rgba(22, 118, 248, 0.08)",
-            textColor: "black",
-            pathColor: "#1676F8",
-            trailColor: "transparent",
-          })}
-        />
       </div>
-      <div className="pt-9">
-        <Rating value={props.value} activeColor="#0492C2"></Rating>
-      </div>
-      {props.pos && (
+      
+      {pos && (
         <div className="w-full">
           <StatusContainer>
             <div className="w-1/2">
               <CardText>Positive</CardText>
-              <PosText>{props.pos}</PosText>
+              <PosText>{pos}</PosText>
             </div>
             <div className="w-1 dark:bg-white bg-[#E5E5EA] h-7 mr-4"></div>
             <div className="w-1/2">
               <CardText>Negative</CardText>
-              <NegText>{props.neg}</NegText>
+              <NegText>{neg}</NegText>
             </div>
           </StatusContainer>
         </div>

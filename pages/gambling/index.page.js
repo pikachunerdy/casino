@@ -27,8 +27,10 @@ import {
 const tabs = ["Overview", "User Reviews"];
 
 const Gambling = () => {
+  const [casinoData, setCasinoData] = useState([]);
   const [currentTab, setCurrentTab] = React.useState(0);
   let [isOpen, setIsOpen] = useState(false);
+  const [isVerified, setIsVerified] = React.useState(1);
 
   const handleChange = () => {
     setIsOpen(!isOpen);
@@ -42,6 +44,62 @@ const Gambling = () => {
       document.documentElement.style.overflow = "hidden";
     }
   }, [isOpen]);
+
+  const getAllReviews = async () => {
+    await fetch("http://127.0.0.1:8000/reviews/", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setCasinoData(data));
+  };
+
+  useEffect(() => {
+    getAllReviews();
+  }, []);
+
+  function getAllDataForOneCasino(casinoData, casino_name) {
+    console.log('casino data ---->',casinoData)
+    const arrOfSameCasinoRatings = casinoData.filter((casinoObj) => {
+      if (casinoObj.casino_name === casino_name) return casinoObj;
+    });
+
+    return arrOfSameCasinoRatings;
+  }
+
+  function calculateCasinoAvgRating(arrCasinoObj) {
+    //takes in arrayOfCasinoObjects
+    const res = { up_vote: [], down_vote: [] };
+    let numCasinoObj = 0; //could add a counter for each value
+
+    arrCasinoObj.forEach((casinoObj) => {
+      const { score, up_vote, down_vote } = casinoObj;
+      if (score !== null || score !== undefined) {
+        res.score === undefined ? (res.score = +score) : (res.score = +score);
+        numCasinoObj++;
+        
+      
+      }
+      
+      res.up_vote.push(up_vote);
+      res.down_vote.push(down_vote);
+    });
+
+    res.up_vote.flat(3);
+    res.down_vote.flat(3); // verify how many flat is needed
+
+    const avgCasinoRatingObj = {
+      score: Math.round(res.score / numCasinoObj),
+      percent: Math.round((res.score / numCasinoObj / 5) * 100),
+      // pos: up_vote.length,
+      // neg: down_vote.length,
+    };
+
+    return [avgCasinoRatingObj];
+  }
 
   const ratingOptions = [
     { value: 5, label: 5, className: "dropdown-menu-option" },
@@ -173,7 +231,6 @@ const Gambling = () => {
         </div>
       </HomeContainer>
 
-      <Crypto></Crypto>
       <div className="mt-[54px] mx-auto">
         <SwitchButton
           tabs={tabs}
@@ -187,6 +244,7 @@ const Gambling = () => {
           <div className="mt-[80px] w-full">
             <ContentTitle>Overview</ContentTitle>
           </div>
+          <Crypto />
           <div className="flex gap-5 mt-12 w-full rounded-md overflow-hidden">
             <div className="w-[75%]">
               <CardContainer className="h-full">
@@ -204,15 +262,24 @@ const Gambling = () => {
                 </CardContent>
               </CardContainer>
             </div>
-            <div className="w-[25%]">
-              <RatingCard
-                value="4.9"
-                percent="60"
-                pos="2k"
-                neg="20"
-              ></RatingCard>
-            </div>
+            {calculateCasinoAvgRating(
+              getAllDataForOneCasino(casinoData, "Bet 365")
+            ).map((casino) => {
+              console.log("map test", casino.percent);
+              return (
+                <div className="w-[25%]">
+                  <RatingCard
+                    overview
+                    score={casino.score}
+                    percent={casino.percent}
+                    pos={casino.pos}
+                    neg={casino.neg}
+                  />
+                </div>
+              );
+            })}
           </div>
+
           <div className="mt-6">
             <Button
               label="Visit Casino"
@@ -255,66 +322,31 @@ const Gambling = () => {
               <Select options={casinoGameOptions} placeholder="Casino games" />
             </div>
           </div>
-          <div className="flex mt-12 gap-5 w-full rounded-md overflow-hidden">
-            <div className="w-[75%]">
-              <ReviewCard
-                cardImage={Card1}
-                user="Verified user"
-                name="Black Jack"
-                email="@Ahmedhssn"
-                date="21 Sep 2022, 10:49 PM"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-              ></ReviewCard>
-            </div>
-            <div className="w-[25%]">
-              <RatingCard value="4.9" percent="60"></RatingCard>
-            </div>
-          </div>
-          <div className="flex mt-12 gap-5 w-full rounded-md overflow-hidden">
-            <div className="w-[75%]">
-              <ReviewCard
-                cardImage={Card1}
-                user="Verified user"
-                name="Black Jack"
-                email="@Ahmedhssn"
-                date="21 Sep 2022, 10:49 PM"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-              ></ReviewCard>
-            </div>
-            <div className="w-[25%]">
-              <RatingCard value="4.9" percent="60"></RatingCard>
-            </div>
-          </div>
-          <div className="flex mt-12 gap-5 w-full rounded-md overflow-hidden">
-            <div className="w-[75%]">
-              <ReviewCard
-                cardImage={Card1}
-                user="Verified user"
-                name="Black Jack"
-                email="@Ahmedhssn"
-                date="21 Sep 2022, 10:49 PM"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-              ></ReviewCard>
-            </div>
-            <div className="w-[25%]">
-              <RatingCard value="4.9" percent="60"></RatingCard>
-            </div>
-          </div>
-          <div className="flex mt-12 gap-5 w-full rounded-md overflow-hidden">
-            <div className="w-[75%]">
-              <ReviewCard
-                cardImage={Card1}
-                user="Verified user"
-                name="Black Jack"
-                email="@Ahmedhssn"
-                date="21 Sep 2022, 10:49 PM"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna fringilla urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, lectus magna fringilla urna, lectus magna"
-              ></ReviewCard>
-            </div>
-            <div className="w-[25%]">
-              <RatingCard value="4.9" percent="60"></RatingCard>
-            </div>
-          </div>
+          {casinoData.map((data, index) => {
+            return (
+              <div className="flex mt-12 gap-5 w-full rounded-md overflow-hidden">
+                <div className="w-[75%]">
+                  <ReviewCard
+                    userReviews
+                    // image={data.image}
+                    // user="Verified user"/
+                    name={data.casino_name}
+                    email={data.website}
+                    date={data.created_at}
+                    description={data.description}
+                    title={data.title}
+                    pros={!data.pros ? "" : Object.values(data.pros)}
+                    cons={!data.cons ? "" : Object.values(data.cons)}
+                    userStatus={data.status}
+                  />
+                </div>
+                <div className="w-[25%]">
+                  <RatingCard score={data.score} userReviews />
+                </div>
+              </div>
+            );
+          })}
+
           <div className="mt-6">
             <Button
               label="Show more"

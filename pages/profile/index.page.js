@@ -180,7 +180,7 @@ const Profile = () => {
         {currentTab === 1 && (
           <div className="mt-[10px]">
             <div className="flex">
-              <Title>Pendding Reviews</Title>
+              <Title>Pending Reviews</Title>
             </div>
             <div className="flex flex-wrap justify-between">
               <div className="w-[49%] mt-[10px]">

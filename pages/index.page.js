@@ -154,14 +154,14 @@ const Home = () => {
           <UserAvatar
             src={Avatar1}
             value={4}
-            tooltip="The best website"
+            tooltip="The best website, with amazing selection of games"
           ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="50%" left="10%">
           <UserAvatar
             src={Avatar1}
             value={4}
-            tooltip="The best website"
+            tooltip="200% bonus. Wow"
           ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="78%" left="27%">
@@ -175,23 +175,24 @@ const Home = () => {
           <UserAvatar
             src={Avatar1}
             value={4}
-            tooltip="The best website"
+            tooltip="My favourite online casino"
           ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="60%" left="80%">
           <UserAvatar
             src={Avatar1}
             value={4}
-            tooltip="The best website"
+            tooltip="Great casino, superfast withdrawals"
           ></UserAvatar>
         </AvatarContainer>
         <AvatarContainer bottom="30%" left="80%">
           <UserAvatar
             src={Avatar1}
             value={4}
-            tooltip="The best website"
+            tooltip="Incredible Casino"
           ></UserAvatar>
         </AvatarContainer>
+        
         <Title>
           <span className="dark:text-blue1 text-blue3">Real Players,</span> Real
           Money, Trusted Reviews!
@@ -334,11 +335,16 @@ const Home = () => {
               </AboutTitle>
             </div>
             <AboutContent>
-              Our innovative algorithm guarantees genuine reviews. Using
+              {/* Our innovative algorithm guarantees genuine reviews. Using
               blockchain technology we offer a 100% accurate and trusted
               reviewing system. Our innovative algorithm guarantees genuine
               reviews. Using blockchain technology we offer a 100% accurate and
               trusted reviewing system.
+               */}
+              We at diclosed understand the need for transparancy and trust when completing transactions online. Weve created a unique algorightm, that utilises blockchain technology to offer users at Dislcosed.com valuable insight and information of online casinos. 
+              
+              Our highly innovative tech searches the blockchain and finds out whether a reviewer is credible in the review theyve left, offering credibility to a reveiw. Hopefully we aim to build a strong community where players feel safe, and can trust each other and the reviews theyve left. Improving the trust between casinos anc players alike.
+              
             </AboutContent>
             <Button label="Learn More">
               <div className="pl-1 pt-1">
