@@ -3,6 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import Button from "../../components/core/Button/Button";
 import ReviewCard from "../../components/core/Card/ReviewCard";
 import { FaArrowRight, FaPen, FaChevronDown } from "react-icons/fa";
+import { useRouter } from "next/router";
 import Card1 from "public/image/ReviewCard.png";
 import Search from "../../components/core/Search/Search";
 import Rating from "../../components/core/Rating/Rating";
@@ -16,21 +17,12 @@ import {
 } from "./index.module";
 
 const Review = () => {
-  let [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
   const [listData, setListData] = useState([]);
 
   const handleChange = () => {
-    setIsOpen(!isOpen);
+    router.push("/review");
   };
-
-  useEffect(() => {
-    setIsOpen(isOpen);
-    if (!isOpen) {
-      document.documentElement.style.overflow = "auto";
-    } else {
-      document.documentElement.style.overflow = "hidden";
-    }
-  }, [isOpen]);
 
   const getAllCasinos = async () => {
     await fetch("http://127.0.0.1:8000/casinos/", {
@@ -47,14 +39,6 @@ const Review = () => {
   useEffect(() => {
     getAllCasinos();
   }, []);
-
-  const ratingOptions = [
-    { value: 5, label: 5, className: "dropdown-menu-option" },
-    { value: 4, label: 4, className: "dropdown-menu-option" },
-    { value: 3, label: 3, className: "dropdown-menu-option" },
-    { value: 2, label: 2, className: "dropdown-menu-option" },
-    { value: 1, label: 1, className: "dropdown-menu-option" },
-  ];
 
   const topReviewOptions = [
     {
@@ -233,44 +217,6 @@ const Review = () => {
           </div>
         </Button>
       </div>
-
-      <Modal
-        open={isOpen}
-        title={"Modal Title"}
-        content={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        }
-        onConfirm={() => console.log("Button confirm")}
-        onDiscard={() => console.log("Button discard")}
-        buttons={[
-          // {
-          //   role: "custom",
-          //   onClick: () => console.log("custom test"),
-          //   toClose: true,
-          //   classes:
-          //     "bg-zinc-500/20 px-4 py-2 rounded-lg hover:bg-zinc-500/30 transition-all duration-200",
-          //   label: "Custom",
-          // },
-          // {
-          //   role: "discard",
-          //   toClose: true,
-          //   classes:
-          //     "bg-zinc-500/20 px-4 py-2 rounded-lg hover:bg-zinc-500/30 transition-all duration-200",
-          //   label: "Discard",
-          // },
-          {
-            role: "confirm",
-            toClose: true,
-            classes:
-              "dark:bg-blue1 bg-blue3 border border-transparent hover:bg-transparent hover:border-white w-fit py-2 px-5 rounded-3xl transition w-1/2 mx-auto",
-            label: "Submit Your Review",
-          },
-        ]}
-        handleChange={handleChange}
-        ratingOptions={ratingOptions}
-      >
-        <div>açmak için tıkla</div>
-      </Modal>
     </Layout>
   );
 };
