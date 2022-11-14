@@ -18,15 +18,15 @@ const RatingCard = ({
   overview,
   userReviews,
 }) => {
- 
   let calculatedPercent = (score / 5) * 100;
 
+ 
   return (
     <Card>
       <div className="w-[35%]">
         {overview ? (
           <CircularProgressbar
-            value={percent}
+            value={calculatedPercent}
             text={`${score} / 5`}
             background
             styles={buildStyles({
@@ -36,7 +36,6 @@ const RatingCard = ({
               trailColor: "transparent",
             })}
           />
-          
         ) : (
           <CircularProgressbar
             value={calculatedPercent}
@@ -50,11 +49,11 @@ const RatingCard = ({
             })}
           />
         )}
-         <div className="pt-9">
-        <Rating value={score} activeColor="#0492C2"></Rating>
+        <div className="pt-9">
+          <Rating value={score} activeColor="#0492C2"></Rating>
+        </div>
       </div>
-      </div>
-      
+
       {pos && (
         <div className="w-full">
           <StatusContainer>
