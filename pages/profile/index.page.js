@@ -95,7 +95,9 @@ const Profile = () => {
           <div className="mt-[10px]">
             <div className="flex justify-between">
               <Title>Current Reviews</Title>
-              <Select options={sortOptions} placeholder="Sort by" />
+              <div className="w-1/5">
+                <Select options={sortOptions} placeholder="Sort by" />
+              </div>
             </div>
             <div className="flex flex-wrap justify-between">
               <div className="w-[49%] mt-[10px]">
@@ -183,6 +185,7 @@ const Profile = () => {
             <div className="flex flex-wrap justify-between">
               <div className="w-[49%] mt-[10px]">
                 <ReviewCard
+                  backgroundColor="bg-[#D92D20]/[.05]"
                   cardImage={Card1}
                   user="Verified user"
                   name="Black Jack"
@@ -193,6 +196,7 @@ const Profile = () => {
               </div>
               <div className="w-[49%] mt-[10px]">
                 <ReviewCard
+                  backgroundColor="bg-[#D92D20]/[.05]"
                   cardImage={Card1}
                   user="Verified user"
                   name="Black Jack"
@@ -203,6 +207,7 @@ const Profile = () => {
               </div>
               <div className="w-[49%] mt-[10px]">
                 <ReviewCard
+                  backgroundColor="bg-[#D92D20]/[.05]"
                   cardImage={Card1}
                   user="Verified user"
                   name="Black Jack"
@@ -213,6 +218,7 @@ const Profile = () => {
               </div>
               <div className="w-[49%] mt-[10px]">
                 <ReviewCard
+                  backgroundColor="bg-[#D92D20]/[.05]"
                   cardImage={Card1}
                   user="Verified user"
                   name="Black Jack"
@@ -223,6 +229,7 @@ const Profile = () => {
               </div>
               <div className="w-[49%] mt-[10px]">
                 <ReviewCard
+                  backgroundColor="bg-[#D92D20]/[.05]"
                   cardImage={Card1}
                   user="Verified user"
                   name="Black Jack"
@@ -233,6 +240,7 @@ const Profile = () => {
               </div>
               <div className="w-[49%] mt-[10px]">
                 <ReviewCard
+                  backgroundColor="bg-[#D92D20]/[.05]"
                   cardImage={Card1}
                   user="Verified user"
                   name="Black Jack"

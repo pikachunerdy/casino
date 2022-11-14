@@ -6,15 +6,18 @@ export const Container = styled.div.attrs({
 })``;
 
 export const Title = styled.p.attrs({
-  className: "dark:text-white1 font-semibold text-[64px] text-center w-2/3",
+  className:
+    "dark:text-white1 font-semibold md:text-[64px] text-[38px] text-center md:w-2/3 w-full",
 })``;
 
 export const Content = styled.p.attrs({
-  className: "dark:text-white1 font-normal text-[18px] text-center w-1/2",
+  className:
+    "dark:text-white1 font-normal text-[18px] text-center md:w-1/2 w-full",
 })``;
 
 export const SubTitle = styled.h2.attrs({
-  className: "dark:text-white1 font-semibold text-[48px] text-center",
+  className:
+    "dark:text-white1 font-semibold md:text-[48px] text-[39px] mt-[71px] md:mt-0 text-center",
 })``;
 
 export const IconTitle = styled.span.attrs({

@@ -139,7 +139,7 @@ const Learn = () => {
       </Container>
 
       <SubscribeContainer className="mt-16 mb-[133px]">
-        <AboutTitle className="dark:text-white1">
+        <AboutTitle className="dark:text-white1 text-white">
           Join today and leave a review at your favourite casinos!
         </AboutTitle>
         <div className="pt-9">
@@ -149,7 +149,7 @@ const Learn = () => {
               console.log("Visit Casino");
             }}
             variant="model"
-            className="!bg-white !text-blue1 hover:!bg-blue1 hover:!dark:text-white1"
+            className="!bg-white !text-blue1 hover:!bg-blue1 hover:!text-white1"
           >
             <div className="pl-1 pt-1">
               <FaArrowRight />

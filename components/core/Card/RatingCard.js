@@ -16,7 +16,7 @@ const RatingCard = ({percent, value, score, pos, neg, overview, userReviews}) =>
   
   return (
     <Card>
-      <div className="w-[35%]">
+      <div className="w-[35%] dark:block hidden">
         <CircularProgressbar
           value={percentNo}
           text={`${score}/5`}
@@ -25,6 +25,19 @@ const RatingCard = ({percent, value, score, pos, neg, overview, userReviews}) =>
             backgroundColor: "rgba(22, 118, 248, 0.08)",
             textColor: "#C9C9C9",
             pathColor: "#0492C2",
+            trailColor: "transparent",
+          })}
+        />
+      </div>
+      <div className="w-[35%] dark:hidden">
+        <CircularProgressbar
+          value={props.percent}
+          text={`${props.value}/5`}
+          background
+          styles={buildStyles({
+            backgroundColor: "rgba(22, 118, 248, 0.08)",
+            textColor: "black",
+            pathColor: "#1676F8",
             trailColor: "transparent",
           })}
         />
@@ -39,7 +52,7 @@ const RatingCard = ({percent, value, score, pos, neg, overview, userReviews}) =>
               <CardText>Positive</CardText>
               <PosText>{pos}</PosText>
             </div>
-            <div className="w-1 bg-white h-7 mr-4"></div>
+            <div className="w-1 dark:bg-white bg-[#E5E5EA] h-7 mr-4"></div>
             <div className="w-1/2">
               <CardText>Negative</CardText>
               <NegText>{neg}</NegText>

@@ -7,7 +7,12 @@ const HomeCard = (props) => {
     <div className="w-[500px] p-[50px] dark:bg-black1 bg-white cursor-pointer hover:scale-105 transition duration-300">
       <div className="flex items-center gap-3">
         <CardTitle>&quot;{props.title}&quot;</CardTitle>
-        <Rating value={props.value} activeColor="#0492C2"></Rating>
+        <div className="md:inline-block hidden">
+          <Rating value={props.value} activeColor="#0492C2"></Rating>
+        </div>
+        <div className="md:hidden inline-block">
+          <Rating value={props.value} activeColor="#FBB040"></Rating>
+        </div>
       </div>
       <div>
         <CardContent>{props.content}</CardContent>
