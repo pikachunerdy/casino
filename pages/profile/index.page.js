@@ -13,9 +13,13 @@ import Button from "../../components/core/Button/Button";
 import { FaArrowRight } from "react-icons/fa";
 import Select from "../../components/core/Select/Select";
 import Card1 from "public/image/ReviewCard.png";
+import { useEffect } from "react";
+import CasinoContext from "../../context/CasinoContext"
+import { useContext } from "react";
 
 const Profile = () => {
-  const userData = {
+
+    const userData = {
     Avatar: "/image/avatar.svg",
     name: "Ahmedhssn",
     birth: "22/07/2000",
@@ -25,6 +29,14 @@ const Profile = () => {
   };
 
   const [currentTab, setCurrentTab] = React.useState(0);
+  const { listData } = useContext(CasinoContext);
+  
+ 
+
+  useEffect(() => {
+    console.log('casinoData context state testing ==>', listData)
+  }, [])
+
   const sortOptions = [
     {
       value: "date",
@@ -42,7 +54,6 @@ const Profile = () => {
       className: "dropdown-menu-option",
     },
   ];
-
   return (
     <Layout>
       <div className="mt-[100px] flex flex-col divide-y-2">

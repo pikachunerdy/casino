@@ -1,15 +1,13 @@
 import { data } from "autoprefixer";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
-
+import HomeTable from "../../components/page/Home/HomeTable";
 
 export async function getStaticProps() {
   const response = await fetch("http://localhost:8000/casinos/");
   const data = await response.json();
-
-  console.log("data casino list => ", data);
-
+ 
   return {
     props: {
       casinos: data,
@@ -19,29 +17,24 @@ export async function getStaticProps() {
 
 const CasinoList = ({ casinos }) => {
   return (
-    // <Layout>
-        <div>
-      <h1>Top casinos List test</h1>
-
-      <ul>
-        {casinos.map((casino) => {
-              return (
-            <>
-              <Link href={`/gambling/${casino.slug}`}>
-                <li key={casino.slug} className="cursor-pointer">{casino.name}</li>
-              </Link>
-         
-
-
-              
-            </>
-          );
-        })}
-      </ul>
+    <Layout>
+      <div>
+        <ul className="my-[10rem]">
+          {casinos.map((casino) => (
+            <li className="cursor-pointer">
+              <HomeTable
+                top10casinos
+                slug={casino.slug}
+                image={casino.image}
+                casino={casino.name}
+                website={casino.website}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
-    // </Layout>
+    </Layout>
   );
 };
 
 export default CasinoList;
-

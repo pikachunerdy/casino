@@ -16,8 +16,6 @@ import { ThemeContext } from "./Layout";
 
 const Footer = () => {
   const theme = React.useContext(ThemeContext);
-  console.log('theme test -->', theme.theme);
-
   return (
     <div className="w-[90%] ">
       <FooterContainer>

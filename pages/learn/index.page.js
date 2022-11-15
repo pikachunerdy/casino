@@ -4,6 +4,7 @@ import Badge from "../../components/core/Badge/Badge";
 import CardPaginate from "../../components/page/Learn/CardPaginate";
 import { FaArrowRight } from "react-icons/fa";
 import Blog1 from "public/image/Blog1.png";
+import CasinoContext from "../../context/CasinoContext";
 
 import {
   Container,
@@ -12,8 +13,10 @@ import {
   SubscribeContainer,
   AboutTitle,
 } from "./index.module";
+import { useContext, useEffect} from "react";
 
 const Learn = () => {
+
   const blogData = [
     {
       img: Blog1,

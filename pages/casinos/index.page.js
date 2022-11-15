@@ -21,10 +21,16 @@ import {
   topReviewOptions,
   verifiedReviewOptions,
 } from "../../helpers/DropdownData";
+import { useContext } from "react";
+import CasinoContext from "../../context/CasinoContext";
 
 const Review = () => {
   let [isOpen, setIsOpen] = useState(false);
-  const [listData, setListData] = useState([]);
+  const { listData, setListData } = useContext(CasinoContext);
+
+  useEffect(() => {
+    console.log('list data on build --->', listData)
+  }, [])
 
   const handleChange = () => {
     setIsOpen(!isOpen);
@@ -39,21 +45,22 @@ const Review = () => {
     }
   }, [isOpen]);
 
-  const getAllCasinos = async () => {
-    await fetch("http://127.0.0.1:8000/casinos/", {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setListData(data));
-  };
+  // const getAllCasinos = async () => {
+  //   await fetch("http://127.0.0.1:8000/casinos/", {
+  //     method: "GET",
+  //     mode: "cors",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => setListData(data));
+  //     console.log("casinos page casino data ", listData)
+  // };
 
-  useEffect(() => {
-    getAllCasinos();
-  }, []);
+  // useEffect(() => {
+  //   getAllCasinos();
+  // }, []);
 
   return (
     <Layout>
@@ -103,7 +110,7 @@ const Review = () => {
 
       <div className="flex">
         <div className="mt-16">
-          {listData.map((reviewOne, index) => {
+          {listData && listData.map((reviewOne, index) => {
             return (
               <div key={index} className="w-full mt-7">
                 <ReviewCard

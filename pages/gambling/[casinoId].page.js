@@ -30,14 +30,16 @@ import casinoGameOptions, {
   topReviewOptions,
   verifiedReviewOptions,
 } from "../../helpers/DropdownData";
+import CasinoContext from "../../context/CasinoContext";
+import { useContext } from "react";
 
 const tabs = ["Overview", "User Reviews"];
 
 const Gambling = ({ casino }) => {
-  const [casinoData, setCasinoData] = useState([]);
+  // const [casinoData, setCasinoData] = useState([]);
   const [currentTab, setCurrentTab] = React.useState(0);
   let [isOpen, setIsOpen] = useState(false);
-  const [isVerified, setIsVerified] = React.useState(1);
+  const { setCasinoData, casinoData } = useContext(CasinoContext);
 
   const handleChange = () => {
     setIsOpen(!isOpen);
@@ -52,7 +54,7 @@ const Gambling = ({ casino }) => {
     }
   }, [isOpen]);
 
- 
+  
   useEffect(() => {
 
     const getAllReviews = async () => {
@@ -62,15 +64,16 @@ const Gambling = ({ casino }) => {
         headers: {
           "Content-Type": "application/json",
         },
+        
       })
         .then((res) => res.json())
         .then((data) => setCasinoData(data));
+        // console.log("casino Data ==> ", casinoData)
     };
-
-    console.log("casino Data ==> ", casinoData)
-  
     getAllReviews();
   }, []);
+
+
 
   function getSpecificCasinoReviews(casinoData, casino_name) {
     const arrOfSpecificCasinoReviews = casinoData.filter((casinoReviews) => {
@@ -114,12 +117,6 @@ const Gambling = ({ casino }) => {
 
     return [avgCasinoRatingObj];
   }
-
-  // useEffect(() => {
-  //   console.log("casino -->", casino);
-  //   console.log("casinoData -->", casinoData);
-   
-  // }, []);
 
   return (
     <Layout>

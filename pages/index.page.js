@@ -251,7 +251,7 @@ const Home = () => {
         </div>
         <div className="w-full">
           <div>
-            <HomeTable casinoData={casinoData} isExpand={isExpand}></HomeTable>
+            <HomeTable landingPage casinoData={casinoData} isExpand={isExpand}></HomeTable>
           </div>
           <div className="mt-12 flex justify-center">
             <Button

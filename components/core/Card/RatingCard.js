@@ -8,6 +8,7 @@ import {
   CardText,
 } from "./RatingCard.module";
 import Rating from "../Rating/Rating";
+import { useEffect } from "react";
 
 const RatingCard = ({
   percent,
@@ -20,38 +21,50 @@ const RatingCard = ({
 }) => {
   let calculatedPercent = (score / 5) * 100;
 
- 
+  let newNumber;
+  function controlDecimals() {
+    newNumber = Math.round(score * 10) / 10;
+  }
+  controlDecimals();
+  
   return (
     <Card>
       <div className="w-[35%]">
         {overview ? (
-          <CircularProgressbar
-            value={calculatedPercent}
-            text={`${score} / 5`}
-            background
-            styles={buildStyles({
-              backgroundColor: "rgba(22, 118, 248, 0.08)",
-              textColor: "#C9C9C9",
-              pathColor: "#0492C2",
-              trailColor: "transparent",
-            })}
-          />
+          <>
+            <CircularProgressbar
+              value={percent}
+              text={`${score} / 5`}
+              background
+              styles={buildStyles({
+                backgroundColor: "rgba(22, 118, 248, 0.08)",
+                textColor: "#C9C9C9",
+                pathColor: "#0492C2",
+                trailColor: "transparent",
+              })}
+            />
+            <div className="pt-9">
+              <Rating value={score} activeColor="#0492C2" />
+            </div>
+          </>
         ) : (
-          <CircularProgressbar
-            value={calculatedPercent}
-            text={`${score} / 5`}
-            background
-            styles={buildStyles({
-              backgroundColor: "rgba(22, 118, 248, 0.08)",
-              textColor: "#C9C9C9",
-              pathColor: "#0492C2",
-              trailColor: "transparent",
-            })}
-          />
+          <>
+            <CircularProgressbar
+              value={calculatedPercent}
+              text={`${newNumber} / 5`}
+              background
+              styles={buildStyles({
+                backgroundColor: "rgba(22, 118, 248, 0.08)",
+                textColor: "#C9C9C9",
+                pathColor: "#0492C2",
+                trailColor: "transparent",
+              })}
+            />
+            <div className="pt-9">
+              <Rating value={score} activeColor="#0492C2" />
+            </div>
+          </>
         )}
-        <div className="pt-9">
-          <Rating value={score} activeColor="#0492C2"></Rating>
-        </div>
       </div>
 
       {pos && (
