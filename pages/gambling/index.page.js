@@ -1,5 +1,4 @@
 import { data } from "autoprefixer";
-import HeaderName from "../../components/page/Home/HomeTable";
 import HomeTable from "../../components/page/Home/HomeTable";
 import Layout from "../../components/Layout/Layout";
 import Link from "next/link";
@@ -21,12 +20,22 @@ export async function getStaticProps() {
   };
 }
 
+const tableHeader = {
+  Name: "Name",
+  Bonus: "Bonus",
+  Feature: "Feature",
+  Users: "Users",
+  Rating: "Rating",
+  Website: "Website",
+};
+
 const CasinoList = ({ casinos }) => {
   const { reviewData } = useContext(ReviewsContext);
   return (
     <Layout>
       <div>
         <ul className="my-[10rem]">
+        {/* <HomeTableHeader /> */}
           {casinos.map((casino) => {
             const avergaeCasinoRating = calculateCasinoAvgRating(
               getAllDataForOneCasino(reviewData, casino.name)
