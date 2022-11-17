@@ -8,6 +8,7 @@ export default function Button(props) {
       disabled={props.disabled ? props.disabled : false}
       className={props.className}
     >
+      {props.first && <div>{props.firstChildren}</div>}
       <div className="flex">
         {props.label}
         {props.children}

@@ -144,6 +144,41 @@ const Home = ({landingPage}) => {
     },
   ];
 
+  const blogCards = [
+    {
+      cardImage: Back2,
+      date: "Disclosed • 20 Jan 2022",
+      title: "Are Crypto casinos safe?",
+      content:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
+      states: siteStates,
+    },
+    {
+      cardImage: Back2,
+      date: "Disclosed • 20 Jan 2022",
+      title: "Are Crypto casinos safe?",
+      content:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
+      states: siteStates,
+    },
+    {
+      cardImage: Back2,
+      date: "Disclosed • 20 Jan 2022",
+      title: "Are Crypto casinos safe?",
+      content:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
+      states: siteStates,
+    },
+    {
+      cardImage: Back2,
+      date: "Disclosed • 20 Jan 2022",
+      title: "Are Crypto casinos safe?",
+      content:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
+      states: siteStates,
+    },
+  ];
+
   const router = useRouter();
   const [isExpand, setIsExpand] = React.useState(false);
 
@@ -192,7 +227,7 @@ const Home = ({landingPage}) => {
             tooltip="Incredible Casino"
           ></UserAvatar>
         </AvatarContainer>
-        
+
         <Title>
           <span className="dark:text-blue1 text-blue3">Real Players,</span> Real
           Money, Trusted Reviews!
@@ -239,15 +274,21 @@ const Home = ({landingPage}) => {
             Rating
           </SubTitle>
         </div>
-        <div className="flex items-center mt-5">
-          <Image src={Check} alt="check"></Image>
-          <IconTitle className="ml-4">Instant payments</IconTitle>
-          <div className="bg-darkWhite h-[1px] w-24 mr-4 ml-2"></div>
-          <Image src={Check} alt="check"></Image>
-          <IconTitle className="ml-4">Higher winnings</IconTitle>
-          <div className="bg-darkWhite h-[1px] w-24 mr-4 ml-2"></div>
-          <Image src={Check} alt="check"></Image>
-          <IconTitle className="ml-4">Full transparency</IconTitle>
+        <div className="flex items-center mt-5 flex-wrap md:flex-nowrap">
+          <div className="flex flex-row items-center w-1/2 md:w-1/3">
+            <Image src={Check} alt="check"></Image>
+            <IconTitle className="ml-4">Instant payments</IconTitle>
+            <div className="bg-darkWhite h-[1px] hidden md:inline-block w-24 mr-4 ml-2"></div>
+          </div>
+          <div className="flex flex-row items-center w-1/2 md:w-1/3">
+            <Image src={Check} alt="check"></Image>
+            <IconTitle className="ml-4">Higher winnings</IconTitle>
+            <div className="bg-darkWhite h-[1px] hidden md:inline-block w-24 mr-4 ml-2"></div>
+          </div>
+          <div className="flex flex-row items-center justify-center mt-6 md:mt-0 w-full md:w-1/3">
+            <Image src={Check} alt="check"></Image>
+            <IconTitle className="ml-4">Full transparency</IconTitle>
+          </div>
         </div>
         <div className="w-full">
           <div>
@@ -275,7 +316,7 @@ const Home = ({landingPage}) => {
         <div>
           <NewsSubTitle>Today&apos;s news - most recent articles</NewsSubTitle>
         </div>
-        <div className="flex gap-9 mt-9 w-full">
+        <div className="hidden md:flex gap-9 mt-9 w-full">
           <div className="w-3/5">
             <BlogCard
               cardImage={Back2}
@@ -316,6 +357,9 @@ const Home = ({landingPage}) => {
             </HomeCard>
           </div>
         </div>
+        <div className="inline-block md:hidden w-full mt-9">
+          <Carousel blogCards={blogCards}></Carousel>
+        </div>
         <div className="mt-12 flex justify-center">
           <Button
             variant="model"
@@ -335,16 +379,16 @@ const Home = ({landingPage}) => {
               </AboutTitle>
             </div>
             <AboutContent>
-              {/* Our innovative algorithm guarantees genuine reviews. Using
-              blockchain technology we offer a 100% accurate and trusted
-              reviewing system. Our innovative algorithm guarantees genuine
-              reviews. Using blockchain technology we offer a 100% accurate and
-              trusted reviewing system.
-               */}
-              We at diclosed understand the need for transparancy and trust when completing transactions online. Weve created a unique algorightm, that utilises blockchain technology to offer users at Dislcosed.com valuable insight and information of online casinos. 
-              
-              Our highly innovative tech searches the blockchain and finds out whether a reviewer is credible in the review theyve left, offering credibility to a reveiw. Hopefully we aim to build a strong community where players feel safe, and can trust each other and the reviews theyve left. Improving the trust between casinos anc players alike.
-              
+              We at diclosed understand the need for transparancy and trust when
+              completing transactions online. Weve created a unique algorightm,
+              that utilises blockchain technology to offer users at
+              Dislcosed.com valuable insight and information of online casinos.
+              Our highly innovative tech searches the blockchain and finds out
+              whether a reviewer is credible in the review theyve left, offering
+              credibility to a reveiw. Hopefully we aim to build a strong
+              community where players feel safe, and can trust each other and
+              the reviews theyve left. Improving the trust between casinos anc
+              players alike.
             </AboutContent>
             <Button label="Learn More">
               <div className="pl-1 pt-1">

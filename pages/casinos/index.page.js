@@ -3,6 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import Button from "../../components/core/Button/Button";
 import ReviewCard from "../../components/core/Card/ReviewCard";
 import { FaArrowRight, FaPen, FaChevronDown } from "react-icons/fa";
+import { useRouter } from "next/router";
 import Card1 from "public/image/ReviewCard.png";
 import Search from "../../components/core/Search/Search";
 import Rating from "../../components/core/Rating/Rating";
@@ -33,7 +34,7 @@ const Review = () => {
   }, [])
 
   const handleChange = () => {
-    setIsOpen(!isOpen);
+    router.push("/review");
   };
 
   useEffect(() => {
