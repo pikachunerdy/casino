@@ -7,7 +7,7 @@ export function getAllDataForOneCasino(casinoData, casino_name) {
   }
 
   export function calculateCasinoAvgRating(arrCasinoObj) {
-   console.log('arr obj', arrCasinoObj)
+   
         //takes in arrayOfCasinoObjects
     const res = { up_vote: [], down_vote: [] };
     let numCasinoObj = 0; //could add a counter for each value
@@ -35,8 +35,6 @@ export function getAllDataForOneCasino(casinoData, casino_name) {
       // neg: down_vote.length,
     };
 
-    console.log(`score`, avgCasinoRatingObj)
-    
     return [avgCasinoRatingObj];
   }
 

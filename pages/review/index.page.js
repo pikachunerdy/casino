@@ -71,8 +71,8 @@ const Review = ({}) => {
               <span className="dark:text-blue1 text-blue3">Casino</span> Review
             </p>
             <p className="font-medium text-[19px] text-center leading-[22px]">
-              <span className="dark:text-blue1 text-blue3">Sign up</span> or{" "}
-              <span className="dark:text-blue1 text-blue3">Login</span> to be
+              <span className="dark:text-blue1 text-blue3 cursor-pointer">Sign up</span> or{" "}
+              <span className="dark:text-blue1 text-blue3 cursor-pointer">Login</span> to be
               able to manage or edit your review
             </p>
           </div>

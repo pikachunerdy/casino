@@ -43,6 +43,10 @@ const menus = [
     label: "Profile",
     link: "/profile",
   },
+  {
+    label: "Reviews",
+    link: "/review",
+  },
 ];
 
 export default function Header({ children }) {

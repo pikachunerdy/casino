@@ -45,10 +45,12 @@ const Gambling = ({ casino }) => {
     setIsOpen(!isOpen);
   };
 
-  const casinoLink = listData[0].website;
+  
+  // const casinoLink = listData[0].website;
 
   useEffect(() => {
-    console.log('what caisno data?', listData[0].website)
+    // console.log('what caisno data?', listData[0].website)
+    console.log('what list data?', listData)
     setIsOpen(isOpen);
     if (!isOpen) {
       document.documentElement.style.overflow = "auto";

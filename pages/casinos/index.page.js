@@ -28,6 +28,7 @@ import CasinoContext from "../../context/CasinoContext";
 const Review = () => {
   let [isOpen, setIsOpen] = useState(false);
   const { listData, setListData } = useContext(CasinoContext);
+  const router = useRouter();
 
   useEffect(() => {
     console.log('list data on build --->', listData)
