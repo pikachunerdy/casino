@@ -71,9 +71,14 @@ const Review = ({}) => {
               <span className="dark:text-blue1 text-blue3">Casino</span> Review
             </p>
             <p className="font-medium text-[19px] text-center leading-[22px]">
-              <span className="dark:text-blue1 text-blue3 cursor-pointer">Sign up</span> or{" "}
-              <span className="dark:text-blue1 text-blue3 cursor-pointer">Login</span> to be
-              able to manage or edit your review
+              <span className="dark:text-blue1 text-blue3 cursor-pointer">
+                Sign up
+              </span>{" "}
+              or{" "}
+              <span className="dark:text-blue1 text-blue3 cursor-pointer">
+                Login
+              </span>{" "}
+              to be able to manage or edit your review
             </p>
           </div>
           <div className="text-md mt-[60px]">
@@ -92,6 +97,11 @@ const Review = ({}) => {
               </div>
               <div className="mt-6">
                 <Select options={ratingOptions} placeholder="Rating" />
+              </div>
+              <div className="mt-6">
+                <InputContainer >
+                  <CustomInput placeholder="Leave a descriptipon" className="h-36"></CustomInput>
+                </InputContainer>
               </div>
               <div className="mt-6 w-4/5 py-3 bg-black1 border border-solid border-[#3d3d3d] rounded-md px-4">
                 <button className="w-full text-start" onClick={() => {}}>

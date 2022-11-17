@@ -73,7 +73,7 @@ const ReviewCard = ({
                   {/* {/* <Content>➕{pros}</Content> */}
                   {/* <Content>➖{cons}</Content>  */}
                 </div>
-                @
+                
               </div>
             </div>
             <div className="flex justify-end w-full pr-8 gap-5 pb-5">
