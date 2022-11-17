@@ -21,9 +21,9 @@ const RatingCard = ({
 }) => {
   let calculatedPercent = (score / 5) * 100;
 
-  let newNumber;
+  let allCasinoScores;
   function controlDecimals() {
-    newNumber = Math.round(score * 10) / 10;
+    allCasinoScores = Math.round(score * 10) / 10;
   }
   controlDecimals();
   
@@ -34,7 +34,7 @@ const RatingCard = ({
           <>
             <CircularProgressbar
               value={percent}
-              text={`${score} / 5`}
+              text={`${percent}%`}
               background
               styles={buildStyles({
                 backgroundColor: "rgba(22, 118, 248, 0.08)",
@@ -51,7 +51,7 @@ const RatingCard = ({
           <>
             <CircularProgressbar
               value={calculatedPercent}
-              text={`${newNumber} / 5`}
+              text={`${allCasinoScores} / 5`}
               background
               styles={buildStyles({
                 backgroundColor: "rgba(22, 118, 248, 0.08)",

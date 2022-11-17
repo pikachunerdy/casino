@@ -1,23 +1,26 @@
-import { useMemo, useCallback, useEffect, useContext } from "react";
+import { FaArrowRight } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
+import { ThemeContext } from "../../Layout/Layout";
+import { useMemo, useCallback, useEffect, useContext, useState } from "react";
+import { useRouter } from "next/router";
+import Avatar from "../../core/Avatar/Avatar";
+import Button from "../../core/Button/Button";
 import Image from "next/image";
+import Link from "next/link";
+import People from "public/image/People.png";
+import Rating from "../../core/Rating/Rating";
+import RatingCard from "../../core/Card/RatingCard";
+import ReviewsContext from "../../../context/ReviewsContext";
+import { calculateCasinoAvgRating } from "../../../helpers/AverageRatingFunction";
 import {
   ContentName,
-  HeaderName,
   ContentSiteName,
   CustomButton,
   FeatureContent,
+  HeaderName,
   RatingContent,
   WebsiteContent,
 } from "./HomeTable.module";
-import { FaArrowRight } from "react-icons/fa";
-import { FaCheck } from "react-icons/fa";
-import Avatar from "../../core/Avatar/Avatar";
-import Rating from "../../core/Rating/Rating";
-import People from "public/image/People.png";
-import Button from "../../core/Button/Button";
-import { ThemeContext } from "../../Layout/Layout";
-import Link from "next/link";
-import { useRouter } from "next/router";
 
 const HomeTable = ({
   isExpand,
@@ -28,11 +31,12 @@ const HomeTable = ({
   handleClick,
   image,
   slug,
+  rating,
 }) => {
   // const { isExpand } = props;
 
-  const router = useRouter()
-  
+  const router = useRouter();
+
   const tableHeader = {
     Name: "Name",
     Bonus: "Bonus",
@@ -41,6 +45,9 @@ const HomeTable = ({
     Rating: "Rating",
     Website: "Website",
   };
+
+  const { reviewData } = useContext(ReviewsContext);
+  const [averageRating, setAverageRating] = useState();
 
   // const siteName = (name, site, src) => {
   //   return (
@@ -121,10 +128,6 @@ const HomeTable = ({
   //   );
   // };
 
-  useEffect(() => {
-    console.log("theme is>", typeof theme);
-  }, []);
-
   // const TableData = useMemo(() => {
   //   let data = [];
   //   casinoData.map((row) => {
@@ -169,21 +172,37 @@ const HomeTable = ({
               {/* {TableData.slice(0, isExpand ? TableData.length : 3).map((row, i) => { */}
               {/* return ( */}
               <tr>
-                <Link href={`/gambling/${slug}`}>
-                  <img src={image} width={70} />
-                </Link>
+                <div className="flex flex-col content-center space-y-3 m-5 justify-center">
+                  <td className="text-xl">{casino}</td>
+                  <Link href={`/gambling/${slug}`}>
+                    <img src={image} className="rounded-md w-20 h-20" />
+                  </Link>
+                </div>
 
                 <td>bonus</td>
                 <td>features</td>
                 <td>users</td>
-                <td>rating</td>
-                <a href={website} target="_blank">
-                  <Button label="Visit Casino" variant="model" />
-                </a>
-                <Link href={`/gambling/${slug}`}>
-                  <Button label="Full Review" variant="" handleClick={() => router.push(`/gambling/${slug}`)} />
-                </Link>
-                {/* <Link href={`/gambling/${slug}`}>Read Full Review</Link> */}
+
+                <td>
+                  {reviewData.length > 0 &&
+                    calculateCasinoAvgRating(reviewData).map((casino) => {
+                      return <Rating value={rating}></Rating>;
+                    })}
+                </td>
+                <div className="flex flex-col gap-3">
+                  <a href={website} target="_blank">
+                    <Button label="Visit Casino" variant="model" width={30} />
+                  </a>
+                  {/* </div>
+                <div> */}
+                  <Link href={`/gambling/${slug}`}>
+                    <Button
+                      label="Full Review"
+                      variant=""
+                      handleClick={() => router.push(`/gambling/${slug}`)}
+                    />
+                  </Link>
+                </div>
               </tr>
               {/* ); */}
               {/* })} */}

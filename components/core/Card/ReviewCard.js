@@ -1,31 +1,31 @@
+import { FaArrowRight, FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Card,
-  Date,
-  UserName,
-  Content,
-  UserEmail,
   CardBadge,
   CardBadge1,
-  CardBadge2
+  CardBadge2,
+  Content,
+  DateTest,
+  UserEmail,
+  UserName,
 } from "./ReviewCard.module";
-import { FaArrowRight, FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
-import Link from "next/link";
-import { useState } from "react";
 
 const ReviewCard = ({
-  userReviews,
   allCasinos,
-  description,
+  cons,
   date,
-  name,
+  description,
   email,
   image,
+  name,
   pros,
-  cons,
-  website,
-  userStatus,
   title,
+  userReviews,
+  userStatus,
+  website,
 }) => {
   function userStatusUpdates() {
     if (userStatus === 1) {
@@ -38,11 +38,11 @@ const ReviewCard = ({
   }
   userStatusUpdates();
 
-  // const formattedDate = new Date(date).toLocaleDateString('en-US', {
-  //   day: 'numeric',
-  //   month: 'long',
-  //   year: 'numeric',
-  // });
+  const formattedDate = new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
   return (
     <>
@@ -63,7 +63,7 @@ const ReviewCard = ({
                 <UserName>{name}</UserName>
                 <UserEmail>{email}</UserEmail>
                 <div className="flex items-center gap-5 mt-3">
-                  <Date>{date}</Date>
+                  <DateTest>{formattedDate}</DateTest>
                   <CardBadge>{userStatus}</CardBadge>
                 </div>
                 <div className="gap-8 mt-3">
@@ -72,7 +72,8 @@ const ReviewCard = ({
                   <br />
                   {/* {/* <Content>➕{pros}</Content> */}
                   {/* <Content>➖{cons}</Content>  */}
-                </div>@
+                </div>
+                @
               </div>
             </div>
             <div className="flex justify-end w-full pr-8 gap-5 pb-5">
@@ -92,35 +93,24 @@ const ReviewCard = ({
             <div className="flex px-4 pt-12">
               <div className="w-1/6 mr-4 max-w-[150px]">
                 {/* User Avatar will go here */}
-
-                {/* <img
-                  src={image}
-                  style={{ cursor: "pointer" }}
-                  alt="casino logos"
-                ></img> */}
               </div>
               <div className="w-4/5">
                 <UserName>{name}</UserName>
                 <UserEmail>{title}</UserEmail>
                 <div className="flex items-center gap-5 mt-3">
-                  <Date>{date}</Date>
+                  <DateTest>{formattedDate}</DateTest>
 
-                  {/* {userStatus === "verified user" ? (
-                    <CardBadge>{userStatus}</CardBadge>
-                  ) : (
-                    <CardBadge1>{userStatus}</CardBadge1>
-                  )} */}
-
-                  {userStatus === "verified user" && ( 
+                  {userStatus === "verified user" && (
                     <CardBadge>{userStatus}</CardBadge>
                   )}
-                   {userStatus === "verification pending" && ( 
+                  {userStatus === "verification pending" && (
                     <CardBadge1>{userStatus}</CardBadge1>
                   )}
-                   {userStatus === "unverified user" && ( 
+                  {userStatus === "unverified user" && (
                     <CardBadge2>{userStatus}</CardBadge2>
                   )}
                 </div>
+                
                 <div className="gap-8 mt-3">
                   <Content>{description}</Content>
                   <br />

@@ -1,51 +1,54 @@
+import { FaArrowRight } from "react-icons/fa";
+import {
+  getAllDataForOneCasino,
+  calculateCasinoAvgRating,
+} from "../../helpers/AverageRatingFunction";
+import { useContext, useState, useEffect } from "react";
 import * as React from "react";
-import Image from "next/image";
-import { useState, useEffect } from "react";
-import Layout from "../../components/Layout/Layout";
+import Back from "/public/background/Back5.png";
 import Button from "../../components/core/Button/Button";
-import SwitchButton from "../../components/core/Button/SwitchButton";
+import Card1 from "public/image/ReviewCard.png";
+import CasinoContext from "../../context/CasinoContext";
+import Crypto from "../../components/page/Gambling/Crypto";
+import Layout from "../../components/Layout/Layout";
+import Modal from "../../components/page/Review/Modal";
 import RatingCard from "../../components/core/Card/RatingCard";
 import ReviewCard from "../../components/core/Card/ReviewCard";
-import Crypto from "../../components/page/Gambling/Crypto";
-import { FaArrowRight } from "react-icons/fa";
-import Card1 from "public/image/ReviewCard.png";
 import Select from "../../components/core/Select/Select";
-import Modal from "../../components/page/Review/Modal";
-import Back from "/public/background/Back5.png";
-
+import SwitchButton from "../../components/core/Button/SwitchButton";
 import {
-  HomeContainer,
-  Container,
-  PageTitle,
-  ContentTitle,
   CardContainer,
-  ProsText,
-  ConsText,
   CardContent,
+  ConsText,
+  Container,
+  ContentTitle,
+  HomeContainer,
+  PageTitle,
+  ProsText,
 } from "./index.module";
-import Link from "next/link";
 import casinoGameOptions, {
   allNegativeReviewOptions,
   ratingOptions,
   topReviewOptions,
   verifiedReviewOptions,
 } from "../../helpers/DropdownData";
-import CasinoContext from "../../context/CasinoContext";
-import { useContext } from "react";
+import { useRouter } from "next/router";
 
 const tabs = ["Overview", "User Reviews"];
 
 const Gambling = ({ casino }) => {
-  // const [casinoData, setCasinoData] = useState([]);
   const [currentTab, setCurrentTab] = React.useState(0);
-  let [isOpen, setIsOpen] = useState(false);
-  const { setCasinoData, casinoData } = useContext(CasinoContext);
-
+  const { setCasinoData, casinoData, listData } = useContext(CasinoContext);
+  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
   const handleChange = () => {
     setIsOpen(!isOpen);
   };
 
+  const casinoLink = listData[0].website;
+
   useEffect(() => {
+    console.log('what caisno data?', listData[0].website)
     setIsOpen(isOpen);
     if (!isOpen) {
       document.documentElement.style.overflow = "auto";
@@ -54,9 +57,7 @@ const Gambling = ({ casino }) => {
     }
   }, [isOpen]);
 
-  
   useEffect(() => {
-
     const getAllReviews = async () => {
       await fetch("http://127.0.0.1:8000/reviews/", {
         method: "GET",
@@ -64,58 +65,18 @@ const Gambling = ({ casino }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        
       })
         .then((res) => res.json())
         .then((data) => setCasinoData(data));
-        // console.log("casino Data ==> ", casinoData)
     };
     getAllReviews();
   }, []);
-
-
 
   function getSpecificCasinoReviews(casinoData, casino_name) {
     const arrOfSpecificCasinoReviews = casinoData.filter((casinoReviews) => {
       if (casinoReviews.casino_name === casino.name) return casinoReviews;
     });
     return arrOfSpecificCasinoReviews;
-  }
-
-  function getAllDataForOneCasino(casinoData, casino_name) {
-    const arrOfSameCasinoRatings = casinoData.filter((casinoObj) => {
-      if (casinoObj.casino_name === casino_name) return casinoObj;
-    });
-
-    return arrOfSameCasinoRatings;
-  }
-
-  function calculateCasinoAvgRating(arrCasinoObj) {
-        //takes in arrayOfCasinoObjects
-    const res = { up_vote: [], down_vote: [] };
-    let numCasinoObj = 0; //could add a counter for each value
-    arrCasinoObj.forEach((casinoObj) => {
-      const { score, up_vote, down_vote } = casinoObj;
-      if (score !== null || score !== undefined) {
-        res.score === undefined ? (res.score = +score) : (res.score = +score);
-        numCasinoObj++;
-      }
-
-      res.up_vote.push(up_vote);
-      res.down_vote.push(down_vote);
-    });
-
-    res.up_vote.flat(3);
-    res.down_vote.flat(3); // verify how many flat is needed
-
-    const avgCasinoRatingObj = {
-      score: Math.round(res.score / numCasinoObj),
-      percent: Math.round(((res.score / numCasinoObj) / 5) * 100),
-      // pos: up_vote.length,
-      // neg: down_vote.length,
-    };
-
-    return [avgCasinoRatingObj];
   }
 
   return (
@@ -185,30 +146,30 @@ const Gambling = ({ casino }) => {
                 </CardContent>
               </CardContainer>
             </div>
-            {calculateCasinoAvgRating(
-              getAllDataForOneCasino(casinoData, `${casino.name}`)
-            ).map((casino) => {
-              console.log("map test", casino.percent);
-              return (
-                <div className="w-[25%]">
-                  <RatingCard
-                    overview
-                    score={casino.score}
-                    percent={casino.percent}
-                    pos={casino.pos}
-                    neg={casino.neg}
-                  />
-                </div>
-              );
-            })}
+            {casinoData.length > 0 &&
+              calculateCasinoAvgRating(
+                getAllDataForOneCasino(casinoData, `${casino.name}`)
+              ).map((casino) => {
+                return (
+                  <div className="w-[25%]">
+                    <RatingCard
+                      overview
+                      score={casino.score}
+                      percent={casino.percent}
+                      pos={casino.pos}
+                      neg={casino.neg}
+                    />
+                  </div>
+                );
+              })}
           </div>
 
           <div className="mt-6">
             <Button
               label="Visit Casino"
-              handleClick={() => {
-                console.log("Visit Casino");
-              }}
+              handleClick={() => router.push(`${casinoLink}`)}
+
+             
               variant="model"
               className="mb-20"
             >

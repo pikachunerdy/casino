@@ -30,7 +30,7 @@ import Check from "public/Icon/Check.png";
 import Avatar1 from "public/image/Avatar1.png";
 import UserAvatar from "../components/core/Avatar/UserAvatar";
 
-const Home = () => {
+const Home = ({landingPage}) => {
   const cards = [
     {
       title: "The best",
@@ -251,7 +251,7 @@ const Home = () => {
         </div>
         <div className="w-full">
           <div>
-            <HomeTable landingPage casinoData={casinoData} isExpand={isExpand}></HomeTable>
+           <HomeTable landingPage casinoData={casinoData} isExpand={isExpand}></HomeTable>
           </div>
           <div className="mt-12 flex justify-center">
             <Button

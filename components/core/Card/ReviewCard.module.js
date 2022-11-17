@@ -6,7 +6,7 @@ export const Card = styled.div.attrs((props) => ({
   }`,
 }))``;
 
-export const Date = styled.div.attrs({
+export const DateTest = styled.div.attrs({
   className: "text-blue1 font-semibold text-[14px]",
 })``;
 

@@ -1,24 +1,21 @@
+import { FaArrowRight } from "react-icons/fa";
+import { useContext, useEffect } from "react";
 import * as React from "react";
-import Layout from "../../components/Layout/Layout";
 import Avatar from "../../components/core/Avatar/Avatar";
-import SwitchButton from "../../components/core/Button/SwitchButton";
+import Button from "../../components/core/Button/Button";
+import Card1 from "public/image/ReviewCard.png";
+import Layout from "../../components/Layout/Layout";
 import ReviewCard from "../../components/core/Card/ReviewCard";
+import Select from "../../components/core/Select/Select";
+import SwitchButton from "../../components/core/Button/SwitchButton";
 import {
-  ProfileTitle,
-  ProfileSubTitle,
   ProfileContent,
+  ProfileSubTitle,
+  ProfileTitle,
   Title,
 } from "./index.module";
-import Button from "../../components/core/Button/Button";
-import { FaArrowRight } from "react-icons/fa";
-import Select from "../../components/core/Select/Select";
-import Card1 from "public/image/ReviewCard.png";
-import { useEffect } from "react";
-import CasinoContext from "../../context/CasinoContext"
-import { useContext } from "react";
 
 const Profile = () => {
-
     const userData = {
     Avatar: "/image/avatar.svg",
     name: "Ahmedhssn",
@@ -29,15 +26,7 @@ const Profile = () => {
   };
 
   const [currentTab, setCurrentTab] = React.useState(0);
-  const { listData } = useContext(CasinoContext);
-  
- 
-
-  useEffect(() => {
-    console.log('casinoData context state testing ==>', listData)
-  }, [])
-
-  const sortOptions = [
+   const sortOptions = [
     {
       value: "date",
       label: "Date",
