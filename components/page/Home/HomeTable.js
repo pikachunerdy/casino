@@ -11,7 +11,10 @@ import People from "public/image/People.png";
 import Rating from "../../core/Rating/Rating";
 import RatingCard from "../../core/Card/RatingCard";
 import ReviewsContext from "../../../context/ReviewsContext";
-import { calculateCasinoAvgRating } from "../../../helpers/AverageRatingFunction";
+import {
+  calculateCasinoAvgRating,
+  getAllDataForOneCasino,
+} from "../../../helpers/AverageRatingFunction";
 import {
   ContentName,
   ContentSiteName,
@@ -88,7 +91,30 @@ const HomeTable = ({
                     calculateCasinoAvgRating(reviewData).map((casino) => {
                       return <Rating value={rating}></Rating>;
                     })}
-                    (10 votes)
+                  {/* {getAllDataForOneCasino(reviewData, casino).map(
+                    (map, index) => {
+                      let sizetest = casino;
+                      return <div>{sizetest}</div>;
+                    }
+                  )} */}
+                  {getAllDataForOneCasino(reviewData, casino).map(
+                    ({casino_name, id, score}) => {
+                     
+                   if(casino_name === casino) {
+                  let newArr = [];
+                  for (let i = 0; i < casino.length; i++) {
+                    newArr.push(casino[i].length);
+                  }
+                  console.log('newArr', newArr)
+                     let newData = Object.values(newArr).length;
+                     return (<div key={casino}>{score}</div>)
+
+                   }
+              
+                    
+
+                    }
+                  )}
                 </td>
                 <div className="flex flex-col gap-3">
                   <a href={website} target="_blank">
@@ -104,8 +130,6 @@ const HomeTable = ({
                   </Link>
                 </div>
               </tr>
-              {/* ); */}
-              {/* })} */}
             </tbody>
           </table>
         </div>

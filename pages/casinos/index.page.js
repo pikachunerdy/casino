@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import Card1 from "public/image/ReviewCard.png";
 import Search from "../../components/core/Search/Search";
 import Rating from "../../components/core/Rating/Rating";
-import Modal from "../../components/page/Review/Modal";
 import Select from "../../components/core/Select/Select";
 import {
   Container,
@@ -30,10 +29,6 @@ const Review = () => {
   const { listData, setListData } = useContext(CasinoContext);
   const router = useRouter();
 
-  useEffect(() => {
-    console.log('list data on build --->', listData)
-  }, [])
-
   const handleChange = () => {
     router.push("/review");
   };
@@ -46,23 +41,6 @@ const Review = () => {
       document.documentElement.style.overflow = "hidden";
     }
   }, [isOpen]);
-
-  // const getAllCasinos = async () => {
-  //   await fetch("http://127.0.0.1:8000/casinos/", {
-  //     method: "GET",
-  //     mode: "cors",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => setListData(data));
-  //     console.log("casinos page casino data ", listData)
-  // };
-
-  // useEffect(() => {
-  //   getAllCasinos();
-  // }, []);
 
   return (
     <Layout>
@@ -110,78 +88,29 @@ const Review = () => {
         </div>
       </Container>
 
-      <div className="flex">
+      <div className="flex mb-12">
         <div className="mt-16">
-          {listData && listData.map((reviewOne, index) => {
-            return (
-              <div key={index} className="w-full mt-7">
-                <ReviewCard
-                  allCasinos
-                  image={reviewOne.image}
-                  user={reviewOne.user}
-                  name={reviewOne.name}
-                  website={reviewOne.website}
-                  date={reviewOne.created_at}
-                  description={reviewOne.description}
-                  pros={reviewOne.pros}
-                  cons={reviewOne.cons}
-                  // casino={reviewOne.casino}
-                />
-              </div>
-            );
-          })}
+          {listData &&
+            listData.map((reviewOne, index) => {
+              return (
+                <div key={index} className="w-full mt-7">
+                  <ReviewCard
+                    allCasinos
+                    image={reviewOne.image}
+                    user={reviewOne.user}
+                    name={reviewOne.name}
+                    website={reviewOne.website}
+                    date={reviewOne.created_at}
+                    description={reviewOne.description}
+                    pros={reviewOne.pros}
+                    cons={reviewOne.cons}
+                    // casino={reviewOne.casino}
+                  />
+                </div>
+              );
+            })}
         </div>
       </div>
-
-      <div className="pt-12 pb-[110px] mx-auto">
-        <Button
-          label="Visit Casino"
-          handleClick={() => {
-            console.log("Visit Casino");
-          }}
-          variant="model"
-        >
-          <div className="pl-1 pt-1">
-            <FaArrowRight />
-          </div>
-        </Button>
-      </div>
-
-      <Modal
-        open={isOpen}
-        title={"Modal Title"}
-        content={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        }
-        onConfirm={() => console.log("Button confirm")}
-        onDiscard={() => console.log("Button discard")}
-        buttons={[
-          // {
-          //   role: "custom",
-          //   onClick: () => console.log("custom test"),
-          //   toClose: true,
-          //   classes:
-          //     "bg-zinc-500/20 px-4 py-2 rounded-lg hover:bg-zinc-500/30 transition-all duration-200",
-          //   label: "Custom",
-          // },
-          // {
-          //   role: "discard",
-          //   toClose: true,
-          //   classes:
-          //     "bg-zinc-500/20 px-4 py-2 rounded-lg hover:bg-zinc-500/30 transition-all duration-200",
-          //   label: "Discard",
-          // },
-          {
-            role: "confirm",
-            toClose: true,
-            classes:
-              "dark:bg-blue1 bg-blue3 border border-transparent hover:bg-transparent hover:border-white w-fit py-2 px-5 rounded-3xl transition w-1/2 mx-auto",
-            label: "Submit Your Review",
-          },
-        ]}
-        handleChange={handleChange}
-        ratingOptions={ratingOptions}
-      ></Modal>
     </Layout>
   );
 };

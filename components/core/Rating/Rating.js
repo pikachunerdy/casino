@@ -11,6 +11,7 @@ const Rating = (props) => {
           activeColor={props.activeColor}
           edit={false}
           value={props.value}
+          isHalf={true}
         ></ReactStars>
       </div>
       <div className="inline-block md:hidden">
@@ -21,6 +22,7 @@ const Rating = (props) => {
           activeColor={props.activeColor}
           edit={false}
           value={props.value}
+          isHalf={true}
         ></ReactStars>
       </div>
     </div>

@@ -44,13 +44,10 @@ const Gambling = ({ casino }) => {
   const handleChange = () => {
     setIsOpen(!isOpen);
   };
-
-  
   // const casinoLink = listData[0].website;
 
   useEffect(() => {
-    // console.log('what caisno data?', listData[0].website)
-    console.log('what list data?', listData)
+    console.log("what list data?", listData);
     setIsOpen(isOpen);
     if (!isOpen) {
       document.documentElement.style.overflow = "auto";
@@ -165,21 +162,19 @@ const Gambling = ({ casino }) => {
                 );
               })}
           </div>
-
-          <div className="mt-6">
-            <Button
-              label="Visit Casino"
-              handleClick={() => router.push(`${casinoLink}`)}
-
-             
-              variant="model"
-              className="mb-20"
-            >
-              <div className="pl-1 pt-1">
-                <FaArrowRight />
-              </div>
-            </Button>
-          </div>
+          <a
+            target="_blank"
+            href={`${casino.website}`}
+            className="cursor-pointer"
+          >
+            <div className="mt-6">
+              <Button label="Visit Casino" variant="model" className="mb-20">
+                <div className="pl-1 pt-1">
+                  <FaArrowRight />
+                </div>
+              </Button>
+            </div>
+          </a>
         </Container>
       )}
 
