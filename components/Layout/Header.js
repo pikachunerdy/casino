@@ -37,7 +37,7 @@ const menus = [
   },
   {
     label: "Blog",
-    link: "/learn",
+    link: "/blogs",
   },
   {
     label: "Profile",
@@ -146,7 +146,6 @@ export default function Header({ children }) {
         handleChange={handleChange}
         ratingOptions={ratingOptions}
       >
-        <div>açmak için tıkla</div>
       </Modal>
     </>
   );

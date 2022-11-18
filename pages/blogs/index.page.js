@@ -1,7 +1,7 @@
 import Layout from "../../components/Layout/Layout";
 import Button from "../../components/core/Button/Button";
 import Badge from "../../components/core/Badge/Badge";
-import CardPaginate from "../../components/page/Learn/CardPaginate";
+import CardPaginate from "../../components/page/Blog/CardPaginate";
 import { FaArrowRight } from "react-icons/fa";
 import Blog1 from "public/image/Blog1.png";
 import CasinoContext from "../../context/CasinoContext";
@@ -13,9 +13,29 @@ import {
   SubscribeContainer,
   AboutTitle,
 } from "./index.module";
-import { useContext, useEffect} from "react";
+import { useContext, useEffect } from "react";
+import { useState } from "react";
+import { PageContent, PageTitle } from "../casinos/index.module";
+import { formattedDate } from "../../helpers/DateHelper";
 
-const Learn = () => {
+const Learn = ({ title }) => {
+  const [blogList, setBloglist] = useState();
+  const getAllBlogs = async () => {
+    await fetch("http://127.0.0.1:8000/blogs/", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setBloglist(data));
+  };
+
+  useEffect(() => {
+    getAllBlogs();
+    console.log("blog list", blogList);
+  }, []);
 
   const blogData = [
     {
@@ -109,26 +129,46 @@ const Learn = () => {
     <Layout>
       <Container className=" -mx-[5.5%] min-h-screen bg-[url('/background/Back4.png')]"></Container>
 
+      {blogList &&
+        blogList.map((data) => {
+          const formattedDate = new Date(data.created_at).toLocaleDateString(
+            "en-US",
+            {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }
+          );
+
+          return (
+            <div className="ml-[5.5%]">
+              <PageTitle>{data.title}</PageTitle>
+              <PageContent>
+                <span className="dark:text-blue1 text-blue3">
+                  Disclosed. {formattedDate}
+                </span>{" "}
+              </PageContent>
+            </div>
+          );
+        })}
+
       <Container>
-        <div className="w-[44%] my-14">
+        <div className="w-[60%] my-14">
           <div className="flex justify-start gap-2">
             <Badge color="text-purple" label="Casinos"></Badge>
             <Badge color="text-bue2" label="Crypto"></Badge>
             <Badge color="text-pink" label="Safe"></Badge>
           </div>
-          <div className="mt-3">
-            <ContentText>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-              aliquam, purus sit amet luctus venenatis, lectus magna fringilla
-              urna, porttitor rhoncus dolor purus non enim praesent elementum
-              facilisis leo, vel. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit ut aliquam, purus sit amet luctus venenatis,
-              lectus magna fringilla urna, portm faci...{" "}
-              <div className="dark:text-blue1 text-blue3 inline-flex cursor-pointer hover:scale-105 transition">
-                Real full article
-              </div>
-            </ContentText>
-          </div>
+          {blogList &&
+            blogList.map((data) => (
+              <ContentText>
+                {data.description}
+                <div className="dark:text-blue1 text-blue3 inline-flex cursor-pointer hover:scale-105 transition">
+                  Real full article
+                </div>
+              </ContentText>
+            ))}
+          <div className="mt-3"></div>
         </div>
       </Container>
 
