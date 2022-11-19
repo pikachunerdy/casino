@@ -55,7 +55,7 @@ const HomeTable = ({
 
   return (
     <>
-      {top10casinos && (
+     
         <div className="dark:bg-black1 bg-white">
           <table className="mt-4">
             <thead>
@@ -90,6 +90,7 @@ const HomeTable = ({
                 <td>
                   {reviewData.length > 0 &&
                     calculateCasinoAvgRating(reviewData).map((casino) => {
+                      console.log('what review data is this', reviewData)
                       return <Rating value={rating}></Rating>;
                     })}
 
@@ -118,7 +119,7 @@ const HomeTable = ({
             </tbody>
           </table>
         </div>
-      )}
+ 
     </>
   );
 };

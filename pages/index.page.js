@@ -30,105 +30,69 @@ import Check from "public/Icon/Check.png";
 import Avatar1 from "public/image/Avatar1.png";
 import UserAvatar from "../components/core/Avatar/UserAvatar";
 import Link from "next/link";
-// import CasinoContext from "../context/CasinoContext";
+import CasinoContext from "../context/CasinoContext";
+import ReviewsContext from "../context/ReviewsContext";
+import {
+  calculateCasinoAvgRating,
+  getAllDataForOneCasino,
+} from "../helpers/AverageRatingFunction";
 
-const Home = ({landingPage}) => {
+const Home = ({ landingPage }) => {
+  const { listData } = useContext(CasinoContext);
+  const { reviewData } = useContext(ReviewsContext);
 
-   const cards = [
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-  ];
+  useEffect(() => {
+    console.log("reviewData", reviewData);
+  }, []);
 
-  const casinoData = [
+  const cards = [
     {
-      name: "Stake Casino",
-      site: "stake.com",
-      src: Avatar1,
-      amount: "2500",
-      feature1: "Original bonus",
-      feature2: "Weekly giveaways",
-      users: "",
-      value: "4.2",
-      website: "stake.com",
+      title: "The best",
+      value: 4,
+      content:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+      avatar: "/image/avatar.svg",
+      user: "Tomson",
     },
     {
-      name: "Stake Casino",
-      site: "stake.com",
-      src: Avatar1,
-      amount: "2500",
-      feature1: "Original bonus",
-      feature2: "Weekly giveaways",
-      users: "",
-      value: "4.2",
-      website: "stake.com",
+      title: "The best",
+      value: 4,
+      content:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+      avatar: "/image/avatar.svg",
+      user: "Tomson",
     },
     {
-      name: "Stake Casino",
-      site: "stake.com",
-      src: Avatar1,
-      amount: "2500",
-      feature1: "Original bonus",
-      feature2: "Weekly giveaways",
-      users: "",
-      value: "4.2",
-      website: "stake.com",
+      title: "The best",
+      value: 4,
+      content:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+      avatar: "/image/avatar.svg",
+      user: "Tomson",
     },
     {
-      name: "Stake Casino",
-      site: "stake.com",
-      src: Avatar1,
-      amount: "2500",
-      feature1: "Original bonus",
-      feature2: "Weekly giveaways",
-      users: "",
-      value: "4.2",
-      website: "stake.com",
+      title: "The best",
+      value: 4,
+      content:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+      avatar: "/image/avatar.svg",
+      user: "Tomson",
+    },
+    {
+      title: "The best",
+      value: 4,
+      content:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+      avatar: "/image/avatar.svg",
+      user: "Tomson",
+    },
+    {
+      title: "The best",
+      value: 4,
+      content:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+      avatar: "/image/avatar.svg",
+      user: "Tomson",
     },
   ];
 
@@ -241,12 +205,13 @@ const Home = ({landingPage}) => {
         </Content>
         <div className="pt-9">
           <Link href="/casinos">
-          <Button
-            label="See Reviews"
-            handleClick={() => {router.push('/reviews')
-            }}
-            variant="model"
-          ></Button>
+            <Button
+              label="See Reviews"
+              handleClick={() => {
+                router.push("/gambling");
+              }}
+              variant="model"
+            ></Button>
           </Link>
         </div>
       </Container>
@@ -294,14 +259,24 @@ const Home = ({landingPage}) => {
             <IconTitle className="ml-4">Full transparency</IconTitle>
           </div>
         </div>
-        {landingPage && (<div className="w-full">
-          <div>
-           <HomeTable landingPage casinoData={casinoData} isExpand={isExpand}  slug={casino.slug}
-                  image={casino.image}
-                  casino={casino.name}
-                  website={casino.website}
-                  rating={avergaeCasinoRating} />
-          </div>
+        <div className="w-[80%]">
+          {listData.map((casino) => {
+            const avergaeCasinoRating = calculateCasinoAvgRating(
+              getAllDataForOneCasino(reviewData, casino.name)
+            )[0].score;
+            return (
+              <HomeTable
+                landingPage
+                casinoData={listData}
+                isExpand={isExpand}
+                slug={casino.slug}
+                image={casino.image}
+                casino={casino.name}
+                website={casino.website}
+                rating={avergaeCasinoRating}
+              />
+            );
+          })}
           <div className="mt-12 flex justify-center">
             <Button
               variant="model"
@@ -313,7 +288,7 @@ const Home = ({landingPage}) => {
               </div>
             </Button>
           </div>
-        </div>)}
+        </div>
 
         <div className="mt-[195px]">
           <SubTitle>
