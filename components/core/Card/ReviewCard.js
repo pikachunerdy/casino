@@ -115,13 +115,13 @@ const ReviewCard = ({
                   <Content>{description}</Content>
                   <br />
                   {pros.length > 0 &&
-                    pros.map((pro) => {
-                      return <Content>➕ {pro}</Content>;
+                    pros.map((pro, index) => {
+                      return <Content key={index}>➕ {pro}</Content>;
                     })}
                   {cons.length > 0 &&
-                    cons.map((con) => {
+                    cons.map((con, index) => {
                       return (
-                        <Content style={{ color: "red" }}>➖ {con}</Content>
+                        <Content key={index} style={{ color: "red" }}>➖ {con}</Content>
                       );
                     })}
                 </div>

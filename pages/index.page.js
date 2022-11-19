@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import {
@@ -29,9 +29,12 @@ import Back2 from "public/background/Back2.png";
 import Check from "public/Icon/Check.png";
 import Avatar1 from "public/image/Avatar1.png";
 import UserAvatar from "../components/core/Avatar/UserAvatar";
+import Link from "next/link";
+// import CasinoContext from "../context/CasinoContext";
 
 const Home = ({landingPage}) => {
-  const cards = [
+
+   const cards = [
     {
       title: "The best",
       value: 4,
@@ -237,13 +240,14 @@ const Home = ({landingPage}) => {
           Offering Complete Transparency
         </Content>
         <div className="pt-9">
+          <Link href="/casinos">
           <Button
             label="See Reviews"
-            handleClick={() => {
-              console.log("see reviews");
+            handleClick={() => {router.push('/reviews')
             }}
             variant="model"
           ></Button>
+          </Link>
         </div>
       </Container>
 
@@ -290,9 +294,13 @@ const Home = ({landingPage}) => {
             <IconTitle className="ml-4">Full transparency</IconTitle>
           </div>
         </div>
-        <div className="w-full">
+        {landingPage && (<div className="w-full">
           <div>
-           <HomeTable landingPage casinoData={casinoData} isExpand={isExpand}></HomeTable>
+           <HomeTable landingPage casinoData={casinoData} isExpand={isExpand}  slug={casino.slug}
+                  image={casino.image}
+                  casino={casino.name}
+                  website={casino.website}
+                  rating={avergaeCasinoRating} />
           </div>
           <div className="mt-12 flex justify-center">
             <Button
@@ -305,7 +313,7 @@ const Home = ({landingPage}) => {
               </div>
             </Button>
           </div>
-        </div>
+        </div>)}
 
         <div className="mt-[195px]">
           <SubTitle>

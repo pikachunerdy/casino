@@ -50,7 +50,8 @@ const HomeTable = ({
   };
 
   const { reviewData } = useContext(ReviewsContext);
-  const [averageRating, setAverageRating] = useState();
+
+  const numCasinoReviews = getAllDataForOneCasino(reviewData, casino).length;
 
   return (
     <>
@@ -91,30 +92,14 @@ const HomeTable = ({
                     calculateCasinoAvgRating(reviewData).map((casino) => {
                       return <Rating value={rating}></Rating>;
                     })}
-                  {/* {getAllDataForOneCasino(reviewData, casino).map(
-                    (map, index) => {
-                      let sizetest = casino;
-                      return <div>{sizetest}</div>;
-                    }
-                  )} */}
-                  {getAllDataForOneCasino(reviewData, casino).map(
-                    ({casino_name, id, score}) => {
-                     
-                   if(casino_name === casino) {
-                  let newArr = [];
-                  for (let i = 0; i < casino.length; i++) {
-                    newArr.push(casino[i].length);
-                  }
-                  console.log('newArr', newArr)
-                     let newData = Object.values(newArr).length;
-                     return (<div key={casino}>{score}</div>)
 
-                   }
-              
-                    
-
-                    }
-                  )}
+                  <div key={casino}>
+                    (
+                    {numCasinoReviews > 1
+                      ? `${numCasinoReviews} reviews`
+                      : `${numCasinoReviews} review`}
+                    )
+                  </div>
                 </td>
                 <div className="flex flex-col gap-3">
                   <a href={website} target="_blank">

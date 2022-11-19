@@ -44,10 +44,9 @@ const Gambling = ({ casino }) => {
   const handleChange = () => {
     setIsOpen(!isOpen);
   };
-  // const casinoLink = listData[0].website;
+ 
 
   useEffect(() => {
-    console.log("what list data?", listData);
     setIsOpen(isOpen);
     if (!isOpen) {
       document.documentElement.style.overflow = "auto";
@@ -311,9 +310,7 @@ export async function getStaticProps(context) {
   );
   const data = await response.json();
 
-  console.log("data Casino ID GetSatic => ", data);
-
-  return {
+ return {
     props: {
       casino: data,
     },

@@ -19,7 +19,6 @@ export default function Layout({ children }) {
 
   const handleTheme = (colorTheme) => {
     setTheme(colorTheme);
-    console.log(colorTheme);
   };
 
   return (

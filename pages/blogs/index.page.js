@@ -34,7 +34,6 @@ const Learn = ({ title }) => {
 
   useEffect(() => {
     getAllBlogs();
-    console.log("blog list", blogList);
   }, []);
 
   const blogData = [
