@@ -50,7 +50,7 @@ const Home = ({ landingPage }) => {
       title: "The best",
       value: 4,
       content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+        "U enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
       avatar: "/image/avatar.svg",
       user: "Tomson",
     },
@@ -246,12 +246,12 @@ const Home = ({ landingPage }) => {
         <div className="flex items-center mt-5 flex-wrap md:flex-nowrap">
           <div className="flex flex-row items-center w-1/2 md:w-1/3">
             <Image src={Check} alt="check"></Image>
-            <IconTitle className="ml-4">Instant payments</IconTitle>
+            <IconTitle className="ml-4">Increased trust</IconTitle>
             <div className="bg-darkWhite h-[1px] hidden md:inline-block w-24 mr-4 ml-2"></div>
           </div>
           <div className="flex flex-row items-center w-1/2 md:w-1/3">
             <Image src={Check} alt="check"></Image>
-            <IconTitle className="ml-4">Higher winnings</IconTitle>
+            <IconTitle className="ml-4">Large community</IconTitle>
             <div className="bg-darkWhite h-[1px] hidden md:inline-block w-24 mr-4 ml-2"></div>
           </div>
           <div className="flex flex-row items-center justify-center mt-6 md:mt-0 w-full md:w-1/3">
@@ -260,7 +260,7 @@ const Home = ({ landingPage }) => {
           </div>
         </div>
         <div className="w-[80%]">
-          {listData.map((casino) => {
+          {listData.slice(0, isExpand ? listData.length : 4).map((casino) => {
             const avergaeCasinoRating = calculateCasinoAvgRating(
               getAllDataForOneCasino(reviewData, casino.name)
             )[0].score;
