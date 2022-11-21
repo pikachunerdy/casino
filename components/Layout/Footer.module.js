@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.div.attrs({
-  className: "grid grid-cols-3 gap-5",
+  className: "grid sm:grid-cols-3 gap-5",
 })``;
 
 export const FooterSubContainer = styled.div.attrs({

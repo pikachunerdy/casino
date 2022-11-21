@@ -20,6 +20,7 @@ import Layout from "../components/Layout/Layout";
 import Button from "../components/core/Button/Button";
 import FeaturedCasino from "../components/page/Home/FeaturedCasino";
 import Carousel from "../components/page/Home/Carousel";
+import TopCarousel from "../components/page/Home/TopCarousel";
 import HomeTable from "../components/page/Home/HomeTable";
 import BlogCard from "../components/core/Card/BlogCard";
 import Badge from "../components/core/Badge/Badge";
@@ -358,7 +359,7 @@ const Home = () => {
           </div>
         </div>
         <div className="inline-block md:hidden w-full mt-9">
-          <Carousel blogCards={blogCards}></Carousel>
+          <TopCarousel blogCards={blogCards}></TopCarousel>
         </div>
         <div className="mt-12 flex justify-center">
           <Button

@@ -13,9 +13,8 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
-const Carousel = (props) => {
+const TopCarousel = (props) => {
   const swiperHandle = useSwiper();
   return (
     <div>
@@ -80,31 +79,32 @@ const Carousel = (props) => {
             );
           })}
       </Swiper>
-      <div className="flex justify-center mt-14 gap-3">
-        <button
+      <div className="flex justify-between gap-3">
+        <div
+          className="flex justify-left mt-3 gap-3"
           onClick={() => {
             if (!!swiperHandle) {
               swiperHandle.slidePrev();
             }
           }}
-          className="py-3 px-[18px] dark:bg-blue1 bg-blue3 text-white rounded-full border border-transparent hover:bg-transparent hover:border-white transition"
         >
-          <FontAwesomeIcon icon={faChevronLeft} size="1x" />
-        </button>
-
-        <button
+          <FaArrowLeft className="mt-1" />
+          Previous
+        </div>
+        <div
+          className="flex justify-end mt-3 gap-3"
           onClick={() => {
             if (!!swiperHandle) {
               swiperHandle.slideNext();
             }
           }}
-          className="py-3 px-[18px] dark:bg-blue1 bg-blue3 rounded-full text-white border border-transparent hover:bg-transparent hover:border-white transition"
         >
-          <FontAwesomeIcon icon={faChevronRight} size="1x" />
-        </button>
+          <FaArrowRight className="mt-1" />
+          Next
+        </div>
       </div>
     </div>
   );
 };
 
-export default Carousel;
+export default TopCarousel;
