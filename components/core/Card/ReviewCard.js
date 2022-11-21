@@ -12,6 +12,7 @@ import {
   UserEmail,
   UserName,
 } from "./ReviewCard.module";
+import Button from "../Button/Button";
 
 const ReviewCard = ({
   allCasinos,
@@ -73,8 +74,13 @@ const ReviewCard = ({
                   {/* {/* <Content>➕{pros}</Content> */}
                   {/* <Content>➖{cons}</Content>  */}
                 </div>
-                
               </div>
+              <Button
+                className="flex items-center h-full"
+                label="See Reviews"
+                variant="model"
+                width={30}
+              ></Button>
             </div>
             <div className="flex justify-end w-full pr-8 gap-5 pb-5">
               <button className="flex items-center gap-2">
@@ -110,7 +116,7 @@ const ReviewCard = ({
                     <CardBadge2>{userStatus}</CardBadge2>
                   )}
                 </div>
-                
+
                 <div className="gap-8 mt-3">
                   <Content>{description}</Content>
                   <br />
@@ -121,7 +127,9 @@ const ReviewCard = ({
                   {cons.length > 0 &&
                     cons.map((con, index) => {
                       return (
-                        <Content key={index} style={{ color: "red" }}>➖ {con}</Content>
+                        <Content key={index} style={{ color: "red" }}>
+                          ➖ {con}
+                        </Content>
                       );
                     })}
                 </div>

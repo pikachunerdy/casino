@@ -36,10 +36,7 @@ const HomeTable = ({
   slug,
   rating,
 }) => {
-  // const { isExpand } = props;
-
   const router = useRouter();
-
   const tableHeader = {
     Name: "Name",
     Bonus: "Bonus",
@@ -48,78 +45,71 @@ const HomeTable = ({
     Rating: "Rating",
     Website: "Website",
   };
-
   const { reviewData } = useContext(ReviewsContext);
-
   const numCasinoReviews = getAllDataForOneCasino(reviewData, casino).length;
 
   return (
     <>
-     
-        <div className="dark:bg-black1 bg-white">
-          <table className="mt-4">
-            <thead>
-              <tr>
-                <HeaderName className="w-[20%]">{tableHeader.Name}</HeaderName>
-                <HeaderName className="w-[10%]">{tableHeader.Bonus}</HeaderName>
-                <HeaderName className="w-[15%]">
-                  {tableHeader.Feature}
-                </HeaderName>
-                <HeaderName className="w-[25%]">{tableHeader.Users}</HeaderName>
-                <HeaderName className="w-[20%]">
-                  {tableHeader.Rating}
-                </HeaderName>
-                <HeaderName className="w-[20%]">
-                  {tableHeader.Website}
-                </HeaderName>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <div className="flex flex-col content-center space-y-3 m-5 justify-center">
-                  <td className="text-xl">{casino}</td>
-                  <Link href={`/gambling/${slug}`}>
-                    <img src={image} className="rounded-md w-20 h-20" />
-                  </Link>
+      <div className="dark:bg-black1 bg-white">
+        <table className="mt-4">
+          <thead>
+            <tr>
+              <HeaderName className="w-[20%]"></HeaderName>
+              <HeaderName className="w-[10%]"></HeaderName>
+              <HeaderName className="w-[15%]"></HeaderName>
+              <HeaderName className="w-[25%]"></HeaderName>
+              <HeaderName className="w-[20%]"></HeaderName>
+              <HeaderName className="w-[20%]"></HeaderName>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr>
+              <div className="flex flex-col content-center space-y-3 m-5 justify-center">
+                <td className="text-xl">{casino}</td>
+                <Link href={`/gambling/${slug}`}>
+                  <img src={image} className="rounded-md w-20 h-20" />
+                </Link>
+              </div>
+
+        
+              <td className="w-[10%]">bonus</td>
+              <td className="w-[15%]">features</td>
+              <td className="w-[25%]">users</td>
+
+              <td>
+                {reviewData.length > 0 &&
+                  calculateCasinoAvgRating(reviewData).map((casino, index) => {
+                    return <Rating className="w-[20%]" key={index} value={rating}></Rating>;
+                  })}
+
+                <div key={casino}>
+                  (
+                  {numCasinoReviews > 1
+                    ? `${numCasinoReviews} reviews`
+                    : `${numCasinoReviews} review`}
+                  )
                 </div>
+              </td>
+              <div className="">
+              <div className="flex flex-col gap-3 w-full">
+                <a href={website} target="_blank">
+                  <Button label="Visit Casino" variant="model" width={30} />
+                </a>
 
-                <td>bonus</td>
-                <td>features</td>
-                <td>users</td>
-
-                <td>
-                  {reviewData.length > 0 &&
-                    calculateCasinoAvgRating(reviewData).map((casino) => {
-                      console.log('what review data is this', reviewData)
-                      return <Rating value={rating}></Rating>;
-                    })}
-
-                  <div key={casino}>
-                    (
-                    {numCasinoReviews > 1
-                      ? `${numCasinoReviews} reviews`
-                      : `${numCasinoReviews} review`}
-                    )
-                  </div>
-                </td>
-                <div className="flex flex-col gap-3">
-                  <a href={website} target="_blank">
-                    <Button label="Visit Casino" variant="model" width={30} />
-                  </a>
-
-                  <Link href={`/gambling/${slug}`}>
-                    <Button
-                      label="Full Review"
-                      variant=""
-                      handleClick={() => router.push(`/gambling/${slug}`)}
-                    />
-                  </Link>
-                </div>
-              </tr>
-            </tbody>
-          </table>
-        </div>
- 
+                <Link href={`/gambling/${slug}`}>
+                  <Button
+                    label="Full Review"
+                    variant=""
+                    handleClick={() => router.push(`/gambling/${slug}`)}
+                  />
+                </Link>
+              </div>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };

@@ -8,6 +8,7 @@ import {
   calculateCasinoAvgRating,
   getAllDataForOneCasino,
 } from "../../helpers/AverageRatingFunction";
+import HomeTableHeader from "../../components/page/Home/HomeTableHeader";
 
 export async function getStaticProps() {
   const response = await fetch("http://localhost:8000/casinos/");
@@ -33,9 +34,9 @@ const CasinoList = ({ casinos }) => {
   const { reviewData } = useContext(ReviewsContext);
   return (
     <Layout>
-      <div>
-        <ul className="my-[10rem]">
-        {/* <HomeTableHeader /> */}
+      <div className="p-10">
+        <ul className="my-[8rem]">
+        <HomeTableHeader />
           {casinos.map((casino) => {
             const avergaeCasinoRating = calculateCasinoAvgRating(
               getAllDataForOneCasino(reviewData, casino.name)

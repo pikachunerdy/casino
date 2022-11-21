@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import {
@@ -40,10 +40,6 @@ import {
 const Home = ({ landingPage }) => {
   const { listData } = useContext(CasinoContext);
   const { reviewData } = useContext(ReviewsContext);
-
-  useEffect(() => {
-    console.log("reviewData", reviewData);
-  }, []);
 
   const cards = [
     {
@@ -148,7 +144,23 @@ const Home = ({ landingPage }) => {
 
   const router = useRouter();
   const [isExpand, setIsExpand] = React.useState(false);
+  const featuredCasino = getAllDataForOneCasino(listData, listData.name);
+  const numCasinoReviews = getAllDataForOneCasino(
+    reviewData,
+    reviewData.casino_name
+  );
 
+  const mainPageFeatureCasino = featuredCasino[1];
+  const reviewsForOneCasino = reviewData;
+  // let dataForFeaturedCasino;
+  // {
+  //   reviewData.map((data, index) => {
+  //     if (data.casino_name === mainPageFeatureCasino) {
+  //       return dataForFeaturedCasino;
+  //     }
+  //   });
+  // }
+  // console.log(dataForFeaturedCasino);
   return (
     <Layout>
       <Container className="md:min-h-screen mt-36 md:mt-0">
@@ -223,14 +235,27 @@ const Home = ({ landingPage }) => {
             Of The Week
           </SubTitle>
         </div>
-        <div className="w-full pt-9">
-          <FeaturedCasino
-            img={Back2}
-            title="Pinata Casino"
-            value={4}
-            reviews={76}
-          ></FeaturedCasino>
+        {/* {featuredCasino.map((data, index) => { */}
+
+        <div>
+          <div className="w-full pt-9">
+            {mainPageFeatureCasino && (
+              <FeaturedCasino
+                img={mainPageFeatureCasino.image}
+                // width={100}
+                // height={100/}
+                // layout="fill"
+                // title="Pinata Casino"
+                website={mainPageFeatureCasino.website}
+                casinoName={mainPageFeatureCasino.name}
+                value={4}
+                reviews={5}
+              />
+            )}
+          </div>
         </div>
+
+        {/* })} */}
         <div className="w-full mt-11">
           <Carousel cards={cards}></Carousel>
         </div>
