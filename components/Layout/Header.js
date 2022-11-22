@@ -45,7 +45,7 @@ const menus = [
   },
   {
     label: "Reviews",
-    link: "/review",
+    link: "/reviews",
   },
 ];
 

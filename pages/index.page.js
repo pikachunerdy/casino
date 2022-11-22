@@ -36,8 +36,22 @@ import {
   calculateCasinoAvgRating,
   getAllDataForOneCasino,
 } from "../helpers/AverageRatingFunction";
+import { getSortedPostsData } from "../lib/posts";
 
-const Home = ({ landingPage }) => {
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  // const allPackagesData = getSortedPackagesData();
+
+  return {
+    props: {
+      allPostsData,
+      // allPackagesData,
+    },
+  };
+}
+
+
+const Home = ({ landingPage, allPostsData }) => {
   const { listData } = useContext(CasinoContext);
   const { reviewData } = useContext(ReviewsContext);
 
@@ -151,16 +165,8 @@ const Home = ({ landingPage }) => {
   );
 
   const mainPageFeatureCasino = featuredCasino[1];
-  const reviewsForOneCasino = reviewData;
-  // let dataForFeaturedCasino;
-  // {
-  //   reviewData.map((data, index) => {
-  //     if (data.casino_name === mainPageFeatureCasino) {
-  //       return dataForFeaturedCasino;
-  //     }
-  //   });
-  // }
-  // console.log(dataForFeaturedCasino);
+
+ 
   return (
     <Layout>
       <Container className="md:min-h-screen mt-36 md:mt-0">
@@ -236,7 +242,7 @@ const Home = ({ landingPage }) => {
           </SubTitle>
         </div>
         {/* {featuredCasino.map((data, index) => { */}
-
+       
         <div>
           <div className="w-full pt-9">
             {mainPageFeatureCasino && (
@@ -324,16 +330,21 @@ const Home = ({ landingPage }) => {
         <div>
           <NewsSubTitle>Today&apos;s news - most recent articles</NewsSubTitle>
         </div>
-        <div className="hidden md:flex gap-9 mt-9 w-full">
+      
+<div className="hidden md:flex gap-9 mt-9 w-full">
+        {allPostsData.map(({id, data, title}) => (
           <div className="w-3/5">
+            <Link href={`/blogs/${id}`}>
+
             <BlogCard
               cardImage={Back2}
-              date="Disclosed • 20 Jan 2022"
-              title="Are Crypto casinos safe?"
+              date={data}
+              title={title}
               content="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam."
               states={siteStates}
             ></BlogCard>
-          </div>
+            </Link>
+          </div>))}
           <div className="flex flex-col w-2/5 gap-4">
             <HomeCard>
               <HomeCardTitle>Best Casino Games</HomeCardTitle>

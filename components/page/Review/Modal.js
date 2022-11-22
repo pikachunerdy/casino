@@ -115,8 +115,7 @@ const Modal = ({
                 </p>
                 <p className="font-medium text-[19px] text-center leading-[22px]">
                   <span className="dark:text-blue1 text-blue3">Sign up</span> or{" "}
-                  <span className="dark:text-blue1 text-blue3">Login</span> to
-                  be able to manage or edit your review
+                  <span className="dark:text-blue1 text-blue3">Login</span> to manage your reviews
                 </p>
               </div>
               <div className="text-md mt-[60px]">
