@@ -50,61 +50,60 @@ export async function getStaticProps() {
   };
 }
 
-
 const Home = ({ landingPage, allPostsData }) => {
   const { listData } = useContext(CasinoContext);
   const { reviewData } = useContext(ReviewsContext);
 
-  const cards = [
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "U enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-    {
-      title: "The best",
-      value: 4,
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
-      avatar: "/image/avatar.svg",
-      user: "Tomson",
-    },
-  ];
+  // const cards = [
+  //   {
+  //     title: "The best",
+  //     value: 4,
+  //     content:
+  //       "U enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+  //     avatar: "/image/avatar.svg",
+  //     user: "Tomson",
+  //   },
+  //   {
+  //     title: "The best",
+  //     value: 4,
+  //     content:
+  //       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+  //     avatar: "/image/avatar.svg",
+  //     user: "Tomson",
+  //   },
+  //   {
+  //     title: "The best",
+  //     value: 4,
+  //     content:
+  //       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+  //     avatar: "/image/avatar.svg",
+  //     user: "Tomson",
+  //   },
+  //   {
+  //     title: "The best",
+  //     value: 4,
+  //     content:
+  //       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+  //     avatar: "/image/avatar.svg",
+  //     user: "Tomson",
+  //   },
+  //   {
+  //     title: "The best",
+  //     value: 4,
+  //     content:
+  //       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+  //     avatar: "/image/avatar.svg",
+  //     user: "Tomson",
+  //   },
+  //   {
+  //     title: "The best",
+  //     value: 4,
+  //     content:
+  //       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+  //     avatar: "/image/avatar.svg",
+  //     user: "Tomson",
+  //   },
+  // ];
 
   const siteStates = [
     {
@@ -164,9 +163,8 @@ const Home = ({ landingPage, allPostsData }) => {
     reviewData.casino_name
   );
 
-  const mainPageFeatureCasino = featuredCasino[1];
+  const mainPageFeatureCasino = featuredCasino[4];
 
- 
   return (
     <Layout>
       <Container className="md:min-h-screen mt-36 md:mt-0">
@@ -237,33 +235,27 @@ const Home = ({ landingPage, allPostsData }) => {
       <Container>
         <div>
           <SubTitle>
-            Featured <span className="dark:text-blue1 text-blue3">Casino</span>{" "}
+            Featured <span className="dark:text-blue1 text-blue3">Casino</span>
             Of The Week
           </SubTitle>
         </div>
-        {/* {featuredCasino.map((data, index) => { */}
-       
         <div>
-          <div className="w-full pt-9">
-            {mainPageFeatureCasino && (
-              <FeaturedCasino
-                img={mainPageFeatureCasino.image}
-                // width={100}
-                // height={100/}
-                // layout="fill"
-                // title="Pinata Casino"
-                website={mainPageFeatureCasino.website}
-                casinoName={mainPageFeatureCasino.name}
-                value={4}
-                reviews={5}
-              />
-            )}
-          </div>
+          {mainPageFeatureCasino && (
+            <Link href={`/gambling/${mainPageFeatureCasino.slug}`}>
+              <div className="w-full pt-9 cursor-pointer">
+                <FeaturedCasino
+                  img={mainPageFeatureCasino.banner}
+                  website={mainPageFeatureCasino.website}
+                  casinoName={mainPageFeatureCasino.name}
+                  value={4}
+                  reviews={5}
+                />
+              </div>
+            </Link>
+          )}
         </div>
-
-        {/* })} */}
         <div className="w-full mt-11">
-          <Carousel cards={cards}></Carousel>
+          <Carousel featured={mainPageFeatureCasino}></Carousel>
         </div>
       </Container>
 
@@ -330,21 +322,21 @@ const Home = ({ landingPage, allPostsData }) => {
         <div>
           <NewsSubTitle>Today&apos;s news - most recent articles</NewsSubTitle>
         </div>
-      
-<div className="hidden md:flex gap-9 mt-9 w-full">
-        {allPostsData.map(({id, data, title}) => (
-          <div className="w-3/5">
-            <Link href={`/blogs/${id}`}>
 
-            <BlogCard
-              cardImage={Back2}
-              date={data}
-              title={title}
-              content="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam."
-              states={siteStates}
-            ></BlogCard>
-            </Link>
-          </div>))}
+        <div className="hidden md:flex gap-9 mt-9 w-full">
+          {allPostsData.map(({ id, data, title }) => (
+            <div className="w-3/5">
+              <Link href={`/blogs/${id}`}>
+                <BlogCard
+                  cardImage={Back2}
+                  date={data}
+                  title={title}
+                  content="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam."
+                  states={siteStates}
+                ></BlogCard>
+              </Link>
+            </div>
+          ))}
           <div className="flex flex-col w-2/5 gap-4">
             <HomeCard>
               <HomeCardTitle>Best Casino Games</HomeCardTitle>

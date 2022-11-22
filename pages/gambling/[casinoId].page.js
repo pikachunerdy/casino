@@ -82,8 +82,7 @@ console.log('casino-test', casino)
     <Layout>
       <img src={casino.banner} alt="casino banner" className="bg-no-repeat bg-center bg-cover bg-fixed min-h-screen "/>
       <HomeContainer href={casino.banner}>
-        {/* <div className="flex items-end justify-between bg-no-repeat bg-center -mx-[5.5%] min-h-screen pb-20"> */}
-      {/* </div> */}
+      
         <div className="ml-[5.5%]">
           <PageTitle>{casino.name}</PageTitle>
         </div>

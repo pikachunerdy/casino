@@ -93,9 +93,9 @@ const HomeTable = ({
               </td>
               <div className="">
               <div className="flex flex-col gap-3 w-full">
-                <a href={website} target="_blank">
+                {top10casinos && (<a href={website} target="_blank">
                   <Button label="Visit Casino" variant="model" width={30} />
-                </a>
+                </a>)}
 
                 <Link href={`/gambling/${slug}`}>
                   <Button

@@ -29,6 +29,7 @@ const FeaturedCasino = ({ img, casinoName, value, reviews, website }) => {
         onMouseLeave={() => setIsShow(false)}
       >
         <FeatureTitle>{casinoName}</FeatureTitle>
+        <div className="flex justify-between">
         <div className="flex items-center">
           <div className="hidden dark:inline-block">
             <Rating value={value} activeColor="#C9C9C9"></Rating>
@@ -40,18 +41,19 @@ const FeaturedCasino = ({ img, casinoName, value, reviews, website }) => {
             {value}/5 based on {reviews}reviews
           </ContentTitle>
         </div>
-        <div className="pt-3">
+        <div className="p-3">
           <a href={website} target="_blank">
           <Button
-            label="Visit Casino"
+            label="See Reviews"
             variant="model"
           >
-            <div className="pl-1 pt-1">
+            <div className="pl-2 pt-1">
               <FaArrowRight />
             </div>
           </Button>
 
           </a>
+        </div>
         </div>
       </div>
 

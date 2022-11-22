@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { FreeMode, Pagination, Scrollbar, A11y } from "swiper";
 import Button from "../../core/Button/Button";
@@ -8,6 +8,7 @@ import BlogCard from "../../core/Card/BlogCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import ReviewsContext from "../../../context/ReviewsContext";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -15,7 +16,10 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 const Carousel = (props) => {
-  const swiperHandle = useSwiper();
+  const { description, rating, title, user, image, featured } = props;
+  const { reviewData } = useContext(ReviewsContext);
+   const swiperHandle = useSwiper();
+   
   return (
     <div>
       <Swiper
@@ -50,20 +54,25 @@ const Carousel = (props) => {
         }}
         className="gap-4 !p-5"
       >
-        {props.cards &&
-          props.cards.map((card, i) => {
-            return (
-              <SwiperSlide className="flex justify-center" key={i}>
-                <HomeCard
-                  title={card.title}
-                  value={card.value}
-                  content={card.content}
-                  avatar={card.avatar}
-                  user={card.user}
-                ></HomeCard>
-              </SwiperSlide>
-            );
+           {featured &&
+          reviewData.map((data, index) => {
+            if (featured.name === data.casino_name) {
+              return (
+                <SwiperSlide className="flex justify-center">
+                  <HomeCard
+                    key={index}
+                    title={data.title}
+                    value={data.score}
+                    content={data.description}
+                    // avatar={card.avatar}
+                    user={data.user}
+                  />
+                </SwiperSlide>
+              );
+            }
           })}
+        
+
         {props.blogCards &&
           props.blogCards.map((blogCard, i) => {
             return (
