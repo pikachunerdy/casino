@@ -136,7 +136,7 @@ const HomeTable = (props) => {
       <div className="flex flex-col md:hidden">
         {tableData.slice(0, isExpand ? tableData.length : 3).map((row, i) => {
           return (
-            <div className="mt-3 mx-auto">
+            <div className="mt-3 mx-auto" key={i}>
               <HomeTableCard
                 siteName={row.siteName}
                 bonus={row.bonus}

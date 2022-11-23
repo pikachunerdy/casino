@@ -2,7 +2,7 @@ import * as React from "react";
 import Layout from "../../components/Layout/Layout";
 import Rating from "../../components/core/Rating/Rating";
 import { FaArrowRight } from "react-icons/fa";
-import { FaPlus } from "react-icons/fa";
+
 const Reviews = () => {
   return (
     <Layout>

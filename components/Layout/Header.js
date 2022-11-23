@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -47,6 +47,9 @@ const menus = [
 
 export default function Header({ children }) {
   const router = useRouter();
+  const AppLink = React.forwardRef((props, ref) => (
+    <Link innerRef={ref} {...props} />
+  ));
 
   let [isOpen, setIsOpen] = useState(false);
   let [modalTitle, setModalTitle] = useState("");
@@ -78,9 +81,11 @@ export default function Header({ children }) {
     <>
       <HeaderWrapper>
         <Logo>
-          <Link href="/">
-            <Image src="/image/logo.svg" alt="logo" width={182} height={24} />
-          </Link>
+          <AppLink href="/">
+            <a>
+              <Image src="/image/logo.svg" alt="logo" width={182} height={24} />
+            </a>
+          </AppLink>
         </Logo>
 
         <MenuWrapper>
