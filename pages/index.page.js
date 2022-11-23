@@ -163,7 +163,7 @@ const Home = ({ landingPage, allPostsData }) => {
     reviewData.casino_name
   );
 
-  const mainPageFeatureCasino = featuredCasino[4];
+  const mainPageFeatureCasino = featuredCasino[0];
 
   return (
     <Layout>

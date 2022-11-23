@@ -18,8 +18,9 @@ import "swiper/css/scrollbar";
 const Carousel = (props) => {
   const { description, rating, title, user, image, featured } = props;
   const { reviewData } = useContext(ReviewsContext);
-   const swiperHandle = useSwiper();
-   
+  const swiperHandle = useSwiper();
+
+
   return (
     <div>
       <Swiper
@@ -56,21 +57,28 @@ const Carousel = (props) => {
       >
            {featured &&
           reviewData.map((data, index) => {
-            if (featured.name === data.casino_name) {
+            const descriptionControl = data.description.length;
+            if (featured.name === data.casino_name ) {
               return (
-                <SwiperSlide className="flex justify-center">
+                
+                <SwiperSlide className="flex justify-center" key={index}>
                   <HomeCard
                     key={index}
                     title={data.title}
                     value={data.score}
                     content={data.description}
+                    descriptionControl={descriptionControl}
                     // avatar={card.avatar}
                     user={data.user}
                   />
+                  
                 </SwiperSlide>
+     
               );
             }
           })}
+
+          
         
 
         {props.blogCards &&

@@ -11,3 +11,7 @@ export const CardContent = styled.p.attrs({
 export const CardUserName = styled.p.attrs({
   className: "font-semibold text-[18px] dark:text-white1",
 })``;
+
+export const ReadMore = styled.p.attrs({
+  className: "font-semibold text-[18px] dark:text-white1 mt-3 ",
+})``;
