@@ -104,10 +104,10 @@ const Learn = () => {
 
   return (
     <Layout>
-      <Container className=" -mx-[5.5%] min-h-screen bg-[url('/background/Back4.png')]"></Container>
+      <Container className=" -mx-[5.5%] mt-[100px] min-h-screen bg-[url('/background/Back4.png')]"></Container>
 
-      <Container>
-        <div className="w-[44%] my-14">
+      <div className="ml-[117px] flex justify-left">
+        <div className="w-[70%] my-14">
           <div className="flex justify-start gap-2">
             <Badge color="text-purple" label="Casinos"></Badge>
             <Badge color="text-bue2" label="Crypto"></Badge>
@@ -127,7 +127,7 @@ const Learn = () => {
             </ContentText>
           </div>
         </div>
-      </Container>
+      </div>
 
       <Container>
         <div className="w-full">
@@ -139,10 +139,10 @@ const Learn = () => {
       </Container>
 
       <SubscribeContainer className="mt-16 mb-[133px]">
-        <AboutTitle className="dark:text-white1 text-white">
+        <AboutTitle className="dark:text-white1 text-white max-w-[939px] w-[58%] mt-[63px]">
           Join today and leave a review at your favourite casinos!
         </AboutTitle>
-        <div className="pt-9">
+        <div className="pt-9 mb-[75px]">
           <Button
             label="Get Started"
             handleClick={() => {

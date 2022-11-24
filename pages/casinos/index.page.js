@@ -135,20 +135,25 @@ const Review = () => {
   return (
     <Layout>
       <HomeContainer>
-        <div className="ml-[5.5%]">
-          <PageTitle>Reviewed Casinos</PageTitle>
-          <PageContent>Leave a review today!</PageContent>
+        <div className="-translate-x-[5%] w-screen object-cover z-0">
+          <img src="/background/Back4.png" width="100%" height="auto" />
         </div>
-        <div className="flex flex-col items-center mr-[5.5%] gap-[14px]">
-          <Button
-            label="Write A Review"
-            handleClick={() => handleChange()}
-            variant="model"
-          >
-            <div className="pl-1 pt-1">
-              <FaPen />
-            </div>
-          </Button>
+        <div className="flex absolute bottom-0 justify-between w-full mb-9">
+          <div>
+            <PageTitle>Reviewed Casinos</PageTitle>
+            <PageContent>Leave a review today!</PageContent>
+          </div>
+          <div className="flex flex-col items-center mr-[5.5%] gap-[14px]">
+            <Button
+              label="Write A Review"
+              handleClick={() => handleChange()}
+              variant="model"
+            >
+              <div className="pl-1 pt-1">
+                <FaPen />
+              </div>
+            </Button>
+          </div>
         </div>
       </HomeContainer>
 
@@ -156,23 +161,23 @@ const Review = () => {
         <div className="mx-[54px] w-full">
           <Search />
         </div>
-        <div className="flex justify-between gap-14 mt-[29px] w-full">
-          <div className="w-1/4">
+        <div className="md:flex justify-between gap-14 mt-[29px] w-full">
+          <div className="md:w-1/4 mb-[20px]">
             <Select options={topReviewOptions} placeholder="Top Reviews" />
           </div>
-          <div className="w-1/4">
+          <div className="md:w-1/4 mb-[20px]">
             <Select
               options={verifiedReviewOptions}
               placeholder="Verified reviews only"
             />
           </div>
-          <div className="w-1/4">
+          <div className="md:w-1/4 mb-[20px]">
             <Select
               options={allNegativeReviewOptions}
               placeholder="All negative"
             />
           </div>
-          <div className="w-1/4">
+          <div className="md:w-1/4 mb-[20px]">
             <Select options={casinoGameOptions} placeholder="Casino games" />
           </div>
         </div>

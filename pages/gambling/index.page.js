@@ -62,7 +62,7 @@ const Gambling = () => {
   }, []);
 
   function getAllDataForOneCasino(casinoData, casino_name) {
-    console.log('casino data ---->',casinoData)
+    console.log("casino data ---->", casinoData);
     const arrOfSameCasinoRatings = casinoData.filter((casinoObj) => {
       if (casinoObj.casino_name === casino_name) return casinoObj;
     });
@@ -80,10 +80,8 @@ const Gambling = () => {
       if (score !== null || score !== undefined) {
         res.score === undefined ? (res.score = +score) : (res.score = +score);
         numCasinoObj++;
-        
-      
       }
-      
+
       res.up_vote.push(up_vote);
       res.down_vote.push(down_vote);
     });
@@ -204,30 +202,35 @@ const Gambling = () => {
   return (
     <Layout>
       <HomeContainer>
-        <div className="ml-[5.5%]">
-          <PageTitle>The Gambling Palace.</PageTitle>
+        <div className="-translate-x-[5%] w-screen object-cover z-0">
+          <img src="/background/Back5.png" width="100%" height="auto" />
         </div>
-        <div className="flex flex-col items-center mr-[5.5%] gap-[14px]">
-          <Button
-            label="Visit Casino"
-            handleClick={() => {
-              console.log("Visit Casino");
-            }}
-            variant="model"
-          >
-            <div className="pl-1 pt-1">
-              <FaArrowRight />
-            </div>
-          </Button>
-          <a
-            className="group flex cursor-pointer hover:text-blue1 transition"
-            onClick={handleChange}
-          >
-            Write a review{" "}
-            <div className="pl-1 pt-1 group-hover:text-blue1 group-hover:translate-x-1 transition">
-              <FaArrowRight />
-            </div>
-          </a>
+        <div className="flex absolute bottom-0 justify-between w-full mb-9">
+          <div>
+            <PageTitle>The Gambling Palace.</PageTitle>
+          </div>
+          <div className="flex flex-col items-center gap-[14px]">
+            <Button
+              label="Visit Casino"
+              handleClick={() => {
+                console.log("Visit Casino");
+              }}
+              variant="model"
+            >
+              <div className="pl-1 pt-1">
+                <FaArrowRight />
+              </div>
+            </Button>
+            <a
+              className="group flex cursor-pointer hover:text-blue1 transition"
+              onClick={handleChange}
+            >
+              Write a review{" "}
+              <div className="pl-1 pt-1 group-hover:text-blue1 group-hover:translate-x-1 transition">
+                <FaArrowRight />
+              </div>
+            </a>
+          </div>
         </div>
       </HomeContainer>
 
