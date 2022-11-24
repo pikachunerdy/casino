@@ -20,7 +20,6 @@ const Carousel = (props) => {
   const { reviewData } = useContext(ReviewsContext);
   const swiperHandle = useSwiper();
 
-
   return (
     <div>
       <Swiper
@@ -68,7 +67,8 @@ const Carousel = (props) => {
                     value={data.score}
                     content={data.description}
                     descriptionControl={descriptionControl}
-                    // avatar={card.avatar}
+                    // image={data.image}
+                    // avatar={}
                     user={data.user}
                   />
                   

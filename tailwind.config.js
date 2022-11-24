@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         Clash: "Clash Display",
         Inter: ['"Inter"', "sans-serif"],
+        Roboto: ['Roboto', "sans-serif"]
       },
       colors: {
         dark: "#121212",

@@ -10,7 +10,7 @@ export const Container = styled.div.attrs({
 })``;
 
 export const PageTitle = styled.div.attrs({
-  className: "font-semibold text-[32px] leading-[30px] dark:text-white1",
+  className: "font-bold text-[40px] leading-[30px] dark:text-white1",
 })``;
 
 export const PageContent = styled.div.attrs({

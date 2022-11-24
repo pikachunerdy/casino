@@ -22,6 +22,7 @@ import FeaturedCasino from "../components/page/Home/FeaturedCasino";
 import Carousel from "../components/page/Home/Carousel";
 import HomeTable from "../components/page/Home/HomeTable";
 import BlogCard from "../components/core/Card/BlogCard";
+import BlogCardTest from "../components/core/Card/BlogCardTest";
 import Badge from "../components/core/Badge/Badge";
 import Subscribe from "../components/core/Subscribe/Subscribe";
 import { FaArrowRight } from "react-icons/fa";
@@ -120,40 +121,40 @@ const Home = ({ landingPage, allPostsData }) => {
     },
   ];
 
-  const blogCards = [
-    {
-      cardImage: Back2,
-      date: "Disclosed • 20 Jan 2022",
-      title: "Are Crypto casinos safe?",
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
-      states: siteStates,
-    },
-    {
-      cardImage: Back2,
-      date: "Disclosed • 20 Jan 2022",
-      title: "Are Crypto casinos safe?",
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
-      states: siteStates,
-    },
-    {
-      cardImage: Back2,
-      date: "Disclosed • 20 Jan 2022",
-      title: "Are Crypto casinos safe?",
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
-      states: siteStates,
-    },
-    {
-      cardImage: Back2,
-      date: "Disclosed • 20 Jan 2022",
-      title: "Are Crypto casinos safe?",
-      content:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
-      states: siteStates,
-    },
-  ];
+  // const blogCards = [
+  //   {
+  //     cardImage: Back2,
+  //     date: "Disclosed • 20 Jan 2022",
+  //     title: "Are Crypto casinos safe?",
+  //     content:
+  //       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
+  //     states: siteStates,
+  //   },
+  //   {
+  //     cardImage: Back2,
+  //     date: "Disclosed • 20 Jan 2022",
+  //     title: "Are Crypto casinos safe?",
+  //     content:
+  //       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
+  //     states: siteStates,
+  //   },
+  //   {
+  //     cardImage: Back2,
+  //     date: "Disclosed • 20 Jan 2022",
+  //     title: "Are Crypto casinos safe?",
+  //     content:
+  //       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
+  //     states: siteStates,
+  //   },
+  //   {
+  //     cardImage: Back2,
+  //     date: "Disclosed • 20 Jan 2022",
+  //     title: "Are Crypto casinos safe?",
+  //     content:
+  //       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam.",
+  //     states: siteStates,
+  //   },
+  // ];
 
   const router = useRouter();
   const [isExpand, setIsExpand] = React.useState(false);
@@ -315,28 +316,21 @@ const Home = ({ landingPage, allPostsData }) => {
 
         <div className="mt-[195px]">
           <SubTitle>
-            Featured <span className="dark:text-blue1 text-blue3">Blogs</span>{" "}
-            Of The Week
+            Featured <span className="dark:text-blue1 text-blue3">Blogs</span> Of The Week
           </SubTitle>
         </div>
         <div>
           <NewsSubTitle>Today&apos;s news - most recent articles</NewsSubTitle>
         </div>
-
-        <div className="hidden md:flex gap-9 mt-9 w-full">
-          {allPostsData.map(({ id, data, title }) => (
-            <div className="w-3/5">
-              <Link href={`/blogs/${id}`}>
-                <BlogCard
-                  cardImage={Back2}
-                  date={data}
-                  title={title}
-                  content="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam."
-                  states={siteStates}
-                ></BlogCard>
-              </Link>
-            </div>
-          ))}
+        <div className="flex gap-9 mt-9 w-full">
+          <div className="w-3/5">
+            <BlogCardTest
+              cardImage={Back2}
+              allPostsData={allPostsData}
+              states={siteStates}
+            ></BlogCardTest>
+          </div>
+          
           <div className="flex flex-col w-2/5 gap-4">
             <HomeCard>
               <HomeCardTitle>Best Casino Games</HomeCardTitle>
@@ -368,14 +362,12 @@ const Home = ({ landingPage, allPostsData }) => {
             </HomeCard>
           </div>
         </div>
-        <div className="inline-block md:hidden w-full mt-9">
-          <Carousel blogCards={blogCards}></Carousel>
-        </div>
+
         <div className="mt-12 flex justify-center">
           <Button
             variant="model"
             label="See All Stories"
-            handleClick={() => router.push("/learn")}
+            handleClick={() => router.push("/blogs")}
           >
             <div className="pl-1 pt-1">
               <FaArrowRight />

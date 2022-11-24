@@ -2,9 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 @import url("http://fonts.cdnfonts.com/css/clash-display");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 * {
   font-family: "Clash Display", sans-serif;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  text-indent: 10px;
+  text-align: justify;
+  letter-spacing: 3px;
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 32px;
+  margin: 1rem 0 1rem 0;
+}
+
+h3 {
+  font-size: 1.3rem;
 }
 
 html {

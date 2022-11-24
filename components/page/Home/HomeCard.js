@@ -14,10 +14,10 @@ const HomeCard = (props) => {
   const descriptionControlAmount = content.slice(0, 175);
 
   return (
-    <div className="w-[500px] min-h-[20rem] p-[50px] dark:bg-black1 bg-white cursor-pointer hover:scale-105 transition duration-300">
+    <div className="mb-[2rem] w-[500px] min-h-[20rem] p-[50px] dark:bg-black1 bg-white cursor-pointer hover:scale-105 transition duration-300">
       <div className="flex gap-3 flex-col">
         <div className="flex gap-4">
-          <Avatar src={props.avatar} alt="avatar"></Avatar>
+          {/* <Avatar src={avatar} alt="avatar"></Avatar> */}
           <CardUserName>{props.user}</CardUserName>
         </div>
         <CardTitle>&quot;{props.title}&quot;</CardTitle>
