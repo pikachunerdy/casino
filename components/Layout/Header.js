@@ -15,6 +15,7 @@ import Button from "../core/Button/Button";
 import ColorSwitchButton from "../core/Button/ColorSwitchButton";
 
 const ratingOptions = [
+  { value: 6, label: 6, className: "dropdown-menu-option" },
   { value: 5, label: 5, className: "dropdown-menu-option" },
   { value: 4, label: 4, className: "dropdown-menu-option" },
   { value: 3, label: 3, className: "dropdown-menu-option" },
@@ -42,6 +43,10 @@ const menus = [
   {
     label: "Profile",
     link: "/profile",
+  },
+  {
+    label: "Review",
+    link: "/reviews",
   },
 ];
 

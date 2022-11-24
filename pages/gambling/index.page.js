@@ -248,8 +248,8 @@ const Gambling = () => {
             <ContentTitle>Overview</ContentTitle>
           </div>
           <Crypto />
-          <div className="flex gap-5 mt-12 w-full rounded-md overflow-hidden">
-            <div className="w-[75%]">
+          <div className="md:flex gap-5 mt-12 w-full rounded-md overflow-hidden">
+            <div className="md:w-[75%] mb-4 md:mb-0">
               <CardContainer className="h-full">
                 <ProsText>Pros</ProsText>
                 <CardContent>
@@ -270,7 +270,7 @@ const Gambling = () => {
             ).map((casino) => {
               console.log("map test", casino.percent);
               return (
-                <div className="w-[25%]">
+                <div className="md:w-[25%]">
                   <RatingCard
                     overview
                     score={casino.score}

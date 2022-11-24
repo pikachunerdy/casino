@@ -104,8 +104,9 @@ const Learn = () => {
 
   return (
     <Layout>
-      <Container className=" -mx-[5.5%] mt-[100px] min-h-screen bg-[url('/background/Back4.png')]"></Container>
-
+      <Container>
+        <img src="/background/Back4.png" width="100%" height="auto" />
+      </Container>
       <div className="ml-[117px] flex justify-left">
         <div className="w-[70%] my-14">
           <div className="flex justify-start gap-2">
