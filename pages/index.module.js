@@ -30,7 +30,7 @@ export const NewsSubTitle = styled.span.attrs({
 
 export const HomeCard = styled.span.attrs({
   className:
-    "w-full dark:bg-black1 bg-white py-5 px-7 rounded-xl cursor-pointer hover:scale-105 transition",
+    "w-full dark:bg-black1 bg-white py-5 px-7 rounded-xl cursor-pointer",
 })``;
 
 export const HomeCardTitle = styled.span.attrs({

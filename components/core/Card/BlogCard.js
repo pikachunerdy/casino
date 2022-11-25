@@ -16,13 +16,14 @@ export default function BlogCard({
   labels,
   labels1,
   featureBlog
+
 }) {
 
     const { blogData } = useContext(BlogsContext);
-     
+
     return (
     <>
-      <Card className="rounded-lg cursor-pointer overflow-hidden hover:scale-105 transition duration-300">
+    <Card className="rounded-lg cursor-pointer overflow-hidden hover:scale-105 transition duration-300">
         <div className="flex flex-col">
           <div className="contents">
             <Image src={cardImage} alt="card image"></Image>
@@ -30,10 +31,12 @@ export default function BlogCard({
           <CardContent>
             <div className="mt-6">
             </div>
-            <Link href={`/blogs/${featureBlog.id}`}><div className="mt-3">
-              <Title>{featureBlog.title}</Title>
+            <Link href={`/blogs/${featureBlog.id}`}>
+              <div className="mt-3">
+              <Title className="hover:underline transition duration-300">{featureBlog.title}</Title>
               <Date>{featureBlog.date}</Date>
-            </div></Link>
+            </div>
+            </Link>
             <div className="mt-3">
               <Content>{featureBlog.intro}</Content>
             </div>
@@ -53,6 +56,7 @@ export default function BlogCard({
           
         </div>
       </Card>
+          
     </>
   );
 }

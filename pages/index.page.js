@@ -52,8 +52,10 @@ export async function getStaticProps() {
 }
 
 const Home = ({ landingPage, allPostsData }) => {
-  const { listData } = useContext(CasinoContext);
+  const { listData, casinoData } = useContext(CasinoContext);
   const { reviewData } = useContext(ReviewsContext);
+
+  
 
   // const cards = [
   //   {
@@ -164,12 +166,13 @@ const Home = ({ landingPage, allPostsData }) => {
     reviewData.casino_name
   );
 
-  const mainPageFeatureCasino = featuredCasino[0];
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  const mainPageFeatureCasino = featuredCasino[getRandomInt(7)];
   const featureBlog = allPostsData[1];
 
-  useEffect(() => {
-    console.log('main page feature data' , mainPageFeatureCasino)
-  }, [])
   return (
     <Layout>
       <Container className="md:min-h-screen mt-36 md:mt-0">
@@ -245,6 +248,7 @@ const Home = ({ landingPage, allPostsData }) => {
           </SubTitle>
         </div>
         <div>
+          
           {mainPageFeatureCasino && (
             <Link href={`/gambling/${mainPageFeatureCasino.slug}`}>
               <div className="w-full pt-9 cursor-pointer">
@@ -328,10 +332,14 @@ const Home = ({ landingPage, allPostsData }) => {
           <NewsSubTitle>Today&apos;s news - most recent articles</NewsSubTitle>
         </div>
 
+
+
         <div className="p-5 flex">
+     
+
           <div className="gap-9 border-[0.5rem] border-stone-600">
             <div className="w-[90%]">
-              <BlogCard
+           <BlogCard
                 cardImage={Back2}
                 allPostsData={allPostsData}
                 featureBlog={featureBlog}
@@ -339,6 +347,8 @@ const Home = ({ landingPage, allPostsData }) => {
               ></BlogCard>
             </div>
           </div>
+
+ 
 
           <div className="border-[0.6rem] border-yellow-500">
             <div className="flex flex-col basis-1/4 gap-4">
@@ -348,7 +358,7 @@ const Home = ({ landingPage, allPostsData }) => {
                     <div className="flex flex-col gap-4">
                       <Link href={`/blogs/${data.id}`}>
                         <HomeCard key={index}>
-                          <HomeCardTitle>{data.title}</HomeCardTitle>
+                          <HomeCardTitle className="hover:underline">{data.title}</HomeCardTitle>
                           <div className="flex space-x-3 mb-3 items-baseline">
                             <Date>{data.date}</Date>
                             <Badge
