@@ -36,6 +36,7 @@ import {
   calculateCasinoAvgRating,
   getAllDataForOneCasino,
 } from "../helpers/AverageRatingFunction";
+import HomeTableHeader from "../components/page/Home/HomeTableHeader";
 import { getSortedPostsData } from "../lib/posts";
 import { Date } from "../components/core/Card/BlogCard.module";
 
@@ -54,8 +55,6 @@ export async function getStaticProps() {
 const Home = ({ landingPage, allPostsData }) => {
   const { listData, casinoData } = useContext(CasinoContext);
   const { reviewData } = useContext(ReviewsContext);
-
-  
 
   // const cards = [
   //   {
@@ -248,7 +247,6 @@ const Home = ({ landingPage, allPostsData }) => {
           </SubTitle>
         </div>
         <div>
-          
           {mainPageFeatureCasino && (
             <Link href={`/gambling/${mainPageFeatureCasino.slug}`}>
               <div className="w-full pt-9 cursor-pointer">
@@ -275,6 +273,7 @@ const Home = ({ landingPage, allPostsData }) => {
             Rating
           </SubTitle>
         </div>
+
         <div className="flex items-center mt-5 flex-wrap md:flex-nowrap">
           <div className="flex flex-row items-center w-1/2 md:w-1/3">
             <Image src={Check} alt="check"></Image>
@@ -292,6 +291,7 @@ const Home = ({ landingPage, allPostsData }) => {
           </div>
         </div>
         <div className="w-[80%]">
+          <HomeTableHeader />
           {listData.slice(0, isExpand ? listData.length : 4).map((casino) => {
             const avergaeCasinoRating = calculateCasinoAvgRating(
               getAllDataForOneCasino(reviewData, casino.name)
@@ -332,14 +332,10 @@ const Home = ({ landingPage, allPostsData }) => {
           <NewsSubTitle>Today&apos;s news - most recent articles</NewsSubTitle>
         </div>
 
-
-
         <div className="p-5 flex">
-     
-
           <div className="gap-9 border-[0.5rem] border-stone-600">
             <div className="w-[90%]">
-           <BlogCard
+              <BlogCard
                 cardImage={Back2}
                 allPostsData={allPostsData}
                 featureBlog={featureBlog}
@@ -347,8 +343,6 @@ const Home = ({ landingPage, allPostsData }) => {
               ></BlogCard>
             </div>
           </div>
-
- 
 
           <div className="border-[0.6rem] border-yellow-500">
             <div className="flex flex-col basis-1/4 gap-4">
@@ -358,7 +352,9 @@ const Home = ({ landingPage, allPostsData }) => {
                     <div className="flex flex-col gap-4">
                       <Link href={`/blogs/${data.id}`}>
                         <HomeCard key={index}>
-                          <HomeCardTitle className="hover:underline">{data.title}</HomeCardTitle>
+                          <HomeCardTitle className="hover:underline">
+                            {data.title}
+                          </HomeCardTitle>
                           <div className="flex space-x-3 mb-3 items-baseline">
                             <Date>{data.date}</Date>
                             <Badge
