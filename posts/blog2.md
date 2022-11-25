@@ -2,6 +2,8 @@
 title: 'Understanding Reviews Blog And Blockchain'
 date: '01-10-2022'
 intro: 'Amid rapidly increasing digitalization, numerous consumers rely on reviews to understand if a product is suitable. Consumers head over to review websites and blogs to learn more about a product: whether they’re hiring a service or gaming on an online casino.'
+labels: 'Reviews'
+labels1: 'Blockchain'
 ---
 
 

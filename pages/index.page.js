@@ -22,7 +22,6 @@ import FeaturedCasino from "../components/page/Home/FeaturedCasino";
 import Carousel from "../components/page/Home/Carousel";
 import HomeTable from "../components/page/Home/HomeTable";
 import BlogCard from "../components/core/Card/BlogCard";
-import BlogCardTest from "../components/core/Card/BlogCardTest";
 import Badge from "../components/core/Badge/Badge";
 import Subscribe from "../components/core/Subscribe/Subscribe";
 import { FaArrowRight } from "react-icons/fa";
@@ -38,6 +37,7 @@ import {
   getAllDataForOneCasino,
 } from "../helpers/AverageRatingFunction";
 import { getSortedPostsData } from "../lib/posts";
+import { Date } from "../components/core/Card/BlogCard.module";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -165,7 +165,11 @@ const Home = ({ landingPage, allPostsData }) => {
   );
 
   const mainPageFeatureCasino = featuredCasino[0];
+  const featureBlog = allPostsData[1];
 
+  useEffect(() => {
+    console.log('main page feature data' , mainPageFeatureCasino)
+  }, [])
   return (
     <Layout>
       <Container className="md:min-h-screen mt-36 md:mt-0">
@@ -316,50 +320,55 @@ const Home = ({ landingPage, allPostsData }) => {
 
         <div className="mt-[195px]">
           <SubTitle>
-            Featured <span className="dark:text-blue1 text-blue3">Blogs</span> Of The Week
+            Featured <span className="dark:text-blue1 text-blue3">Blogs</span>{" "}
+            Of The Week
           </SubTitle>
         </div>
         <div>
           <NewsSubTitle>Today&apos;s news - most recent articles</NewsSubTitle>
         </div>
-        <div className="flex gap-9 mt-9 w-full">
-          <div className="w-3/5">
-            <BlogCardTest
-              cardImage={Back2}
-              allPostsData={allPostsData}
-              states={siteStates}
-            ></BlogCardTest>
+
+        <div className="p-5 flex">
+          <div className="gap-9 border-[0.5rem] border-stone-600">
+            <div className="w-[90%]">
+              <BlogCard
+                cardImage={Back2}
+                allPostsData={allPostsData}
+                featureBlog={featureBlog}
+                states={siteStates}
+              ></BlogCard>
+            </div>
           </div>
-          
-          <div className="flex flex-col w-2/5 gap-4">
-            <HomeCard>
-              <HomeCardTitle>Best Casino Games</HomeCardTitle>
-              <div className="flex gap-1 mt-1">
-                <Badge color="text-blue2" label="Casinos"></Badge>
-                <Badge color="text-pink" label="London"></Badge>
-              </div>
-            </HomeCard>
-            <HomeCard>
-              <HomeCardTitle>Best Casino Games</HomeCardTitle>
-              <div className="flex gap-1 mt-1">
-                <Badge color="text-blue2" label="Casinos"></Badge>
-                <Badge color="text-pink" label="London"></Badge>
-              </div>
-            </HomeCard>
-            <HomeCard>
-              <HomeCardTitle>Best Casino Games</HomeCardTitle>
-              <div className="flex gap-1 mt-1">
-                <Badge color="text-blue2" label="Casinos"></Badge>
-                <Badge color="text-pink" label="London"></Badge>
-              </div>
-            </HomeCard>
-            <HomeCard>
-              <HomeCardTitle>Best Casino Games</HomeCardTitle>
-              <div className="flex gap-1 mt-1">
-                <Badge color="text-blue2" label="Casinos"></Badge>
-                <Badge color="text-pink" label="London"></Badge>
-              </div>
-            </HomeCard>
+
+          <div className="border-[0.6rem] border-yellow-500">
+            <div className="flex flex-col basis-1/4 gap-4">
+              {allPostsData.map((data, index) => {
+                if (featureBlog.id !== data.id) {
+                  return (
+                    <div className="flex flex-col gap-4">
+                      <Link href={`/blogs/${data.id}`}>
+                        <HomeCard key={index}>
+                          <HomeCardTitle>{data.title}</HomeCardTitle>
+                          <div className="flex space-x-3 mb-3 items-baseline">
+                            <Date>{data.date}</Date>
+                            <Badge
+                              color="text-pink"
+                              label={data.labels}
+                            ></Badge>
+                            <Badge
+                              color="text-blue2"
+                              label={data.labels1}
+                            ></Badge>
+                          </div>
+
+                          <div className="flex gap-1 mt-1">{data.intro}</div>
+                        </HomeCard>
+                      </Link>
+                    </div>
+                  );
+                }
+              })}
+            </div>
           </div>
         </div>
 
