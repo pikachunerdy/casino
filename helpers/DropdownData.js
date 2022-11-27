@@ -65,11 +65,11 @@ export const casinoGameOptions = [
   ];
 
   export const ratingOptions = [
-    { value: 5, label: 5, className: "dropdown-menu-option" },
-    { value: 4, label: 4, className: "dropdown-menu-option" },
-    { value: 3, label: 3, className: "dropdown-menu-option" },
-    { value: 2, label: 2, className: "dropdown-menu-option" },
-    { value: 1, label: 1, className: "dropdown-menu-option" },
+    { value: 5, label: "5 - Excellent", className: "dropdown-menu-option" },
+    { value: 4, label: "4 - Good", className: "dropdown-menu-option" },
+    { value: 3, label: "3 - Average", className: "dropdown-menu-option" },
+    { value: 2, label: "2 - Bad", className: "dropdown-menu-option" },
+    { value: 1, label: "1 - Terrible", className: "dropdown-menu-option" },
   ];
 
   export const topReviewOptions = [
