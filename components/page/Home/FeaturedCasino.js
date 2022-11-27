@@ -22,7 +22,7 @@ const FeaturedCasino = ({ img, casinoName, value, reviews, website }) => {
         onMouseLeave={() => setIsShow(false)}
       ></img>
       <div
-        className={`hidden md:inline-block absolute left-0 bottom-0 pl-5 py-5 transition w-full dark:bg-black1 bg-white1 ${
+         className={`hidden md:inline-block absolute left-0 bottom-0 pl-5 py-5 transition w-full dark:bg-black1 bg-white1 ${
           isShow ? "opacity-80" : "opacity-0"
         }`}
         onMouseEnter={() => setIsShow(true)}

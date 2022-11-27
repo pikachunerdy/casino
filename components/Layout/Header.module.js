@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.div.attrs({
 })``;
 
 export const RightActionsWrapper = styled.div.attrs({
-  className: "flex items-center gap-3",
+  className: "flex items-center justify-between gap-3 hidden lg:inline-flex",
 })``;
 
 export const AuthActionsWrapper = styled.div.attrs({
@@ -14,7 +14,7 @@ export const AuthActionsWrapper = styled.div.attrs({
 })``;
 
 export const MenuWrapper = styled.div.attrs({
-  className: "flex gap-8",
+  className: "flex gap-8 justify-between hidden lg:inline-flex",
 })``;
 
 export const Menu = styled.div.attrs((props) => ({

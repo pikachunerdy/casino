@@ -34,7 +34,7 @@ const RatingCard = ({
           <>
             <CircularProgressbar
               value={percent}
-              text={`${percent}%`}
+              text={`${percent ? percent + '%' : 'No Data'}`}
               background
               styles={buildStyles({
                 backgroundColor: "rgba(22, 118, 248, 0.08)",
@@ -67,21 +67,21 @@ const RatingCard = ({
         )}
       </div>
 
-      {pos && (
+      {/* {pos && ( */}
         <div className="w-full">
           <StatusContainer>
             <div className="w-1/2">
-              <CardText>Positive</CardText>
+              <CardText>Likes</CardText>
               <PosText>{pos}</PosText>
             </div>
             <div className="w-1 dark:bg-white bg-[#E5E5EA] h-7 mr-4"></div>
             <div className="w-1/2">
-              <CardText>Negative</CardText>
+              <CardText>Dislikes</CardText>
               <NegText>{neg}</NegText>
             </div>
           </StatusContainer>
         </div>
-      )}
+      {/* )} */}
     </Card>
   );
 };

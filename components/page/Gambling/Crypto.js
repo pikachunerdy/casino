@@ -22,8 +22,8 @@ import {
 
 const Crypto = (props) => {
   return (
-    <div className="flex w-full gap-8">
-      <div className="w-[25%]">
+    <div className="md:flex w-full gap-8">
+      <div className="md:w-[25%] mb-4 md:mb-0">
         <SummaryCard className="h-full">
           <div className="pb-14">
             <ReviewTitle>Established</ReviewTitle>
@@ -56,7 +56,7 @@ const Crypto = (props) => {
           </div>
         </SummaryCard>
       </div>
-      <div className="w-[75%]">
+      <div className="md:w-[75%]">
         <CryptoCard>
           <ReviewTitle>Accepted Cryptos</ReviewTitle>
           <div className="flex w-full gap-[60px] mt-6 mb-10">

@@ -20,6 +20,7 @@ import Layout from "../components/Layout/Layout";
 import Button from "../components/core/Button/Button";
 import FeaturedCasino from "../components/page/Home/FeaturedCasino";
 import Carousel from "../components/page/Home/Carousel";
+import TopCarousel from "../components/page/Home/TopCarousel";
 import HomeTable from "../components/page/Home/HomeTable";
 import BlogCard from "../components/core/Card/BlogCard";
 import Badge from "../components/core/Badge/Badge";
@@ -169,7 +170,8 @@ const Home = ({ landingPage, allPostsData }) => {
     return Math.floor(Math.random() * max);
   }
 
-  const mainPageFeatureCasino = featuredCasino[getRandomInt(7)];
+  console.log(featuredCasino)
+  const mainPageFeatureCasino = featuredCasino[0];
   const featureBlog = allPostsData[1];
 
   return (

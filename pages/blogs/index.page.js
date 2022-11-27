@@ -158,6 +158,7 @@ const Learn = ({ title }) => {
             <Badge color="text-bue2" label="Crypto"></Badge>
             <Badge color="text-pink" label="Safe"></Badge>
           </div>
+          <div className="mt-3">
           {blogList &&
             blogList.map((data) => (
               <ContentText>
@@ -167,7 +168,7 @@ const Learn = ({ title }) => {
                 </div>
               </ContentText>
             ))}
-          <div className="mt-3"></div>
+          </div>
         </div>
       </Container>
 
@@ -181,10 +182,10 @@ const Learn = ({ title }) => {
       </Container> */}
 
       <SubscribeContainer className="mt-16 mb-[133px]">
-        <AboutTitle className="dark:text-white1 text-white">
+        <AboutTitle className="dark:text-white1 text-white max-w-[939px] w-[58%] mt-[63px]">
           Join today and leave a review at your favourite casinos!
         </AboutTitle>
-        <div className="pt-9">
+        <div className="pt-9 mb-[75px]">
           <Button
             label="Get Started"
             handleClick={() => {

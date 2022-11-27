@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.div.attrs({
-  className:
-    "flex items-end justify-between bg-no-repeat bg-center -mx-[5.5%] min-h-screen bg-[url('/background/Back4.png')] pb-20",
+  className: "mb-20 mt-[123px] relative",
 })``;
 
 export const Container = styled.div.attrs({

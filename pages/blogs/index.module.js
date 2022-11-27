@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+// export const Container = styled.div.attrs({
+//   className: "mt-[123px] -translate-x-[5%] w-screen object-cover z-0",
+// })``;
 export const Container = styled.div.attrs({
   className: "flex flex-col justify-center items-center bg-no-repeat bg-cover",
 })``;
@@ -22,5 +25,5 @@ export const AboutContent = styled.span.attrs({
 
 export const SubscribeContainer = styled.div.attrs({
   className:
-    "flex flex-col justify-center items-center -mx-10 bg-no-repeat bg-center dark:bg-[url('/background/Back3.png')] bg-[url('/background/Back6.png')] bg-cover rounded-[20px] h-[318px]",
+    "flex flex-col justify-center items-center mx-[30px] bg-no-repeat bg-center dark:bg-[url('/background/Back3.png')] bg-[url('/background/Back6.png')] bg-cover rounded-[20px]",
 })``;

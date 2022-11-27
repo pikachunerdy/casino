@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -15,6 +15,7 @@ import Button from "../core/Button/Button";
 import ColorSwitchButton from "../core/Button/ColorSwitchButton";
 
 const ratingOptions = [
+  { value: 6, label: 6, className: "dropdown-menu-option" },
   { value: 5, label: 5, className: "dropdown-menu-option" },
   { value: 4, label: 4, className: "dropdown-menu-option" },
   { value: 3, label: 3, className: "dropdown-menu-option" },
@@ -51,6 +52,9 @@ const menus = [
 
 export default function Header({ children }) {
   const router = useRouter();
+  const AppLink = React.forwardRef((props, ref) => (
+    <Link innerRef={ref} {...props} />
+  ));
 
   let [isOpen, setIsOpen] = useState(false);
   let [modalTitle, setModalTitle] = useState("");
@@ -82,9 +86,11 @@ export default function Header({ children }) {
     <>
       <HeaderWrapper>
         <Logo>
-          <Link href="/">
-            <Image src="/image/logo.svg" alt="logo" width={182} height={24} />
-          </Link>
+          <AppLink href="/">
+            <a>
+              <Image src="/image/logo.svg" alt="logo" width={300} height={50} />
+            </a>
+          </AppLink>
         </Logo>
 
         <MenuWrapper>

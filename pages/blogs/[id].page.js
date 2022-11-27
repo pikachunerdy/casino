@@ -8,8 +8,7 @@ import { PageContent, PageTitle } from "../casinos/index.module";
 // import TableOfContent from "../../components/Table of Contents/TableOContent";
 
 export async function getStaticProps({ params }) {
-  console.log("what do i get in params", params);
-  const blogPosts = await fetch("http://127.0.0.1:8000/blogs/", {
+    const blogPosts = await fetch("http://127.0.0.1:8000/blogs/", {
     method: "GET",
     mode: "cors",
     headers: {
@@ -17,7 +16,6 @@ export async function getStaticProps({ params }) {
     },
   }).then((response) => response.json());
 
-  // const blogPosts = await getSpecialTrips()
   const postData = await getPostData(params.id);
 
   return {
@@ -97,7 +95,7 @@ export default function Post({ postData, blogPosts }) {
       </div>
 
       <Container>
-        <div className="w-[60%] my-14">
+        <div className="w-[70%] my-14">
           <ContentText>
             <div
               className="gap-y-[3rem]"

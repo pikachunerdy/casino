@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { FreeMode, Pagination, Scrollbar, A11y } from "swiper";
 import Button from "../../core/Button/Button";
@@ -8,19 +8,14 @@ import BlogCard from "../../core/Card/BlogCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import ReviewsContext from "../../../context/ReviewsContext";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
-const Carousel = (props) => {
-  const { description, rating, title, user, image, featured } = props;
-  const { reviewData } = useContext(ReviewsContext);
+const TopCarousel = (props) => {
   const swiperHandle = useSwiper();
-
   return (
     <div>
       <Swiper
@@ -55,33 +50,20 @@ const Carousel = (props) => {
         }}
         className="gap-4 !p-5"
       >
-           {featured &&
-          reviewData.map((data, index) => {
-            const descriptionControl = data.description.length;
-            if (featured.name === data.casino_name ) {
-              return (
-                
-                <SwiperSlide className="flex justify-center" key={index}>
-                  <HomeCard
-                    key={index}
-                    title={data.title}
-                    value={data.score}
-                    content={data.description}
-                    descriptionControl={descriptionControl}
-                    // image={data.image}
-                    // avatar={}
-                    user={data.user}
-                  />
-                  
-                </SwiperSlide>
-     
-              );
-            }
+        {props.cards &&
+          props.cards.map((card, i) => {
+            return (
+              <SwiperSlide className="flex justify-center" key={i}>
+                <HomeCard
+                  title={card.title}
+                  value={card.value}
+                  content={card.content}
+                  avatar={card.avatar}
+                  user={card.user}
+                ></HomeCard>
+              </SwiperSlide>
+            );
           })}
-
-          
-        
-
         {props.blogCards &&
           props.blogCards.map((blogCard, i) => {
             return (
@@ -97,31 +79,32 @@ const Carousel = (props) => {
             );
           })}
       </Swiper>
-      <div className="flex justify-center mt-14 gap-3">
-        <button
+      <div className="flex justify-between gap-3">
+        <div
+          className="flex justify-left mt-3 gap-3"
           onClick={() => {
             if (!!swiperHandle) {
               swiperHandle.slidePrev();
             }
           }}
-          className="py-3 px-[18px] dark:bg-blue1 bg-blue3 text-white rounded-full border border-transparent hover:bg-transparent hover:border-white transition"
         >
-          <FontAwesomeIcon icon={faChevronLeft} size="1x" />
-        </button>
-
-        <button
+          <FaArrowLeft className="mt-1" />
+          Previous
+        </div>
+        <div
+          className="flex justify-end mt-3 gap-3"
           onClick={() => {
             if (!!swiperHandle) {
               swiperHandle.slideNext();
             }
           }}
-          className="py-3 px-[18px] dark:bg-blue1 bg-blue3 rounded-full text-white border border-transparent hover:bg-transparent hover:border-white transition"
         >
-          <FontAwesomeIcon icon={faChevronRight} size="1x" />
-        </button>
+          <FaArrowRight className="mt-1" />
+          Next
+        </div>
       </div>
     </div>
   );
 };
 
-export default Carousel;
+export default TopCarousel;
