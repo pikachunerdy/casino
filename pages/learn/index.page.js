@@ -130,14 +130,14 @@ const Learn = () => {
         </div>
       </div>
 
-      <Container>
-        <div className="w-full">
-          <SubTitle>Related blogs</SubTitle>
-        </div>
-        <div className="w-full mt-16">
-          <CardPaginate cards={blogData} itemsPerPage="4"></CardPaginate>
-        </div>
-      </Container>
+      {/* <Container> */}
+      <div className="w-full">
+        <SubTitle>Related blogs</SubTitle>
+      </div>
+      <div className="w-full mt-16">
+        <CardPaginate cards={blogData} itemsPerPage="4"></CardPaginate>
+      </div>
+      {/* </Container> */}
 
       <SubscribeContainer className="mt-16 mb-[133px]">
         <AboutTitle className="dark:text-white1 text-white max-w-[939px] w-[58%] mt-[63px]">
