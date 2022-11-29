@@ -20,16 +20,12 @@ const Footer = () => {
     <div className="w-[90%] ">
       <FooterContainer>
         <FooterSubContainer className="w-full md:w-1/3">
-          <FooterTitle>
-            {/* <span className="text-[22px]">D</span>isclosed. */}
-            {/* <span className="text-[50px]"> .</span> */}
-          </FooterTitle>
           <div>
-            {theme.theme === "light" ? (
-              <Image src={logoBlack} width={60} height={50} />
-            ) : (
-              <Image src={logoWhite} width={60} height={50} />
-            )}
+            <Image
+              src={theme.theme === "light" ? logoBlack : logoWhite}
+              width={60}
+              height={50}
+            />
             <FooterContent className="w-60 mt-5">
               Our innovative algorithm guarantees genuine reviews. Using
               blockchain technology.
@@ -50,9 +46,11 @@ const Footer = () => {
 
         <FooterSubContainer className="w-full md:w-1/3 mt-3">
           <FooterTitle>Company</FooterTitle>
-          <div className="mt-[30px] sm:mt-5">
-            <FooterContent>About</FooterContent>
-          </div>
+          <Link href="/about">
+            <div className="mt-[30px] sm:mt-5 cursor-pointer">
+              <FooterContent>About</FooterContent>
+            </div>
+          </Link>
         </FooterSubContainer>
 
         <FooterSubContainer className="w-full md:w-1/3 mt-3">

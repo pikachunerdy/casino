@@ -21,6 +21,10 @@ const Carousel = (props) => {
   const { reviewData } = useContext(ReviewsContext);
   const swiperHandle = useSwiper();
 
+
+  useEffect(() => {
+    console.log(reviewData)
+  }, [])
   return (
     <div>
       <Swiper
@@ -84,6 +88,7 @@ const Carousel = (props) => {
 
         {props.blogCards &&
           props.blogCards.map((blogCard, i) => {
+            console.log('test', blogCard)
             return (
               <SwiperSlide className="flex justify-center" key={i}>
                 <BlogCard
@@ -97,6 +102,7 @@ const Carousel = (props) => {
             );
           })}
       </Swiper>
+
       <div className="flex justify-center mt-14 gap-3">
         <button
           onClick={() => {
@@ -120,6 +126,7 @@ const Carousel = (props) => {
           <FontAwesomeIcon icon={faChevronRight} size="1x" />
         </button>
       </div>
+     
     </div>
   );
 };

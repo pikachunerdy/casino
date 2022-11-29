@@ -36,23 +36,25 @@ const CasinoList = ({ casinos }) => {
     <Layout>
       <div className="p-10">
         <ul className="my-[8rem]">
-        <HomeTableHeader />
+          <HomeTableHeader />
           {casinos.map((casino, index) => {
             const avergaeCasinoRating = calculateCasinoAvgRating(
               getAllDataForOneCasino(reviewData, casino.name)
             )[0].score;
 
             return (
-              <li className="cursor-pointer" key={index}>
-                <HomeTable
-                  top10casinos
-                  slug={casino.slug}
-                  image={casino.image}
-                  casino={casino.name}
-                  website={casino.website}
-                  rating={avergaeCasinoRating}
-                />
-              </li>
+              <ul>
+                <li className="cursor-pointer" key={index}>
+                  <HomeTable
+                    top10casinos
+                    slug={casino.slug}
+                    image={casino.image}
+                    casino={casino.name}
+                    website={casino.website}
+                    rating={avergaeCasinoRating}
+                  />
+                </li>
+              </ul>
             );
           })}
         </ul>

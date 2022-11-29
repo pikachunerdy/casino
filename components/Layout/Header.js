@@ -13,6 +13,8 @@ import {
 } from "./Header.module";
 import Button from "../core/Button/Button";
 import ColorSwitchButton from "../core/Button/ColorSwitchButton";
+import logoBlack from "../../public/image/logos/Fulllogo_black.png";
+import { ThemeContext } from "./Layout";
 
 const ratingOptions = [
   { value: 6, label: 6, className: "dropdown-menu-option" },
@@ -51,6 +53,7 @@ const menus = [
 ];
 
 export default function Header({ children }) {
+  const theme = React.useContext(ThemeContext);
   const router = useRouter();
   const AppLink = React.forwardRef((props, ref) => (
     <Link innerRef={ref} {...props} />
@@ -87,9 +90,12 @@ export default function Header({ children }) {
       <HeaderWrapper>
         <Logo>
           <AppLink href="/">
-            <a>
-              <Image src="/image/logo.svg" alt="logo" width={300} height={50} />
-            </a>
+            <Image
+              src={theme.theme === "light" ? logoBlack : `/image/logo.svg`}
+              alt="logo"
+              width={300}
+              height={70}
+            />
           </AppLink>
         </Logo>
 
@@ -151,8 +157,7 @@ export default function Header({ children }) {
         ]}
         handleChange={handleChange}
         ratingOptions={ratingOptions}
-      >
-      </Modal>
+      ></Modal>
     </>
   );
 }

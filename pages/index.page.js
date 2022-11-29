@@ -43,18 +43,16 @@ import { Date } from "../components/core/Card/BlogCard.module";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
-  // const allPackagesData = getSortedPackagesData();
-
+ 
   return {
     props: {
       allPostsData,
-      // allPackagesData,
-    },
+      },
   };
 }
 
-const Home = ({ landingPage, allPostsData }) => {
-  const { listData, casinoData } = useContext(CasinoContext);
+const Home = ({ allPostsData }) => {
+  const { listData } = useContext(CasinoContext);
   const { reviewData } = useContext(ReviewsContext);
 
   // const cards = [
@@ -224,7 +222,7 @@ const Home = ({ landingPage, allPostsData }) => {
           Money, Trusted Reviews!
         </Title>
         <Content>
-          Our unique algorithm guarantees whether reviewers have played.
+          Our unique algorithm guarantees reviewers have played.
           Offering Complete Transparency
         </Content>
         <div className="pt-9">
@@ -293,23 +291,26 @@ const Home = ({ landingPage, allPostsData }) => {
         </div>
         <div className="w-[80%]">
           <HomeTableHeader />
-          {listData.slice(0, isExpand ? listData.length : 4).map((casino) => {
-            const avergaeCasinoRating = calculateCasinoAvgRating(
-              getAllDataForOneCasino(reviewData, casino.name)
-            )[0].score;
-            return (
-              <HomeTable
-                landingPage
-                casinoData={listData}
-                isExpand={isExpand}
-                slug={casino.slug}
-                image={casino.image}
-                casino={casino.name}
-                website={casino.website}
-                rating={avergaeCasinoRating}
-              />
-            );
-          })}
+          {listData
+            .slice(0, isExpand ? listData.length : 4)
+            .map((casino, index) => {
+              const avergaeCasinoRating = calculateCasinoAvgRating(
+                getAllDataForOneCasino(reviewData, casino.name)
+              )[0].score;
+              return (
+                <div key={index}>
+                  <HomeTable
+                    casinoData={listData}
+                    isExpand={isExpand}
+                    slug={casino.slug}
+                    image={casino.image}
+                    casino={casino.name}
+                    website={casino.website}
+                    rating={avergaeCasinoRating}
+                  />
+                </div>
+              );
+            })}
           <div className="mt-12 flex justify-center">
             <Button
               variant="model"
@@ -398,18 +399,20 @@ const Home = ({ landingPage, allPostsData }) => {
               </AboutTitle>
             </div>
             <AboutContent>
-              We at diclosed understand the need for transparancy and trust when
-              completing transactions online. Weve created a unique algorightm,
-              that utilises blockchain technology to offer users at
-              Dislcosed.com valuable insight and information of online casinos.
-              Our highly innovative tech searches the blockchain and finds out
-              whether a reviewer is credible in the review theyve left, offering
-              credibility to a reveiw. Hopefully we aim to build a strong
-              community where players feel safe, and can trust each other and
-              the reviews theyve left. Improving the trust between casinos anc
-              players alike.
+              We at <span className="text-blue3 mx-1">disclosed.</span> understand the need for transparancy and trust when
+              completing online transactions. Our unique algorightm utilises blockchain technology offering great insight and information of online casinos.
+              <br></br>              
+              Our highly innovative tech searches the blockchain and confirms
+              whether reviewers have deposited and played a casino before becoming verified. We aim to build a strong
+              community where players feel safe, and can trust each other and the reviews. 
             </AboutContent>
-            <Button label="Learn More">
+
+            <Button
+              label="Learn More"
+              handleClick={() => {
+                router.push("/about");
+              }}
+            >
               <div className="pl-1 pt-1">
                 <FaArrowRight />
               </div>
