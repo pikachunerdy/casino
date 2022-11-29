@@ -7,45 +7,92 @@ import * as React from "react";
 import CasinoContext from "../../context/CasinoContext";
 import Layout from "../../components/Layout/Layout";
 import Rating from "../../components/core/Rating/Rating";
+import { addUserReview } from "../../helpers/API/reviews";
+import { v4 as uuidv4 } from 'uuid';
 
 const Reviews = () => {
   const [isDisplayed, setIsDisplayed] = useState(false);
   const [newValue, setNewValue] = useState("");
+  const [data, setData] = useState("");
   const [searchText, setSearchText] = useState("");
   const { listData } = useContext(CasinoContext);
+  const [selectedImage, setSelectedImage] = useState();
   const [form, setForm] = useState({
     casino: "",
     cons: "",
     description: "",
     email: "",
+    image: "",
     pros: "",
     score: "",
     title: "",
     username: "",
   });
-
-
   const handleUserInput = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleClick = (e) => {
+  const id = uuidv4()
+  const timeAdded = new Date().toLocaleString();
+  const handleClick = async (e) => {
     e.preventDefault();
+    const review = {
+      id: id,
+      casino_name: form.casino,
+      cons: form.cons,
+      description: form.description,
+      email: form.email,
+      image: form.image,
+      pros: form.pros,
+      score: form.score,
+      title: form.title,
+      username: form.username,
+      created_at: timeAdded
+    };
+   console.log(review)
+    setForm({
+      casino: "",
+      cons: "",
+      description: "",
+      email: "",
+      image: "",
+      pros: "",
+      score: "",
+      title: "",
+      username: "",
+    });
+
+    const newReview = await addUserReview(review);
   };
 
- 
   const handleCasinoSearch = (e) => {
     setSearchText(e.target.value);
     setIsDisplayed(true);
   };
 
   const saveUserSelection = (casinoName) => {
-    setForm({...form, ["casino"]: casinoName});
+    setForm({ ...form, ["casino"]: casinoName });
     setIsDisplayed(false);
     setSearchText(casinoName);
+
+    
   };
 
-   return (
+  const handleImageChange = (e) => {
+    e.preventDefault();
+    if (e.target.files && e.target.files.length > 0) {
+      let newData = { ...data };
+      newData["image"] = e.target.files[0];
+      setForm({ ...form, ["image"]: newData });
+      setSelectedImage(e.target.files[0]);
+    }
+  };
+
+  const removeSelectedImage = () => {
+    setSelectedImage();
+  };
+
+  return (
     <Layout>
       <div className="mt-[100px]  mb-[102px] flex flex-col">
         <div className="mt-[64px] flex flex-col gap-4">
@@ -58,46 +105,49 @@ const Reviews = () => {
           </div>
         </div>
         <form className="mt-[64px] min-w-[696px] mr-[520px] flex flex-col gap-8">
-        <label for="headline-input" className="block mb-2 text-xl font-medium">
-          FIND CASINO
-        </label>
-        <InputContainer>
-          <FaSearch style={{ color: "#667085" }} />
-          <CustomInput
-            placeholder="Search Casinos"
-            type="text"
-            name="casino"
-            onChange={(e) => handleCasinoSearch(e)}
-            value={searchText}
-          ></CustomInput>
-        </InputContainer>
+          <label
+            for="headline-input"
+            className="block mb-2 text-xl font-medium"
+          >
+            FIND CASINO
+          </label>
+          <InputContainer>
+            <FaSearch style={{ color: "#667085" }} />
+            <CustomInput
+              placeholder="Search Casinos"
+              type="text"
+              name="casino"
+              onChange={(e) => handleCasinoSearch(e)}
+              value={searchText}
+            ></CustomInput>
+          </InputContainer>
 
-        {isDisplayed &&
-          listData
-            .filter((val) => {
-              if (searchText == "") {
-                return val;
-              } else if (
-                val.name.toLowerCase().includes(searchText.toLowerCase())
-              ) {
-                return val;
-              }
-            })
-            .map((val, key) => {
-              return (
-                <>
-                <div className="flex space-x-6 items-center cursor-pointer pl-11 hover:bg-slate-200 text-xl">
-                  <img src={val.image} width={40}></img>
-                  <div
-                                        value={val.name}
-                    onClick={() => saveUserSelection(val.name)}
-                  >
-                    {val.name}
-                  </div>
-                  </div>
-                </>
-              );
-            })}
+          {isDisplayed &&
+            listData
+              .filter((val) => {
+                if (searchText == "") {
+                  return val;
+                } else if (
+                  val.name.toLowerCase().includes(searchText.toLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map((val, key) => {
+                return (
+                  <>
+                    <div className="flex space-x-6 items-center cursor-pointer pl-11 hover:bg-slate-200 text-xl">
+                      <img src={val.image} width={40}></img>
+                      <div
+                        value={val.name}
+                        onClick={() => saveUserSelection(val.name)}
+                      >
+                        {val.name}
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
           <div>
             <label
               for="headline-input"
@@ -112,7 +162,7 @@ const Reviews = () => {
                 onChange={handleUserInput}
                 value={form.title}
                 placeholder="Review Title"
-                className="block w-full text-gray-900 border-b-2 border-gray-400 sm:text-md dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500"
+                className="block w-full text-gray-900 border-b-2 border-gray-400 sm:text-md dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500"
               ></CustomInput>
             </InputContainer>
           </div>
@@ -144,11 +194,30 @@ const Reviews = () => {
             >
               ADD IMAGES
             </label>
-            <div className="w-[89px] h-[89px] border-dashed border-gray-700 border flex justify-center items-center">
-              <div className="w-[18.95px] h-[18.95px] bg-[#1676F8] text-white flex justify-center items-center">
-                +
-              </div>
-            </div>
+
+            <>
+              {!selectedImage && (
+                <input
+                  type="file"
+                  name="image"
+                  accept="image/jpeg,image/png,image/gif"
+                  onChange={handleImageChange}
+                />
+              )}
+
+              {selectedImage && (
+                <div>
+                  <img
+                    src={URL.createObjectURL(selectedImage)}
+                    alt="Uploaded Image"
+                    width={250}
+                  />
+                  <button onClick={removeSelectedImage}>
+                    Remove This Image
+                  </button>
+                </div>
+              )}
+            </>
           </div>
           <div>
             <div className="text-xl font-medium text-gray-700 dark:text-white">
@@ -182,10 +251,12 @@ const Reviews = () => {
               name="description"
               id="review"
               rows="4"
-              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-700 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full text-gray-900 border-b-2 border-gray-400 sm:text-md dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500"
               placeholder="Leave your review here"
             ></textarea>
           </div>
+
+          
           <div>
             <label
               for="headline-input"
@@ -201,7 +272,7 @@ const Reviews = () => {
                 placeholder="Leave a positive comment"
                 onChange={handleUserInput}
                 value={form.pros}
-                className="block w-full text-gray-900 border-b-2 border-gray-400 sm:text-md dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500"
+                className="block w-full text-gray-900 border-b-2 border-gray-400 sm:text-md dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500"
               ></CustomInput>
             </InputContainer>
           </div>
@@ -220,7 +291,7 @@ const Reviews = () => {
                 type="text"
                 id="negative"
                 placeholder="Leave a negative comment"
-                className="block w-full text-gray-900 border-b-2 border-gray-400 sm:text-md dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500"
+                className="block w-full text-gray-900 border-b-2 border-gray-400 sm:text-md dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500"
               ></CustomInput>
             </InputContainer>
           </div>

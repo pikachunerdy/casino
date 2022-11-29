@@ -77,7 +77,7 @@ const Gambling = ({ casino }) => {
     });
     return arrOfSpecificCasinoReviews;
   }
-console.log('casino-test', casino)
+  
   return (
     <Layout>
       <img src={casino.banner} alt="casino banner" className="bg-no-repeat bg-center bg-cover bg-fixed min-h-screen "/>

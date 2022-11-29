@@ -61,7 +61,6 @@ export default function Post({ postData, blogPosts }) {
       const newItem = document.createElement("div");
       let newSrc = item.innerText.split(";");
       const src = newSrc[0];
-      console.log("website src test? ==>", src);
       newItem.innerHTML = `<iframe
       key={index}
       width="560"
@@ -77,11 +76,7 @@ export default function Post({ postData, blogPosts }) {
   }, []);
 
   const blogLengthControl = postData.contentHtml.length;
-  useEffect(() => {
-    console.log("blog POsts", blogPosts);
-    console.log("post Data", blogLengthControl);
-  }, []);
-
+ 
   return (
     <Layout>
       <Container className=" -mx-[5.5%] min-h-screen bg-[url('/background/Back4.png')]" />

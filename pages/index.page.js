@@ -170,7 +170,6 @@ const Home = ({ landingPage, allPostsData }) => {
     return Math.floor(Math.random() * max);
   }
 
-  console.log(featuredCasino)
   const mainPageFeatureCasino = featuredCasino[0];
   const featureBlog = allPostsData[1];
 
