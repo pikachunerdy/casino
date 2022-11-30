@@ -145,6 +145,7 @@ const Review = () => {
           </div>
           <div className="flex flex-col items-center mr-[5.5%] gap-[14px]">
             <Button
+              className="px-[10x] sm:px-[107px]"
               label="Write A Review"
               handleClick={() => handleChange()}
               variant="model"

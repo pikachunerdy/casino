@@ -64,7 +64,9 @@ const Modal = ({
           >
             <div
               className={`w-[600px] ${
-                classes ? classes : "p-4 bg-dark dark:text-white1 rounded-lg"
+                classes
+                  ? classes
+                  : "p-4 dark:bg-dark dark:text-white1 rounded-lg"
               }`}
             >
               <div className="w-full flex flex-col justify-between items-center mb-6">

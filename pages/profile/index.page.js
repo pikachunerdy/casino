@@ -95,7 +95,7 @@ const Profile = () => {
           <div className="mt-[10px]">
             <div className="flex justify-between">
               <Title>Current Reviews</Title>
-              <div className="w-1/5">
+              <div className="w-1/2 sm:w-1/5">
                 <Select options={sortOptions} placeholder="Sort by" />
               </div>
             </div>

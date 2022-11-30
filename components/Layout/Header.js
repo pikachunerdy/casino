@@ -13,6 +13,8 @@ import {
 } from "./Header.module";
 import Button from "../core/Button/Button";
 import ColorSwitchButton from "../core/Button/ColorSwitchButton";
+import Hamburger from "./Hamburger";
+import { FaHamburger } from "react-icons/fa";
 
 const ratingOptions = [
   { value: 6, label: 6, className: "dropdown-menu-option" },
@@ -60,6 +62,7 @@ export default function Header({ children }) {
   let [modalTitle, setModalTitle] = useState("");
 
   const handleSigninChange = () => {
+    console.log("hey");
     setIsOpen(!isOpen);
     setModalTitle("In");
   };
@@ -100,7 +103,10 @@ export default function Header({ children }) {
             </Menu>
           ))}
         </MenuWrapper>
-
+        <Hamburger
+          onSignIn={handleSigninChange}
+          onSignUp={handleSignupChange}
+        />
         <RightActionsWrapper>
           <ColorSwitchButton />
 

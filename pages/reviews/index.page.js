@@ -6,7 +6,7 @@ import { FaArrowRight } from "react-icons/fa";
 const Reviews = () => {
   return (
     <Layout>
-      <div className="mt-[100px]  mb-[102px] flex flex-col">
+      <div className="mt-[100px] flex flex-col">
         <div className="mt-[64px] flex flex-col gap-4">
           <div className="font-bold text-[32px] leading-[40px]">
             Submit your casino review
@@ -17,7 +17,7 @@ const Reviews = () => {
             or edit your review
           </div>
         </div>
-        <form className="mt-[64px] min-w-[696px] mr-[520px] flex flex-col gap-8">
+        <form className="mt-[64px] min-w-[310px] mr-[520px] flex flex-col gap-8">
           <div>
             <label
               for="headline-input"

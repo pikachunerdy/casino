@@ -8,7 +8,7 @@ import FAQ from "../../components/page/About/FAQ";
 const About = () => {
   return (
     <Layout>
-      <div className="mt-[100px] flex flex-col">
+      <div className="mt-[100px] flex flex-col bottom-0 justify-between w-full">
         <CTA />
         <Feature />
         <FAQ />

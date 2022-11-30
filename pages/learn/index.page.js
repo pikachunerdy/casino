@@ -107,8 +107,8 @@ const Learn = () => {
       <Container>
         <img src="/background/Back4.png" width="100%" height="auto" />
       </Container>
-      <div className="ml-[117px] flex justify-left">
-        <div className="w-[70%] my-14">
+      <div className="ml-[35px] sm:ml-[117px] flex justify-left">
+        <div className="w-[90%] sm:w-[70%] my-14">
           <div className="flex justify-start gap-2">
             <Badge color="text-purple" label="Casinos"></Badge>
             <Badge color="text-bue2" label="Crypto"></Badge>
