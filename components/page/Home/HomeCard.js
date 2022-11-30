@@ -7,6 +7,7 @@ import {
 import Rating from "../../core/Rating/Rating";
 import Avatar from "../../core/Avatar/Avatar";
 import { useEffect, useState } from "react";
+import DateHelper from "../../../helpers/DateHelper";
 
 const HomeCard = (props) => {
   const { descriptionControl, content } = props;
@@ -21,6 +22,9 @@ const HomeCard = (props) => {
           <CardUserName>{props.user}</CardUserName>
         </div>
         <CardTitle>&quot;{props.title}&quot;</CardTitle>
+        <CardTitle>
+          <span className="text-blue3 text-sm">{DateHelper(props.date)}</span>
+        </CardTitle>
 
         <div className="md:inline-block hidden">
           <Rating value={props.value} activeColor="#0492C2"></Rating>

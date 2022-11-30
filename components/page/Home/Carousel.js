@@ -21,11 +21,7 @@ const Carousel = (props) => {
   const { reviewData } = useContext(ReviewsContext);
   const swiperHandle = useSwiper();
 
-
-  useEffect(() => {
-    console.log(reviewData)
-  }, [])
-  return (
+ return (
     <div>
       <Swiper
         modules={[Scrollbar, A11y]}
@@ -72,6 +68,7 @@ const Carousel = (props) => {
                     value={data.score}
                     content={data.description}
                     descriptionControl={descriptionControl}
+                    date={data.created_at}
                     // image={data.image}
                     // avatar={}
                     user={data.user}

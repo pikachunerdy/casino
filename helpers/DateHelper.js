@@ -1,17 +1,11 @@
-// import React from "react";
+import React from "react";
 
-// const DateHelper = () => {
-//   function formattedDate() {
-//     let newDate = new Date(date).toLocaleDateString("en-us", {
-//       day: "numeric",
-//       month: "long",
-//       year: "numeric",
-//     });
-//   }
+export default function DateHelper(dateString) {
+  let newDate = new Date(dateString).toLocaleDateString("en-us", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 
-//   return <div>
-//     {newDate}
-//   </div>;
-// };
-
-// export default DateHelper;
+  return <div>{newDate}</div>;
+}

@@ -40,14 +40,15 @@ import {
 import HomeTableHeader from "../components/page/Home/HomeTableHeader";
 import { getSortedPostsData } from "../lib/posts";
 import { Date } from "../components/core/Card/BlogCard.module";
+import DateHelper from "../helpers/DateHelper";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
- 
+
   return {
     props: {
       allPostsData,
-      },
+    },
   };
 }
 
@@ -222,8 +223,8 @@ const Home = ({ allPostsData }) => {
           Money, Trusted Reviews!
         </Title>
         <Content>
-          Our unique algorithm guarantees reviewers have played.
-          Offering Complete Transparency
+          Our unique algorithm guarantees reviewers have played. Offering
+          Complete Transparency
         </Content>
         <div className="pt-9">
           <Link href="/casinos" passHref>
@@ -335,7 +336,6 @@ const Home = ({ allPostsData }) => {
         </div>
 
         <div className="p-5 flex">
-          {/* <div className="gap-9 border-[0.5rem] border-stone-600"> */}
           <div className="gap-9">
             <div className="w-[90%]">
               <BlogCard
@@ -347,7 +347,6 @@ const Home = ({ allPostsData }) => {
             </div>
           </div>
 
-          {/* <div className="border-[0.6rem] border-yellow-500"> */}
           <div>
             <div className="flex flex-col basis-1/4 gap-4">
               {allPostsData.map((data, index) => {
@@ -401,12 +400,16 @@ const Home = ({ allPostsData }) => {
               </AboutTitle>
             </div>
             <AboutContent>
-              We at <span className="text-blue3 mx-1">disclosed.</span> understand the need for transparancy and trust when
-              completing online transactions. Our unique algorightm utilises blockchain technology offering great insight and information of online casinos.
-              <br></br>              
+              We at <span className="text-blue3 mx-1">disclosed.</span>{" "}
+              understand the need for transparancy and trust when completing
+              online transactions. Our unique algorightm utilises blockchain
+              technology offering great insight and information of online
+              casinos.
+              <br></br>
               Our highly innovative tech searches the blockchain and confirms
-              whether reviewers have deposited and played a casino before becoming verified. We aim to build a strong
-              community where players feel safe, and can trust each other and the reviews. 
+              whether reviewers have deposited and played a casino before
+              becoming verified. We aim to build a strong community where
+              players feel safe, and can trust each other and the reviews.
             </AboutContent>
 
             <Button

@@ -12,6 +12,7 @@ import {
 } from "./ReviewCard.module";
 import Button from "../Button/Button";
 import { useRouter } from "next/router";
+import DateHelper from "../../../helpers/DateHelper";
 
 const ReviewCard = ({
   allCasinos,
@@ -41,12 +42,6 @@ const ReviewCard = ({
   }
   userStatusUpdates();
 
-  const formattedDate = new Date(date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
   return (
     <>
       <div>
@@ -66,7 +61,7 @@ const ReviewCard = ({
                 <UserName>{name}</UserName>
                 <UserEmail>{email}</UserEmail>
                 <div className="flex items-center gap-5 mt-3">
-                  <DateTest>{formattedDate}</DateTest>
+                  <DateTest>{DateHelper(date)}</DateTest>
                   <CardBadge>{userStatus}</CardBadge>
                 </div>
                 <div className="gap-8 mt-3">
@@ -107,7 +102,7 @@ const ReviewCard = ({
                 <UserName>{name}</UserName>
                 <UserEmail>{title}</UserEmail>
                 <div className="flex items-center gap-5 mt-3">
-                  <DateTest>{formattedDate}</DateTest>
+                  <DateTest>{DateHelper(date)}</DateTest>
 
                   {userStatus === "verified user" && (
                     <CardBadge>{userStatus}</CardBadge>

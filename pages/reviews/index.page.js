@@ -38,20 +38,43 @@ const Reviews = () => {
     e.preventDefault();
     const review = {
       id: id,
-      casino_name: form.casino,
+      slug: form.casino,
+      casino: form.casino,
+      cons: {['con']: form.cons},
       cons: form.cons,
       description: form.description,
       email: form.email,
       image: form.image,
-      pros: form.pros,
+      pros: {['pro']: form.pros},
       score: form.score,
       title: form.title,
-      username: form.username,
-      created_at: timeAdded
+      user: form.username,
+      created_at: timeAdded,
+      status: 1,
+      hash: "",
+      network: "",
+      up_vote: [],
+      down_vote: []
     };
+
+  //   {
+  //     "status": null,
+  //     "title": "",
+  //     "description": "",
+  //     "image": null,
+  //     "pros": null,
+  //     "cons": null,
+  //     "score": null,
+  //     "hash": "",
+  //     "network": "",
+  //     "user": null,
+  //     "casino": null,
+  //     "up_vote": [],
+  //     "down_vote": []
+  // }
    console.log(review)
     setForm({
-      casino: "",
+      slug: "",
       cons: "",
       description: "",
       email: "",
@@ -116,7 +139,7 @@ const Reviews = () => {
             <CustomInput
               placeholder="Search Casinos"
               type="text"
-              name="casino"
+              name="slug"
               onChange={(e) => handleCasinoSearch(e)}
               value={searchText}
             ></CustomInput>
@@ -298,7 +321,7 @@ const Reviews = () => {
           {/* <ProsAndCons /> */}
           <button
             onClick={handleClick}
-            type="submit"
+            type="button"
             className="w-[132px] h-[50px] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[25px] text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex justify-center items-center"
           >
             Submit <FaArrowRight className="ml-[4px]" />

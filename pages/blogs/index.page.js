@@ -1,22 +1,19 @@
-import Layout from "../../components/Layout/Layout";
-import Button from "../../components/core/Button/Button";
-import Badge from "../../components/core/Badge/Badge";
-import CardPaginate from "../../components/page/Blog/CardPaginate";
 import { FaArrowRight } from "react-icons/fa";
+import Badge from "../../components/core/Badge/Badge";
 import Blog1 from "public/image/Blog1.png";
-import CasinoContext from "../../context/CasinoContext";
-
+import Button from "../../components/core/Button/Button";
+import CardPaginate from "../../components/page/Blog/CardPaginate";
+import Layout from "../../components/Layout/Layout";
 import {
+  AboutTitle,
   Container,
   ContentText,
-  SubTitle,
   SubscribeContainer,
-  AboutTitle,
+  SubTitle,
 } from "./index.module";
-import { useContext, useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PageContent, PageTitle } from "../casinos/index.module";
-import { formattedDate } from "../../helpers/DateHelper";
+import DateHelper from "../../helpers/DateHelper";
 
 const Learn = ({ title }) => {
   const [blogList, setBloglist] = useState();
@@ -130,22 +127,13 @@ const Learn = ({ title }) => {
 
       {blogList &&
         blogList.map((data) => {
-          const formattedDate = new Date(data.created_at).toLocaleDateString(
-            "en-US",
-            {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            }
-          );
-
           return (
             <div className="ml-[5.5%]">
               <PageTitle>{data.title}</PageTitle>
               <PageContent>
                 <span className="dark:text-blue1 text-blue3">
-                  Disclosed. {formattedDate}
-                </span>{" "}
+                  Disclosed. {DateHelper(data.created_at)}
+                </span>
               </PageContent>
             </div>
           );
@@ -159,15 +147,15 @@ const Learn = ({ title }) => {
             <Badge color="text-pink" label="Safe"></Badge>
           </div>
           <div className="mt-3">
-          {blogList &&
-            blogList.map((data) => (
-              <ContentText>
-                {data.description}
-                <div className="dark:text-blue1 text-blue3 inline-flex cursor-pointer hover:scale-105 transition">
-                  Real full article
-                </div>
-              </ContentText>
-            ))}
+            {blogList &&
+              blogList.map((data) => (
+                <ContentText>
+                  {data.description}
+                  <div className="dark:text-blue1 text-blue3 inline-flex cursor-pointer hover:scale-105 transition">
+                    Real full article
+                  </div>
+                </ContentText>
+              ))}
           </div>
         </div>
       </Container>
