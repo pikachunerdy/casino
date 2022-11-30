@@ -226,7 +226,7 @@ const Home = ({ allPostsData }) => {
           Offering Complete Transparency
         </Content>
         <div className="pt-9">
-          <Link href="/casinos">
+          <Link href="/casinos" passHref>
             <Button
               label="See Reviews"
               handleClick={() => {
@@ -335,7 +335,8 @@ const Home = ({ allPostsData }) => {
         </div>
 
         <div className="p-5 flex">
-          <div className="gap-9 border-[0.5rem] border-stone-600">
+          {/* <div className="gap-9 border-[0.5rem] border-stone-600"> */}
+          <div className="gap-9">
             <div className="w-[90%]">
               <BlogCard
                 cardImage={Back2}
@@ -346,13 +347,14 @@ const Home = ({ allPostsData }) => {
             </div>
           </div>
 
-          <div className="border-[0.6rem] border-yellow-500">
+          {/* <div className="border-[0.6rem] border-yellow-500"> */}
+          <div>
             <div className="flex flex-col basis-1/4 gap-4">
               {allPostsData.map((data, index) => {
                 if (featureBlog.id !== data.id) {
                   return (
                     <div className="flex flex-col gap-4">
-                      <Link href={`/blogs/${data.id}`}>
+                      <Link href={`/blogs/${data.id}`} passHref>
                         <HomeCard key={index}>
                           <HomeCardTitle className="hover:underline">
                             {data.title}

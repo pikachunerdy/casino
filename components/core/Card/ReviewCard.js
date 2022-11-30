@@ -1,6 +1,4 @@
 import { FaArrowRight, FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
-import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   Card,
@@ -13,6 +11,7 @@ import {
   UserName,
 } from "./ReviewCard.module";
 import Button from "../Button/Button";
+import { useRouter } from "next/router";
 
 const ReviewCard = ({
   allCasinos,
@@ -27,7 +26,10 @@ const ReviewCard = ({
   userReviews,
   userStatus,
   website,
+  slug
 }) => {
+  const router = useRouter();
+
   function userStatusUpdates() {
     if (userStatus === 1) {
       userStatus = "verified user";
@@ -52,7 +54,7 @@ const ReviewCard = ({
           <Card>
             <div className="flex px-4 pt-12">
               <div className="w-1/6 mr-4 max-w-[150px]">
-                <Link href={website} target="_blank">
+                <Link href={`/gambling/${slug}`} target="_blank" passHref>
                   <img
                     src={image}
                     style={{ cursor: "pointer" }}
@@ -71,8 +73,8 @@ const ReviewCard = ({
                   <Content>{description}</Content>
                   <br />
                   <br />
-                  {/* {/* <Content>➕{pros}</Content> */}
-                  {/* <Content>➖{cons}</Content>  */}
+                  {/* <Content>➕{pros}</Content>
+                  <Content>➖{cons}</Content> */}
                 </div>
               </div>
               <Button
@@ -80,6 +82,7 @@ const ReviewCard = ({
                 label="See Reviews"
                 variant="model"
                 width={30}
+                handleClick={() => router.push(`/gambling/${slug}`)}
               ></Button>
             </div>
             <div className="flex justify-end w-full pr-8 gap-5 pb-5">

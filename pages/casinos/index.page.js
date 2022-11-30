@@ -96,26 +96,26 @@ const Review = () => {
       <div className="flex mb-12">
         <div className="mt-16">
           {listData &&
-            listData.map((reviewOne, index) => {
-              return (
+            listData.map((data, index) => {
+                return (
                 <div key={index} className="w-full mt-7">
                   <ReviewCard
                     allCasinos
-                    image={reviewOne.image}
-                    user={reviewOne.user}
-                    name={reviewOne.name}
-                    website={reviewOne.website}
-                    date={reviewOne.created_at}
-                    description={reviewOne.description}
-                    pros={reviewOne.pros}
-                    cons={reviewOne.cons}
+                    image={data.image}
+                    user={data.user}
+                    name={data.name}
+                    website={data.website}
+                    date={data.created_at}
+                    description={data.description}
+                    pros={data.pros}
+                    cons={data.cons}
+                    slug={data.slug}
                     // casino={reviewOne.casino}
                   />
                 </div>
               );
             })}
-            {/* <Button>Hello</Button> */}
-        </div>
+          </div>
       </div>
     </Layout>
   );

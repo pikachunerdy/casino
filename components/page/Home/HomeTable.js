@@ -50,8 +50,8 @@ const HomeTable = ({
 
   return (
     <>
-      <div className="dark:bg-black1 bg-white">
-        <table className="mt-4">
+      {/* <div className="dark:bg-black1 bg-white"> */}
+        <table className="mt-4 dark:bg-black1 bg-white w-full">
           <thead>
             <tr>
               <HeaderName className="w-[20%]"></HeaderName>
@@ -66,8 +66,8 @@ const HomeTable = ({
           <tbody>
             <tr>
               <div className="flex flex-col content-center space-y-3 m-5 justify-center">
-                <td className="text-xl">{casino}</td>
-                <Link href={`/gambling/${slug}`}>
+                <div className="text-xl">{casino}</div>
+                <Link href={`/gambling/${slug}`} passHref>
                   <img src={image} className="rounded-md w-20 h-20" />
                 </Link>
               </div>
@@ -97,19 +97,19 @@ const HomeTable = ({
                   <Button label="Visit Casino" variant="model" width={30} />
                 </a>)}
 
-                <Link href={`/gambling/${slug}`}>
+             
                   <Button
                     label="Full Review"
                     variant=""
                     handleClick={() => router.push(`/gambling/${slug}`)}
                   />
-                </Link>
+           
               </div>
               </div>
             </tr>
           </tbody>
         </table>
-      </div>
+      {/* </div> */}
     </>
   );
 };
