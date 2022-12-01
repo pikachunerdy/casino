@@ -160,10 +160,11 @@ const Home = ({ allPostsData }) => {
   const router = useRouter();
   const [isExpand, setIsExpand] = React.useState(false);
   const featuredCasino = getAllDataForOneCasino(listData, listData.name);
-  const numCasinoReviews = getAllDataForOneCasino(
-    reviewData,
-    reviewData.casino_name
-  );
+  // const numCasinoReviews = getAllDataForOneCasino(
+  //   reviewData,
+  //   reviewData.casino_name
+  // );
+  const numCasinoReviews = 2;
 
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -295,9 +296,10 @@ const Home = ({ allPostsData }) => {
           {listData
             .slice(0, isExpand ? listData.length : 4)
             .map((casino, index) => {
-              const avergaeCasinoRating = calculateCasinoAvgRating(
-                getAllDataForOneCasino(reviewData, casino.name)
-              )[0].score;
+              // const avergaeCasinoRating = calculateCasinoAvgRating(
+              //   getAllDataForOneCasino(reviewData, casino.name)
+              // )[0].score;
+              const avergaeCasinoRating = 2.5;
               return (
                 <div key={index}>
                   <HomeTable

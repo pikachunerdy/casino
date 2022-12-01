@@ -9,6 +9,8 @@ import Image from "next/image";
 import Link from "next/link";
 import People from "public/image/People.png";
 import Rating from "../../core/Rating/Rating";
+import HomeTableCard from "./HomeTableCard";
+import Badge from "../../core/Badge/Badge";
 import RatingCard from "../../core/Card/RatingCard";
 import ReviewsContext from "../../../context/ReviewsContext";
 import {
@@ -27,7 +29,7 @@ import {
 
 const HomeTable = ({
   isExpand,
-  casino,
+  casinoData,
   website,
   top10casinos,
   landingPage,
@@ -46,72 +48,152 @@ const HomeTable = ({
     Website: "Website",
   };
   const { reviewData } = useContext(ReviewsContext);
-  const numCasinoReviews = getAllDataForOneCasino(reviewData, casino).length;
+  // const numCasinoReviews = getAllDataForOneCasino(reviewData, casino).length;
+  const numCasinoReviews = 2;
+
+  const siteName = (name, site, src, amount) => {
+    return (
+      <div className="flex px-6">
+        <div className="mr-3">
+          <Avatar src={src} />
+        </div>
+        <div>
+          <ContentName>{name}</ContentName>
+          <ContentSiteName className="hidden md:inline-block">
+            {site}
+          </ContentSiteName>
+          <div className="flex md:hidden">
+            <Badge color="text-green1" label={`$${amount}`} />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const bonus = () => {
+    return (
+      <div className="px-6">
+        <CustomButton className="text-green1">
+          <div className="flex">
+            {2500}
+            <div className="pl-1 pt-1">
+              <FaArrowRight />
+            </div>
+          </div>
+        </CustomButton>
+      </div>
+    );
+  };
+
+  const features = (feature1, feature2) => {
+    return (
+      <div className="px-6">
+        <div className="flex items-end">
+          <FaCheck className="text-blue1 mr-2" />
+          <FeatureContent>{feature1}</FeatureContent>
+        </div>
+        <div className="flex items-end">
+          <FaCheck className="text-blue1 mr-2" />
+          <FeatureContent>{feature2}</FeatureContent>
+        </div>
+      </div>
+    );
+  };
+
+  const users = () => {
+    return (
+      <div className="px-6">
+        <Image src={People} alt="user image"></Image>
+      </div>
+    );
+  };
+
+  const rating_dom = (value) => {
+    return (
+      <div className="flex flex-col md:flex-row items-center px-6">
+        <Rating value={Math.floor(value)} activeColor="#0492C2"></Rating>
+        <RatingContent className="md:ml-3">{value}/5</RatingContent>
+      </div>
+    );
+  };
+
+  const website_dom = (url) => {
+    return (
+      <div className="group flex px-6 cursor-pointer">
+        <a href={url}>
+          <WebsiteContent>
+            <span className="mr-3">Visit website</span>{" "}
+            <div className="group-hover:translate-x-1 transition">
+              <FaArrowRight />
+            </div>
+          </WebsiteContent>
+        </a>
+      </div>
+    );
+  };
+
+  const tableData = useMemo(() => {
+    let data = [];
+    casinoData.map((row) => {
+      data = [
+        ...data,
+        {
+          siteName: siteName(row.name, row.website, row.image, 2500),
+          bonus: bonus(3),
+          feature: features("Orginal Bonuses", "Weekly giveaways"),
+          users: users(),
+          rating: rating_dom(2.5),
+          website: website_dom(row.website),
+        },
+      ];
+    });
+    return data;
+  }, [casinoData]);
 
   return (
     <>
-      <div className="">
-        <table className="mt-4 dark:bg-black1 bg-white w-full">
+      <div className="flex flex-col lg:hidden">
+        {tableData.slice(0, isExpand ? tableData.length : 3).map((row, i) => {
+          return (
+            <div className="mt-3 mx-auto" key={i}>
+              <HomeTableCard
+                siteName={row.siteName}
+                bonus={row.bonus}
+                rating={row.rating}
+                feature={row.feature}
+                website={row.website}
+              />
+            </div>
+          );
+        })}
+      </div>
+      <div className="hidden lg:block dark:bg-black1 bg-white">
+        <table className="mt-12">
           <thead>
             <tr>
-              <HeaderName className="w-[20%]"></HeaderName>
-              <HeaderName className="w-[10%]"></HeaderName>
-              <HeaderName className="w-[15%]"></HeaderName>
-              <HeaderName className="w-[25%]"></HeaderName>
-              <HeaderName className="w-[20%]"></HeaderName>
-              <HeaderName className="w-[20%]"></HeaderName>
+              <HeaderName className="w-[20%]">{tableHeader.Name}</HeaderName>
+              <HeaderName className="w-[10%]">{tableHeader.Bonus}</HeaderName>
+              <HeaderName className="w-[15%]">{tableHeader.Feature}</HeaderName>
+              <HeaderName className="w-[25%]">{tableHeader.Users}</HeaderName>
+              <HeaderName className="w-[20%]">{tableHeader.Rating}</HeaderName>
+              <HeaderName className="w-[20%]">{tableHeader.Website}</HeaderName>
             </tr>
           </thead>
-
           <tbody>
-            <tr>
-              <div className="flex flex-col content-center space-y-3 m-5 justify-center">
-                <div className="text-xl">{casino}</div>
-                <Link href={`/gambling/${slug}`} passHref>
-                  <img src={image} className="rounded-md w-20 h-20" />
-                </Link>
-              </div>
-
-              <td className="w-[10%]">bonus</td>
-              <td className="w-[15%]">features</td>
-              <td className="w-[25%]">users</td>
-
-              <td>
-                {reviewData.length > 0 &&
-                  calculateCasinoAvgRating(reviewData).map((casino, index) => {
-                    return (
-                      <Rating
-                        className="w-[20%]"
-                        key={index}
-                        value={rating}
-                      ></Rating>
-                    );
-                  })}
-
-                <div key={casino}>
-                  (
-                  {numCasinoReviews > 1
-                    ? `${numCasinoReviews} reviews`
-                    : `${numCasinoReviews} review`}
-                  )
-                </div>
-              </td>
-              <div className="">
-                <div className="flex flex-col gap-3 w-full">
-                  {top10casinos && (
-                    <a href={website} target="_blank">
-                      <Button label="Visit Casino" variant="model" width={30} />
-                    </a>
-                  )}
-
-                  <Button
-                    label="Full Review"
-                    variant=""
-                    handleClick={() => router.push(`/gambling/${slug}`)}
-                  />
-                </div>
-              </div>
-            </tr>
+            {tableData
+              .slice(0, isExpand ? tableData.length : 3)
+              .map((row, i) => {
+                return (
+                  <tr key={i}>
+                    <td className="py-8">{row.siteName}</td>
+                    <td>{row.bonus}</td>
+                    <td>{row.feature}</td>
+                    <td>{row.users}</td>
+                    <td>{row.rating}</td>
+                    <td>{row.website}</td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       </div>
