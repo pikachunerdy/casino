@@ -291,7 +291,7 @@ const Home = ({ allPostsData }) => {
           </div>
         </div>
         <div className="w-[80%]">
-          <HomeTableHeader />
+          {/* <HomeTableHeader /> */}
           {listData
             .slice(0, isExpand ? listData.length : 4)
             .map((casino, index) => {
@@ -347,7 +347,7 @@ const Home = ({ allPostsData }) => {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             <div className="flex flex-col basis-1/4 gap-4">
               {allPostsData.map((data, index) => {
                 if (featureBlog.id !== data.id) {
@@ -378,7 +378,7 @@ const Home = ({ allPostsData }) => {
                 }
               })}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="mt-12 flex justify-center">

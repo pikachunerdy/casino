@@ -50,7 +50,7 @@ const HomeTable = ({
 
   return (
     <>
-      {/* <div className="dark:bg-black1 bg-white"> */}
+      <div className="">
         <table className="mt-4 dark:bg-black1 bg-white w-full">
           <thead>
             <tr>
@@ -62,7 +62,7 @@ const HomeTable = ({
               <HeaderName className="w-[20%]"></HeaderName>
             </tr>
           </thead>
-          
+
           <tbody>
             <tr>
               <div className="flex flex-col content-center space-y-3 m-5 justify-center">
@@ -72,7 +72,6 @@ const HomeTable = ({
                 </Link>
               </div>
 
-        
               <td className="w-[10%]">bonus</td>
               <td className="w-[15%]">features</td>
               <td className="w-[25%]">users</td>
@@ -80,7 +79,13 @@ const HomeTable = ({
               <td>
                 {reviewData.length > 0 &&
                   calculateCasinoAvgRating(reviewData).map((casino, index) => {
-                    return <Rating className="w-[20%]" key={index} value={rating}></Rating>;
+                    return (
+                      <Rating
+                        className="w-[20%]"
+                        key={index}
+                        value={rating}
+                      ></Rating>
+                    );
                   })}
 
                 <div key={casino}>
@@ -92,24 +97,24 @@ const HomeTable = ({
                 </div>
               </td>
               <div className="">
-              <div className="flex flex-col gap-3 w-full">
-                {top10casinos && (<a href={website} target="_blank">
-                  <Button label="Visit Casino" variant="model" width={30} />
-                </a>)}
+                <div className="flex flex-col gap-3 w-full">
+                  {top10casinos && (
+                    <a href={website} target="_blank">
+                      <Button label="Visit Casino" variant="model" width={30} />
+                    </a>
+                  )}
 
-             
                   <Button
                     label="Full Review"
                     variant=""
                     handleClick={() => router.push(`/gambling/${slug}`)}
                   />
-           
-              </div>
+                </div>
               </div>
             </tr>
           </tbody>
         </table>
-      {/* </div> */}
+      </div>
     </>
   );
 };
