@@ -4,7 +4,7 @@ import styled from "styled-components";
 //   className: "mt-[123px] -translate-x-[5%] w-screen object-cover z-0",
 // })``;
 export const Container = styled.div.attrs({
-  className: "flex flex-col justify-center items-center bg-no-repeat bg-cover",
+  className: "mt-[123px] -translate-x-[5%] w-screen object-cover z-0",
 })``;
 
 export const ContentText = styled.div.attrs({

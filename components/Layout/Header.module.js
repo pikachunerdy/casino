@@ -14,7 +14,7 @@ export const AuthActionsWrapper = styled.div.attrs({
 })``;
 
 export const MenuWrapper = styled.div.attrs({
-  className: "flex gap-8 justify-between hidden lg:inline-flex",
+  className: "flex gap-8 justify-between hidden md:inline-flex",
 })``;
 
 export const Menu = styled.div.attrs((props) => ({

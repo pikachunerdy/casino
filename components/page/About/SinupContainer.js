@@ -3,7 +3,7 @@ import Button from "../../core/Button/Button";
 
 const SinupContainer = (props) => {
   return (
-    <div className="mt-[52px] mb-[72px] flex flex-col justify-center items-center bg-no-repeat bg-center dark:bg-[url('/background/Back3.png')] bg-[url('/background/Back6.png')] bg-cover rounded-[20px] h-[318px]">
+    <div className="mt-[52px] mb-[72px] flex flex-col justify-center items-center bg-no-repeat bg-center dark:bg-[url('/background/Back3.png')] bg-[url('/background/Back6.png')] bg-cover rounded-[20px] h-[618px] sm:h-[318px]">
       <div className="font-semibold text-[42px] text-center text-white1 max-w-[963px] mx-auto justify-center px-[40px]">
         Signup or login today and leave review at one of your favourite casinos
       </div>

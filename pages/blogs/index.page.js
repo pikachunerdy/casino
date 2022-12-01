@@ -123,8 +123,6 @@ const Learn = ({ title }) => {
 
   return (
     <Layout>
-      <Container className=" -mx-[5.5%] min-h-screen bg-[url('/background/Back4.png')]"></Container>
-
       {blogList &&
         blogList.map((data) => {
           return (
@@ -140,7 +138,10 @@ const Learn = ({ title }) => {
         })}
 
       <Container>
-        <div className="w-[60%] my-14">
+        <img src="/background/Back4.png" width="100%" height="auto" />
+      </Container>
+      < className="ml-[35px] sm:ml-[117px] flex justify-left">
+        <div className="w-[90%] sm:w-[70%] my-14">
           <div className="flex justify-start gap-2">
             <Badge color="text-purple" label="Casinos"></Badge>
             <Badge color="text-bue2" label="Crypto"></Badge>
@@ -158,7 +159,7 @@ const Learn = ({ title }) => {
               ))}
           </div>
         </div>
-      </Container>
+  
 
       {/* <Container>
         <div className="w-full">

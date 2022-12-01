@@ -13,7 +13,7 @@ const CTA = (props) => {
       </div>
       <div className="mt-[40px] text-center">
         <Button
-          label="Leave A Review"
+          label="Eeave A Reviewe"
           handleClick={() => {
             console.log("Visit Casino");
           }}
